@@ -1,3 +1,5 @@
+
+<div class="navbar-bg"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
   <form class="form-inline mr-auto">
     <ul class="navbar-nav mr-3">
@@ -214,6 +216,19 @@
   </ul>
 </nav>
 
+{{-- <script>
+  $(document).ready(function(){
+	var altura = $('.navbar').offset().top;
+	
+	$(window).on('scroll', function(){
+		if ( $(window).scrollTop() > altura ){
+			$('.navbar').addClass('menu-fixed');
+		} else {
+			$('.navbar').removeClass('menu-fixed');
+		}
+	});
 
+});
+</script> --}}
 
 <!-- Navbar -->

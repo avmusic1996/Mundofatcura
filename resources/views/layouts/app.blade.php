@@ -21,6 +21,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    
     <link rel="stylesheet" href="{{ asset('css/components.css') }}">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
 <script>
@@ -32,11 +33,11 @@ window.dataLayer = window.dataLayer || [];
 </script>
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div id="app"  style="background-image: linear-gradient(90deg, rgba(255, 255, 255, .5)20%, rgba(215, 255, 240, 0.5)80%), url(img/factura-electronica.jpg); background-size:cover; background-repeat:no-repeat; background-attachment: fixed;">
+        <nav class="navbar navbar-expand-lg navbar-light" id="navbardos">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'MUNDO-FACTURA') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
