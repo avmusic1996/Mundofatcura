@@ -22,3 +22,22 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
+
+Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
+
+Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+
+Route::get('/users/{users}', [App\Http\Controllers\UserController::class, 'show'])->name('users.show');
+
+Route::get('/users/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
+
+Route::put('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
+
+Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.delete');
+
+
+
+
+Route::get('/clientes', [App\Http\Controllers\ClienteController::class, 'index'])->name('clientes.index');
+Route::get('/producto', [App\Http\Controllers\ProductoController::class, 'index'])->name('producto.index');
+Route::get('/proveedor', [App\Http\Controllers\ProveedorController::class, 'index'])->name('proveedor.index');
