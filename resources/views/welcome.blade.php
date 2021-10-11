@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+ 
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -27,6 +28,13 @@
 
   <!-- Template Main CSS File -->
   <link href="css/style.css" rel="stylesheet">
+  <style>
+    body
+    {
+      font-family: Sniglet;
+  font-family: 'Sniglet', cursive;
+    }
+    </style>
 
   <!-- =======================================================
   * Template Name: Vesperr - v4.6.0
@@ -181,7 +189,6 @@
             <a href="#" class="btn-learn-more">Learn More</a>
           </div>
         </div>
-
       </div>
     </section><!-- End About Us Section -->
 
@@ -200,7 +207,7 @@
                 <div class="col-md-6 d-md-flex align-items-md-stretch">
                   <div class="count-box">
                     <i class="bi bi-emoji-smile"></i>
-                    <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="1" class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="65" data-purecounter-duration="1" class="purecounter"></span>
                     <p><strong>Happy Clients</strong> consequuntur voluptas nostrum aliquid ipsam architecto ut.</p>
                   </div>
                 </div>
