@@ -7,17 +7,20 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Mundo factura') }}</title>
 
     <!-- Scripts -->
 
 
     <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sniglet&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/fontawesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('modules/bootstrap-social/bootstrap-social.css') }}">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -33,8 +36,8 @@ window.dataLayer = window.dataLayer || [];
 </script>
 </head>
 <body>
-    <div id="app"  style="background-image: linear-gradient(90deg, rgba(255, 255, 255, .5)20%, rgba(215, 255, 240, 0.5)80%), url(img/factura-electronica.jpg); background-size:cover; background-repeat:no-repeat; background-attachment: fixed;">
-        <nav class="navbar navbar-expand-lg navbar-light" id="navbardos">
+    <div id="app">
+        <nav class="navbar navbar-expand-lg" id="navbarlogin">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'MUNDO-FACTURA') }}
@@ -88,7 +91,7 @@ window.dataLayer = window.dataLayer || [];
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
     </div>

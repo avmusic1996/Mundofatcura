@@ -1500,24 +1500,14 @@ h6 .badge {
     padding-right: 5px; }
 
 /* 3.18 Navbar */
-/* .menu-fixed
-  {
-    position:fixed;
-	z-index:1000;
-	top:0;
-	width:100%;
-	box-shadow:0px 4px 3px rgba(0,0,0,.5);
-  } */
-#navbardos
-{
-  width: 100%;
+#navbarlogin {
   height: 70px;
   left: 0px;
   right: 5px;
   position: absolute;
-  position: fixed;
   z-index: 890;
-  background: transparent; }
+  background-color: transparent; }
+
 .navbar {
   height: 70px;
   left: 250px;
@@ -1970,7 +1960,7 @@ a.dropdown-item {
   --dark: color(dark); }
 
 body {
-  background: transparent;
+  background-color: #fafdfb;
   font-size: 14px;
   font-weight: 400;
   font-family: 'Nunito', 'Segoe UI', arial;
