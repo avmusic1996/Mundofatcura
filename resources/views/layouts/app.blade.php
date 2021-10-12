@@ -39,8 +39,7 @@ window.dataLayer = window.dataLayer || [];
     <div id="app">
         <nav class="navbar navbar-expand-lg" id="navbarlogin">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'MUNDO-FACTURA') }}
+                <a class="navbar-brand" href="{{ url('/') }}">Mundo factura
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -58,7 +57,7 @@ window.dataLayer = window.dataLayer || [];
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link nav-link-color" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 

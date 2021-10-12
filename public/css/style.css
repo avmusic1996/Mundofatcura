@@ -602,8 +602,12 @@ select.form-control:not([size]):not([multiple]) {
     background-color: #191d21; }
 
 /* 3.5 Card */
+.cardos
+{
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1)5%, rgba(255, 255, 255, 0.05)100%)!important;
+}
 .card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 8px rgba(117, 85, 85, 0.15);
   background-color: #fff;
   border-radius: 3px;
   border: none;
@@ -1005,6 +1009,7 @@ table tr:hover .table-links {
   display: none; }
 
 /* 3.9 Nav */
+
 .nav-tabs .nav-item .nav-link {
   color: #6777ef; }
   .nav-tabs .nav-item .nav-link.active {

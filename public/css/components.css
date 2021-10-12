@@ -2080,3 +2080,68 @@ tr:first-child > td > .fc-day-grid-event {
 }
 
 /*# sourceMappingURL=components.css.map */
+
+
+
+.tittle-login
+{
+  color: #fff;font-weight: normal; font-size: 18px;
+}
+.login-card
+{
+    min-height: 230px;
+    background-position: center center;
+    background-repeat: no-repeat;
+  /* Fijamos la imagen a la ventana para que no supere el alto de la ventana */
+    /* El fonde se re-escala automáticamente */
+    background-size: cover;
+    background-image: url(img/2852869.png);
+    padding: 0px;
+    border: 0px;
+    padding:40px;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.body-login
+{
+    box-shadow: 0px 15px 30px 20px rgb(20, 20, 20, .25);
+}
+.btn-login
+{
+  background: linear-gradient(90deg, rgba(30, 25, 86, 0.88) 0%, #1E1956 100%);
+border-radius: 5px;
+color: #fff
+}
+.input-login{
+  background: linear-gradient(90deg, rgba(25, 70, 131, 0.88) 0%, #2F80ED 50%, #2D9EE0 100%);
+  color: #fff!important;
+}
+input::placeholder
+{
+border-radius: 5px;
+color: #fff!important;
+max-height: 30px;
+font-size: 14px
+
+}
+
+:-ms-input-placeholder { color: blue; }
+::placeholder { color:#fff; }
+::-webkit-input-placeholder { color: blue; } /* WebKit */
+::-moz-placeholder { color: blue; } /* Firefox 19+ */
+.card-body
+{
+border-radius: 0px;
+padding-left: 40px;
+padding-right: 40px}
+.form-group
+{
+  margin-top: 0px;
+  padding-top: 0px;
+}
+.tittle-sesion
+{
+    color:#227cbb;
+    margin-bottom: 10px;
+}
