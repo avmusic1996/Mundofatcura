@@ -2,6 +2,7 @@
     "E-Mail Address": "Correo electrónico",
     "Password": "Contraseña",
     "Remember Me": "Recuérdame",
+    
     "Login": "Acceder",
     "Forgot Your Password?": "¿Olvidaste tu contraseña?",
     "Register": "Registro",
@@ -30,5 +31,9 @@
     "If you did not receive the email": "Si no has recibido el email",
     "click here to request another": "pulsa aquí para que te enviemos otro",
     "All rights reserved.":  "Todos los derechos reservados.",
-    "CREATE ACCOUNT":  "CREAR CUENTA"
+    "CREATE ACCOUNT":  "CREAR CUENTA",  
+    "WELCOME":  "BIENVENIDO",
+    "Log-in":  "Iniciar sesión",
+    
+    "TO MUNDOFACTURA":  "A MUNDOFACTURA"
 }
