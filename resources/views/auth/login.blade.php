@@ -21,10 +21,7 @@
       text-align: left;
   }
   
-  .body-login
-  {
-      box-shadow: 0px 15px 30px 20px rgba(0, 0, 0, 0.25);
-  }
+ 
   .btn-login
   {
     background: linear-gradient(90deg, rgba(30, 25, 86, 0.88) 0%, #1E1956 100%);
@@ -43,25 +40,28 @@
   font-size: 14px
   
   }
-  
-  :-ms-input-placeholder { color: blue; }
-  ::placeholder { color:#fff; }
-  ::-webkit-input-placeholder { color: blue; } /* WebKit */
-  ::-moz-placeholder { color: blue; } /* Firefox 19+ */
   .card-body
   {
   border-radius: 0px;
   padding-left: 40px;
-  padding-right: 40px}
+  padding-right: 40px;
+}
   .form-group
   {
     margin-top: 0px;
     padding-top: 0px;
+    
   }
   .tittle-sesion
   {
       color:#227cbb;
       margin-bottom: 10px;
+  }
+  .shadow
+  {
+    border-radius: 0px;
+    box-shadow: 0px 15px 40px 30px rgba(0, 0, 0, 0.25);
+
   }
   </style>
 @extends('layouts.app')
@@ -71,16 +71,16 @@
         <div class="container justify-content-center align-items-center">
           <div class="row justify-content-center">
 
-            <div class="col-md-6 col-lg-5 col-sm-12">
-              <div class="card body-login" style="border-radius: 0px">
+            <div class="col-md-6 col-lg-5 col-sm-12 ">
+              <div class="card shadow" >
                 <div class="card-header login-card">
                   <div class="row">
                     <div class="col-md-12">
-                      <b class="tittle-login">{{ __('Bienvenido') }}
+                      <b class="tittle-login">{{ __('WELCOME') }}
                       </b>
                     </div>
                     <div class="col-md-12">
-                      <b  class="tittle-login">{{ __('a mundo factura') }}
+                      <b  class="tittle-login">{{ __('TO MUNDOFACTURA') }}
                       </b>
                     </div>
                     <div class="col-md-12">
@@ -99,7 +99,7 @@
                       @csrf
                     <div class="form-group">
                       <div class="tittle-login tittle-sesion">
-                        <b class=" ">{{ __('Iniciar sesión') }}
+                        <b class=" ">{{ __('Log-in') }}
                         </b>
                       </div>
                       <input id="email" type="email" placeholder="Correo electrónico" class="form-control input-login @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" name="email" tabindex="1" required autofocus>
@@ -148,7 +148,6 @@
                       <button type="submit" class="btn col-md-5 btn-login"  tabindex="4">
                           {{ __('Login') }}
                       </button>
-                      
                     </div>
                   </form>
                 </div>
