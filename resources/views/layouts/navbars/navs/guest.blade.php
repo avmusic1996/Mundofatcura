@@ -1,7 +1,7 @@
 <!-- Navbar -->
 <nav>
   <div class="container">
-    <div class="navbar-wrapper">
+    <div class="navbar-wrapper" style="color:black">
       <a class="navbar-brand" href="{{ route('home') }}">{{ $title }}</a>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
