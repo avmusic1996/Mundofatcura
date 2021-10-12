@@ -1,5 +1,3 @@
-<style>
-  </style>
 @extends('layouts.app')
 @section('content')
   <div class="container-fluid h-100 d-flex justify-content-center align-items-center login-img" style="">
@@ -67,14 +65,14 @@
                     </div>
   
                     
-                    <div class="row" style="padding-bottom:0px; margin:0px">
-                      <div class="col">
+                    <div class="row" >
+                      <div class="col-md-5 p-0.8 text-left">
                         <div class="custom-control custom-checkbox" style="text-align: left">
                           <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me" >
                           <label class="custom-control-label" for="remember-me" style="font-size:12px">{{ __('Recordarme') }}</label>
                         </div>
                       </div>
-                      <div class="col">    <div class="" >
+                      <div class="col-md-7 p-1 text-right">    <div class="">
                         @if (Route::has('password.request'))
                                     <a class="" style="font-size: 12px;" href="{{ route('password.request') }}">
                                         {{ __('¿Olvidaste tu contraseña?') }}
@@ -82,7 +80,7 @@
                         @endif
                       </div></div>
                       </div>
-                    <div class="form-group text-center">
+                    <div class="form-group text-center mt-3">
                       <button type="submit" class="btn col-md-5 btn-login"  tabindex="4">
                           {{ __('Login') }}
                       </button>
