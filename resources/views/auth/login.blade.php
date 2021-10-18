@@ -1,10 +1,9 @@
 @extends('layouts.app')
 @section('content')
-  <div class="container-fluid d-flex justify-content-center align-items-center" style="height:100vh; background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.9)20%, rgba(40, 79, 209, 0.37)100%), url({{ asset('img/fondo-login.jpg') }}); background-repeat: no-repeat; background-size: 100% 100%;">
+  <div class="container-fluid d-flex justify-content-center align-items-center" style="height:100vh; background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.473)20%, rgba(161, 161, 161, 0.205)100%), url({{ asset('img/fondo-login.jpg') }}); background-repeat: no-repeat; background-size: cover;">
     <div id="app">
-        <div class="container justify-content-center align-items-center">
+        <div class="container justify-content-center align-items-center mt-5">
           <div class="row justify-content-center">
-
             <div class="col-md-6 col-lg-5 col-sm-12">
               <div class="card cardos body-login" style="border-radius: 0px">
                 <div class="card-header login-card">
@@ -18,7 +17,7 @@
                       </b>
                     </div>
                     <div class="col-md-12">
-                      <p border: 0px solid #FFFFFF; style="font-family: Sniglet;font-style: normal;font-weight: normal;font-size: 12px;line-height: 19px;text-transform: capitalize;color: #FFFFFF;">{{ __('gestiona tu  empresa aumentando la eficiencia y la calidad de tus servicios') }}</p>
+                      <p style="font-family: Sniglet;font-style: normal;font-weight: normal;font-size: 12px;line-height: 19px;text-transform: capitalize;color: #FFFFFF;">{{ __('gestiona tu  empresa aumentando la eficiencia y la calidad de tus servicios') }}</p>
                     </div>
                     <div class="col-md-12">
                       <a  href="{{ route('register') }}"> <b class="tittle-login" style="font-size: 12px">{{ __('CREATE ACCOUNT') }}
@@ -60,30 +59,39 @@
                         please fill in your password
                       </div>
                     </div>
-  
-                    
-                    <div class="row" style="padding-bottom:0px; margin:0px">
-                      <div class="col">
-                        <div class="custom-control custom-checkbox" style="text-align: left">
-                          <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me" >
-                          <label class="custom-control-label" for="remember-me" style="font-size:12px">{{ __('Recordarme') }}</label>
+
+                    <div class="form-group">
+                      <div class="row text-center">
+                        <div class="col-md-4 col-sm-12 custom-control custom-checkbox d-flex justify-content-center">
+                          
+                          <label class="custom-control-label" for="remember-me" style="font-size:12px; left:20px;">{{ __('Recordarme') }}</label>
                         </div>
-                      </div>
-                      <div class="col">    <div class="" >
-                        @if (Route::has('password.request'))
+                        <div class="col-md-8 col-sm-12">
+                          <label class="text-md-right text-lg-right text-sm-center" style="line-height: 1.6rem;" for="remember-me">
+                          @if (Route::has('password.request'))
                                     <a class="" style="font-size: 12px;" href="{{ route('password.request') }}">
                                         {{ __('¿Olvidaste tu contraseña?') }}
                                     </a>
-                        @endif
-                      </div></div>
-                      
+                          @endif
+                      </label>
+                        </div>
+                      </div>
                     </div>
-                    <div class="form-group text-center">
-                      <button type="submit" class="btn col-md-5 btn-login"  tabindex="4">
+  
+                    
+                    
+                    <div class="form-group text-center mt-2">
+                      <button type="submit" class="btn col-md-8 btn-login"  tabindex="4">
                           {{ __('Login') }}
                       </button>
-                      
                     </div>
+                    <div class="form-groupdos d-flex justify-content-center">
+                      <div class="col-md-12 text-center">
+                        <a href=""><i class="fab fa-facebook" style="font-size: 1.5rem; padding:8px;"></i></a>
+                        <a href=""><i class="fab fa-whatsapp" style="font-size: 1.5rem; padding:8px;"></i></a>
+                        <a href=""><i class="fab fa-twitter-square" style="font-size: 1.5rem; padding:8px;"></i></a>
+                      </div>
+                  </div>
                   </form>
                 </div>
               </div>
