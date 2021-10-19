@@ -2868,7 +2868,9 @@ body:not(.sidebar-mini) .sidebar-style-2 .sidebar-menu li.active ul.dropdown-men
   color: #1e2696;
   background: white;
   cursor: pointer;
-  border: 1px solid linear-gradient(90deg, rgba(49, 84, 134, 0.918) 0%, #5c9aebe1 50%, #43a6e0e0 100%);
+  border: 1px solid #1e2696!important;
+  -webkit-box-shadow: 1px 2px 17px 7px rgba(0,0,0,0.22); 
+box-shadow: 1px 2px 17px 7px rgba(0,0,0,0.22);
   }
   .input-login{
     background: transparent;
@@ -3031,5 +3033,19 @@ background: radial-gradient(circle, rgba(8, 255, 222, 0.521) 0%, rgba(0, 0, 0, 0
   .auth-bg .r.s {
     width: 20px;
     height: 20px;
+  }
+}
+
+.container-portada{
+  position: relative;
+  background-size: 200%;
+  animation: movimiento 30s infinite linear alternate;  
+}
+
+@keyframes movimiento{
+  from{
+      background-position: bottom left;
+  }to{
+      background-position: top right;
   }
 }

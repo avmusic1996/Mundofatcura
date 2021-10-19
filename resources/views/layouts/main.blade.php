@@ -52,6 +52,7 @@
   @guest()
     @include('layouts.page_templates.guest')
   @endguest
+ 
   <!--   Core JS Files   -->
  
   <script src="{{ asset('modules/jquery.min.js') }}"></script>

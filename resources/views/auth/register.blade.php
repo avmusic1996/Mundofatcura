@@ -3,19 +3,19 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-8 col-md-8 login-carddos" style="padding: 0px; height:100vh;">
-            <div class="w-100 h-100" style="left:0px; background-image: linear-gradient(180deg, rgba(32, 56, 161, 0.226)20%, rgba(56, 56, 56, 0.411)100%), url({{ asset('img/fondo-registro.jpg') }}); background-repeat: no-repeat; background-size: cover;">
+            <div class="w-100 h-100 container-portada" style="left:0px; background-image: linear-gradient(180deg, rgba(32, 56, 161, 0.226)20%, rgba(56, 56, 56, 0.411)100%), url({{ asset('img/fondo-registro.jpg') }}); background-repeat: no-repeat; background-size: cover;">
                 <div class="footer" style="position:absolute; bottom: 10px;">
                     <div class="row p-5 text-white">
                         <div class="col-md-12" style="padding: 0px;">
-                            <img src="{{ asset('img/logo.png') }}" alt="" srcset="" width="100" height="80">
+                            <img src="{{ asset('img/logo.png') }}" alt="" srcset="" width="200" height="80">
                         </div>
                         <div class="col-md-12">
                             <h1>MUNDO FACTURA</h1>
                             <h5>Trabajando fuertemente  para las pymes de colombia</h5>
                         </div>
                         <div class="col-md-7">
-                            <a href="{{ url('/') }}" class="btn-lg col-md-4 btn-block btn-login-registro">
-                                {{ __('Regresar') }}
+                            <a href="{{ url('/') }}" class="btn-lg col-md-5 btn-block btn-login-registro">
+                                {{ __('Pagina principal') }}
                             </a>
                         </div>
                         <div class="col-md-12 mt-3">
@@ -38,7 +38,7 @@
                 
                 <div class="row">
                     <div class="col-12 text-center" style="padding: 0px;">
-                        <img src="{{ asset('img/logo.png') }}" alt="" srcset="" width="100" height="80">
+                        <img src="{{ asset('img/logo.png') }}" alt="" srcset="" width="200" height="80">
                     </div>  
                     <div class="col-md-12 text-center p-4">
                         <b class="tittle-login tittle-sesion-registro" style="font-weight: 700;">{{ __('Create acount') }}
@@ -105,8 +105,10 @@
                     <div class="col-md-12">
                         <button class="btn-md btn-block btn-login p-1"><img src="https://img.icons8.com/color/48/000000/google-logo.png" style="max-height: 30px; max-width:30px; padding-right: 10px;"/>Google</button>
                     </div>
-                    <div class="col-md-12">
-                    <p>Ya tienes una cuenta</p>
+                    <div class="col-md-12 text-center">
+                    <p>Ya tienes una cuenta?<a href="{{ url('login') }}" class="">
+                        {{ __('Ingresar aqui') }}
+                    </a></p>
                     </div>
                 </div>
             </form>
@@ -217,3 +219,4 @@
 </div> --}}
 
 @endsection
+

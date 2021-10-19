@@ -25,11 +25,11 @@ class UserController extends Controller
 
     public function store(UserCreateRequest $request)
     {
-        //  $request->validate([
-        //      'name' => 'required|min:3|max:10',
-        //      'email' => 'required|email|unique:users',
-        //      'password' => 'required'
-        //  ]);
+         $request->validate([
+              'name' => 'required|min:3|max:10',
+              'email' => 'required|email|unique:users',
+              'password' => 'required'
+          ]);
         User::create($request->only('name', 'email')
             + [
                 'password' => bcrypt($request->input('password')),
@@ -40,7 +40,7 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success', 'Usuario creado correctamente');
     }
 
-    public function show(user $id)
+    public function show($id)
      {
 
         $user = User::findOrFail($id);
