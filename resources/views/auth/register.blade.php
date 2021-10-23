@@ -6,9 +6,7 @@
             <div class="w-100 h-100 container-portada" style="left:0px; background-image: linear-gradient(180deg, rgba(32, 56, 161, 0.226)20%, rgba(56, 56, 56, 0.411)100%), url({{ asset('img/fondo-registro.jpg') }}); background-repeat: no-repeat; background-size: cover;">
                 <div class="footer" style="position:absolute; bottom: 10px;">
                     <div class="row p-5 text-white">
-                        <div class="col-md-12" style="padding: 0px;">
-                            <img src="{{ asset('img/logo.png') }}" alt="" srcset="" width="200" height="80">
-                        </div>
+                       
                         <div class="col-md-12">
                             <h1>MUNDO FACTURA</h1>
                             <h5>Trabajando fuertemente  para las pymes de colombia</h5>
@@ -38,7 +36,7 @@
                 
                 <div class="row">
                     <div class="col-12 text-center" style="padding: 0px;">
-                        <img src="{{ asset('img/logo.png') }}" alt="" srcset="" width="200" height="80">
+                        <img src="{{ asset('img/logo-mundofactura.png') }}" alt="" srcset="" width="140" height="60">
                     </div>  
                     <div class="col-md-12 text-center p-4">
                         <b class="tittle-login tittle-sesion-registro" style="font-weight: 700;">{{ __('Create acount') }}
