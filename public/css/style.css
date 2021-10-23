@@ -3005,9 +3005,98 @@ background: radial-gradient(circle, rgba(8, 255, 222, 0.521) 0%, rgba(0, 0, 0, 0
   }
 }
 
+
+
+
+
+
+
+.auth-bg2 .r2 {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+.auth-bg2 .r2:first-child {
+  top: 80px;
+  right: 100px;
+  background: rgb(30,85,121);
+background: radial-gradient(circle, rgba(0, 0, 0, 0.199) 0%, rgba(8, 255, 222, 0.541) 100%);
+}
+.auth-bg2 .r2:last-child {
+  left: 100px;
+  bottom: 50px;
+  background: rgb(30,45,121);
+background: radial-gradient(circle, rgba(8, 255, 222, 0.521) 0%, rgba(0, 0, 0, 0.199) 100%);
+
+}
+.auth-bg2 .r2.s2 {
+  width: 20px;
+  height: 20px;
+}
+.auth-bg2 .r2.s2:nth-child(2) {
+  top: 280px;
+  right: 100px;
+  background: #04a9f5;
+  filter: blur(.5px);
+}
+.auth-bg2 .r2.s2:nth-child(3) {
+  left: 100px;
+  bottom: 200px;
+  background: #1de9b6;
+  filter: blur(.5px);
+}
+.auth-bg2 .r2:nth-child(odd) {
+  -webkit-animation: floating 7s infinite;
+          animation: floating 7s infinite;
+}
+.auth-bg2 .r2:nth-child(even) {
+  -webkit-animation: floating 10s infinite;
+          animation: floating 10s infinite;
+}
+@-webkit-keyframes floating {
+  from {
+    -webkit-transform: rotate(0deg) translate(-10px) rotate(0deg);
+            transform: rotate(0deg) translate(-10px) rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+            transform: rotate(360deg) translate(-10px) rotate(-360deg);
+  }
+}
+@keyframes floating {
+  from {
+    -webkit-transform: rotate(0deg) translate(-10px) rotate(0deg);
+            transform: rotate(0deg) translate(-10px) rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg) translate(-10px) rotate(-360deg);
+            transform: rotate(360deg) translate(-10px) rotate(-360deg);
+  }
+}
+
+
+
 .formulario-registro{
   width: 60%;
 }
+.fondo-reset
+{
+  display: block;
+}
+@media (max-width: 767px)
+{
+  .fondo-reset{
+    display: none;
+  }
+}
+@media (min-width: 768px) {
+  .auth-bg2 
+  {
+   display: none;
+  } 
+}
+
 @media (max-width: 765px) {
   .form-registrer 
   {
@@ -3022,8 +3111,18 @@ background: radial-gradient(circle, rgba(8, 255, 222, 0.521) 0%, rgba(0, 0, 0, 0
     width: 100%;
   }
 }
+@media (max-width: 575px)
+{
+  .img-reset-password{
+    display: none;
+  }
+}
 @media (max-width: 425px)
 {
+  .text-responsive
+  {
+    text-align: center!important;
+  }
   .auth-bg .r {
     position: absolute;
     width: 140px;
@@ -3039,7 +3138,7 @@ background: radial-gradient(circle, rgba(8, 255, 222, 0.521) 0%, rgba(0, 0, 0, 0
 .container-portada{
   position: relative;
   background-size: 200%;
-  animation: movimiento 30s infinite linear alternate;  
+  animation: movimiento 20s infinite linear alternate;  
 }
 
 @keyframes movimiento{
@@ -3047,5 +3146,21 @@ background: radial-gradient(circle, rgba(8, 255, 222, 0.521) 0%, rgba(0, 0, 0, 0
       background-position: bottom left;
   }to{
       background-position: top right;
+  }
+}
+.border-line
+{
+  display: block;
+  position: absolute;
+  margin-top: 60px;
+  margin-right: 0px;
+  width: 1px;
+  height: 50%;
+  background-color:#d1d1d1;
+}
+@media (max-width: 767px)
+{
+  .border-line{
+    display: none;
   }
 }

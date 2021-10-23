@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-  <div class="container-fluid d-flex justify-content-center align-items-center" style="height:100vh; background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.226)20%, rgba(0, 68, 255, 0.212)100%), url({{ asset('img/fondo-login.jpg') }}); background-repeat: no-repeat; background-size: cover;">
+  <div class="container-fluid d-flex justify-content-center align-items-center" style="height:100vh; background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.226)20%, rgba(0, 68, 255, 0.212)100%), url({{ asset('img/fondo-login.jpg') }}); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
     <div id="app">
         <div class="container justify-content-center align-items-center mt-5">
           <div class="row justify-content-center">

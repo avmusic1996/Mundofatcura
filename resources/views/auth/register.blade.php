@@ -12,8 +12,8 @@
                             <h5>Trabajando fuertemente  para las pymes de colombia</h5>
                         </div>
                         <div class="col-md-7">
-                            <a href="{{ url('/') }}" class="btn-lg col-md-5 btn-block btn-login-registro">
-                                {{ __('Pagina principal') }}
+                            <a href="{{ url('/') }}" class="btn bg-white col-md-5 text-primary">
+                                {{ __('Página principal') }}
                             </a>
                         </div>
                         <div class="col-md-12 mt-3">
@@ -39,7 +39,7 @@
                         <img src="{{ asset('img/logo-mundofactura.png') }}" alt="" srcset="" width="140" height="60">
                     </div>  
                     <div class="col-md-12 text-center p-4">
-                        <b class="tittle-login tittle-sesion-registro" style="font-weight: 700;">{{ __('Create acount') }}
+                        <b class="tittle-login tittle-sesion-registro" style="font-weight: 700;">{{ __('Create account') }}
                         </b>
                     </div>
                 </div>
