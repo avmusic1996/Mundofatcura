@@ -44,4 +44,11 @@
         </div>
     </div>
 </div>
+<script>
+    
+    window.onload = function() {
+        var intro = document.getElementById('navbarlogin');
+      intro.style.display = 'none';  
+  };
+</script>
 @endsection
