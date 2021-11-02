@@ -8,7 +8,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Clientes</h4>
+                  <h4 class="card-title">Productos</h4>
                   <br>
                   <p class="card-category"></p>
                 </div>
@@ -29,20 +29,32 @@
                       @endif
                         
                         <div class="row p-3">
-                          <div class="col-12 text-right">
+                          <div class="col-6 text-left">
                             {{--@can('user_create')--}}
-                            <a href="" class="btn btn-md btn-primary">Añadir Cliente</a>
+                            <a href="{{ route('categoria.index') }}" class="btn btn-md btn-primary">Categorias</a>
+                            {{--@endcan--}}
+                          </div>
+                          <div class="col-6 text-right">
+                            {{--@can('user_create')--}}
+                            <a href="{{ route('productos.create') }}" class="btn btn-md btn-primary">Agregar producto</a>
                             {{--@endcan--}}
                           </div>
                         </div>
+
+
+                       
+
+
+
                         <div class="table-responsive">
                           <table class="table">
                             <thead class="text-primary">
                               <th>Imagen</th>
-                              <th>Nombre del producto</th>
-                              <th>Apellido</th>
-                              <th>Correo</th>
-                              <th>Tel/Cel</th>
+                              <th>Codigo</th>
+                              <th>Nombre</th>
+                              <th>Cantidad</th>
+                              <th>Precio/U</th>
+                              <th>Categoria</th>
                               <th class="text-right">Acciones</th>
                             </thead>
                             <tbody>
@@ -52,7 +64,7 @@
                                   <td></td>
                                   <td></td>
                                   <td></td>
-                                  <td class="td-actions text-right">
+                                  {{-- <td class="td-actions text-right">
                                 
                                   <a href="" class="btn btn-warning"><i class="material-icons">Editar</i></a>
   
@@ -68,7 +80,7 @@
                                     </button>
                                 </form>
                                   
-                                  </td>
+                                  </td> --}}
                                   {{-- <td>
                                       @forelse ($user->roles as $role)
                                         <span class="badge badge-info">{{ $role->name }}</span>

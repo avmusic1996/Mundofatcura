@@ -21,7 +21,7 @@
         <ul class="dropdown-menu">
           <li><a class="nav-link{{ $activePage == 'users' ? ' active' : '' }}" href="{{ route('users.index') }}">Usuarios</a></li>
           <li><a class="nav-link{{ $activePage == 'clientes' ? ' active' : '' }}" href="{{ route('clientes.index') }}">Clientes</a></li>
-          <li><a class="nav-link{{ $activePage == 'producto' ? ' active' : '' }}" href="{{ route('producto.index') }}">Productos</a></li>
+          <li><a class="nav-link{{ $activePage == 'productos' ? ' active' : '' }}" href="{{ route('productos.index') }}">Productos / Categorias</a></li>
           <li><a class="nav-link{{ $activePage == 'proveedor' ? ' active' : '' }}" href="{{ route('proveedor.index') }}">Proveedores</a></li>
         </ul>
       </li>
