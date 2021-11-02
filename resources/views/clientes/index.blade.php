@@ -28,7 +28,7 @@
                         <div class="row p-3">
                           <div class="col-12 text-right">
                             {{--@can('user_create')--}}
-                            <a href="" class="btn btn-md btn-primary">Añadir usuario</a>
+                            <a href="{{ route('clientes.create') }}" class="btn btn-md btn-primary">Añadir Cliente</a>
                             {{--@endcan--}}
                           </div>
                         </div>
@@ -59,7 +59,7 @@
                                   <td></td>
                                   <td></td>
                                   <td></td>
-                                  <td class="td-actions text-right">
+                                  {{-- <td class="td-actions text-right">
                                 
                                   <a href="" class="btn btn-warning"><i class="material-icons">Editar</i></a>
   
@@ -75,7 +75,7 @@
                                     </button>
                                 </form>
                                   
-                                  </td>
+                                  </td> --}}
                                   {{-- <td>
                                       @forelse ($user->roles as $role)
                                         <span class="badge badge-info">{{ $role->name }}</span>

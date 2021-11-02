@@ -89,7 +89,8 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
+  <section id="hero" class="d-flex align-items-center" style="background: orange">
+    <img src="{{ asset('img/bg-fondo-principal.png') }}" class="fondo-reset" alt="" srcset="" style="position:absolute; width: 100%; height:100%;">
 
     <div class="container">
       <div class="row">
