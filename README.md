@@ -19,6 +19,8 @@
 
 `npm install`
 
+`npm run dev`
+
 3-> Crear archivo `.env` para manejar las variables de entorno. Nota: agregar usuario y contrasena del motor de la base de datos en el archivo 
 
 `cp .env.example .env`
