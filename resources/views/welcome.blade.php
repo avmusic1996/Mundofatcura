@@ -45,7 +45,12 @@
 </head>
 
 <body>
-
+  @if(session('notification')) 
+  <script type="text/javascript">
+    alert("{{session('notification')}}");
+  </script>
+      
+  @endif
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">

@@ -127,3 +127,5 @@ Route::put('/categoria/{user}', [App\Http\Controllers\CategoriaController::class
 // FIN DE LAS RUTAS DE CATEGORIAS
 
 // Route::get('/proveedor', [App\Http\Controllers\ProveedorController::class, 'index'])->name('proveedor.index');
+
+Route::get('/register/verify/{code}', [App\Http\Controllers\Auth\RegisterController::class, 'verify']);

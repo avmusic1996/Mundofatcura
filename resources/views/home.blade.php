@@ -3,7 +3,12 @@
 @section('content')
 <div class="container-fluid">
     <div class="main-content">
-
+@if(session('notification')) 
+<script type="text/javascript">
+  alert("{{session('notification')}}");
+</script>
+    
+@endif
 
         <section class="section">
             <div class="section-header">

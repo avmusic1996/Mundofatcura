@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -64,10 +65,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $data['confirmation_code']= str::random(25);
+        Mail::send('emails.confirmation_code', $data, function($message) use ($data) {
+            $message->to($data['email'], $data['name'])->subject('Por favor confirma tu correo');
+        });
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'comfirmation_code' =>  $data['confirmation_code'],
         ]);
+
+    }
+    public function verify($code)
+    {
+        $user = User::where('comfirmation_code', $code)->first();
+    
+        if (! $user)
+        return redirect('/')->with('notification', 'Has confirmado correctamente tu correo!');
+    
+        $user->comfirmed = true;
+        $user->comfirmation_code = null;
+        $user->save();
+    
+        return redirect('/home')->with('notification', 'Has confirmado correctamente tu correo!');
     }
 }
