@@ -35,5 +35,11 @@
     "CREATE ACCOUNT":  "CREAR CUENTA", 
     "Create account":  "Crear cuenta",  
     "Log-in":  "Iniciar sesión",
-    "WELCOME TO MUNDOFACTURA":  "BIENVENIDO A MUNDOFACTURA"
+    "WELCOME TO MUNDOFACTURA":  "BIENVENIDO A MUNDOFACTURA",
+    "Dashboard":"Tablero de control",
+    "Home": "Inicio",
+    "Profile": "Perfil",
+    "Activities": "Actividades",
+    "Settings":"Configuraciones",
+    "Logged in": "Logueado hace"
 }

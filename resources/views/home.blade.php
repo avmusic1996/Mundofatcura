@@ -3,16 +3,14 @@
 @section('content')
 <div class="container-fluid">
     <div class="main-content">
-@if(session('notification')) 
+@if( session('notification') ) 
 <script type="text/javascript">
-  alert("{{session('notification')}}");
+   alert("{{session('notification')}}");
 </script>
-    
 @endif
-
-        <section class="section">
+        <section class="section"> 
             <div class="section-header">
-              <h1>Dashboard</h1>
+              <h1>{{ __('Dashboard') }}</h1>
             </div>
             <div class="row">
               <div class="col-lg-3 col-md-6 col-sm-6 col-12">
