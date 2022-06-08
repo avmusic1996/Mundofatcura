@@ -1,5 +1,5 @@
 <?php
-
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/app', function () {
+    Alert::success('Success Title', 'Success Message');
+    return view('app');
 });
 
 Auth::routes();

@@ -22,8 +22,18 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/components.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
+
+
+
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+ 
 <!-- Start GA -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
 
 
   {{-- <meta charset="utf-8" />
@@ -54,7 +64,13 @@
   @endguest
  
   <!--   Core JS Files   -->
- 
+  <script src=""></script>
+  <script src="{{ asset('js/validator.min.js') }}"></script>
+  <script src="{{ asset('js/contact-form.js') }}"></script>
+  <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('js/popper.min.js') }}"></script>
+  <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+
   <script src="{{ asset('modules/jquery.min.js') }}"></script>
   <script src="{{ asset('modules/popper.js') }}"></script>
   <script src="{{ asset('modules/tooltip.js') }}"></script>
@@ -71,6 +87,7 @@
   <script src="{{ asset('js/page/index.js') }}"></script>
   <script src="{{ asset('js/scripts.js') }}"></script>
   <script src="{{ asset('js/custom.js') }}"></script>
+  
   {{-- <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script> --}}
   @stack('js')
 </body>
