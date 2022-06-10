@@ -57,11 +57,9 @@ Route::post('/clientes', [App\Http\Controllers\ClienteController::class, 'store'
 
 Route::get('/clientes/{users}', [App\Http\Controllers\ClienteController::class, 'show'])->name('clientes.show');
 
-Route::get('/clientes/{user}/edit', [App\Http\Controllers\ClienteController::class, 'edit'])->name('clientes.edit');
+Route::delete('/clientes/{cliente}', [App\Http\Controllers\ClienteController::class, 'destroy'])->name('clientes.delete');
 
-Route::delete('/clientes/{user}', [App\Http\Controllers\ClienteController::class, 'destroy'])->name('clientes.delete');
-
-Route::put('/clientes/{user}', [App\Http\Controllers\ClienteController::class, 'update'])->name('clientes.update');
+Route::put('/clientes/{cliente}', [App\Http\Controllers\ClienteController::class, 'update'])->name('clientes.update');
 
 //FIN RUTAS DE LOS CLIENTES
 ////////////////////////////////////////////////////////////////////////////////////////////////////

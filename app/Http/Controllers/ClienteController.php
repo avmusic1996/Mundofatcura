@@ -42,4 +42,35 @@ class ClienteController extends Controller
          // $user->syncRoles($roles);
          return redirect()->route('clientes.index')->with('success', 'Cliente registrado correctamente');
      }
+
+     public function update(Request $request, $id)
+     {
+          $data = $request->only([
+               'nit',
+               'nombresapellidos',
+               'razonsocial',
+               'tipodocumento',
+               'numerodocumento',
+               'correoelectronico',
+               'telefono',
+               'pais',
+               'departamento',
+               'municipio'
+           ]);
+
+        // Clientes::create($request->all());
+        //  // $roles = $request->input('roles', []);
+        //  // $user->syncRoles($roles);
+        //  return redirect()->route('clientes.index')->with('success', 'El Cliente ha sido ACTUALIZADO correctamente');
+
+         $clientes->update($data);
+           return redirect()->route('clientes.index')->with('success', 'Usuario actualizado correctamente');
+     }
+
+     public function destroy($clientes)
+    {
+        $clientes->delete();
+        return back()->with('succes', 'Usuario ELIMINADO correctamente');
+    }
+     
 }

@@ -91,9 +91,7 @@ window.dataLayer = window.dataLayer || [];
             </div>
         </nav>
 
-        <main class="">
-            @yield('content')
-        </main>
+        
     </div>
     <script src="{{ asset('modules/popper.js') }}"></script>
     <script src="{{ asset('modules/tooltip.js') }}"></script>
@@ -103,5 +101,9 @@ window.dataLayer = window.dataLayer || [];
     <script src="{{ asset('modules/jquery.min.js') }}"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
   <script src="{{ asset('js/custom.js') }}"></script>
+
+  <main class="">
+    @yield('content')
+</main>
 </body>
 </html>

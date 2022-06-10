@@ -2,7 +2,6 @@
 @extends('layouts.main', ['activePage' => 'cliente', 'titlePage' => 'CLIENTES'])
 @section('content')
 <style>
-  
 </style>
 <div class="container-fluid">
         <div class="main-content">
@@ -13,7 +12,7 @@
                 <div class="card-header">
                   <h4 class="card-title">Clientes</h4>
                   <br>
-                  <p class="card-category">Usuarios registrados</p>
+                  <p class="card-category">tabla de clientes</p>
                 </div>
               </div>
             </div>
@@ -66,20 +65,21 @@
                                   <td>{{ $cliente->celular }}</td>
                             
                                   <td class="td-actions text-right">
-                                
-                                  <a href="" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenteredit"><i class="material-icons">Editar</i></a>
-  
                                   
+                                  <a href="{{ route('clientes.index', $cliente->id) }}" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenteredit{{$cliente->id}}"><i class="material-icons">Editar</i></a>
+
+                                  {{-- <a href="" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenteredit"><i class="material-icons">Editar</i></a> --}}
                                   <a href="" class="btn btn-primary"><i class="material-icons">Detalles</i></a>
                                   
                                 
-                                  <form action="" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
+                                  <a href="" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenteredelete" data-id="{{$cliente->id}}"><i class="material-icons">Eliminar</i></a>
+                                  {{-- <form action="{{ route('cliente.delete', $cliente->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger" type="submit" rel="tooltip">
                                     <i class="material-icons">Eliminar</i>
                                     </button>
-                                </form>
+                                </form> --}}
                                   
                                   </td>
                                   {{-- <td>
@@ -471,9 +471,10 @@ input:focus {
       <div class="modal-body">
     
           <!-- LOGN IN FORM by Omar Dsoky -->
-          <form class="form-cliente" action="{{ route('clientes.store') }}" method="post" enctype="multipart/form-data">
+          <form class="form-cliente" action="{{ route('clientes.update', $cliente->id) }}" method="post" enctype="multipart/form-data">
 
             @csrf
+            @method('PUT')
              <!--   con = Container  for items in the form-->
              <div class="con">
              <!--     Start  header Content  -->
@@ -486,7 +487,7 @@ input:focus {
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="nit" class="form-input" id="txt-input" type="text" placeholder="Nit" required>
+                  <input name="nit" class="form-input" id="txt-input" type="text" placeholder="Nit" required value="{{ old('nit', $cliente->nit) }}" autofocus>
                
 
                  </div>
@@ -494,33 +495,33 @@ input:focus {
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="nombresapellidos" class="form-input" id="txt-input" type="text" placeholder="Nombres y apellidos" required>
+                  <input name="nombresapellidos" class="form-input" id="txt-input" type="text" placeholder="Nombres y apellidos" required value="{{ old('nombresapellidos', $cliente->nombresapellidos) }}" autofocus>
                  </div>
                  <div class="col-md-4 d-flex pt-3"> 
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="razonsocial" class="form-input" id="txt-input" type="text" placeholder="Razon social (Si acredita)" required>
+                  <input name="razonsocial" class="form-input" id="txt-input" type="text" placeholder="Razon social (Si acredita)" required value="{{ old('razonsocial', $cliente->razonsocial) }}" autofocus>
                  </div>
 
                  <div class="col-md-4 d-flex pt-3">
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="tipodocumento" class="form-input" id="txt-input" type="text" placeholder="Tipo documento" required>
+                  <input name="tipodocumento" class="form-input" id="txt-input" type="text" placeholder="Tipo documento" required value="{{ old('tipodocumento', $cliente->tipodocumento) }}" autofocus>
                  </div>
                  
                  <div class="col-md-4 d-flex pt-3">
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="numerodocumento" class="form-input" id="txt-input" type="text" placeholder="Numero id" required>
+                  <input name="numerodocumento" class="form-input" id="txt-input" type="text" placeholder="Numero id" required value="{{ old('numerodocumento', $cliente->numerodocumento) }}" autofocus>
                  </div>
                  <div class="col-md-4 d-flex pt-3">
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="correoelectronico" class="form-input" id="txt-input" type="text" placeholder="@ejemplo.com" required>
+                  <input name="correoelectronico" class="form-input" id="txt-input" type="text" placeholder="@ejemplo.com" required value="{{ old('correoelectronico', $cliente->correoelectronico) }}" autofocus>
                  </div>
 
                  
@@ -528,32 +529,32 @@ input:focus {
                   <span class="input-item">
                     <i class="fa fa-phone-square" aria-hidden="true"></i>
                   </span>
-                  <input name="telefono" class="form-input" id="txt-input" type="text" placeholder="Telefono" required>
+                  <input name="telefono" class="form-input" id="txt-input" type="text" placeholder="Telefono" required value="{{ old('telefono', $cliente->telefono) }}" autofocus>
                  </div>
                  <div class="col-md-4 d-flex pt-3"> 
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="celular" class="form-input" id="txt-input" type="text" placeholder="Celular" required>
+                  <input name="celular" class="form-input" id="txt-input" type="text" placeholder="Celular" required value="{{ old('celular', $cliente->celular) }}" autofocus>
                  </div>
 
                  <div class="col-md-4 d-flex pt-3">
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="pais" class="form-input" id="txt-input" type="text" placeholder="Pais" required>
+                  <input name="pais" class="form-input" id="txt-input" type="text" placeholder="Pais" required value="{{ old('pais', $cliente->pais) }}" autofocus>
                  </div>
                  <div class="col-md-4 d-flex pt-3">
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="departamento" class="form-input" id="txt-input" type="text" placeholder="Departamento" required>
+                  <input name="departamento" class="form-input" id="txt-input" type="text" placeholder="Departamento" required value="{{ old('departamento', $cliente->departamento) }}" autofocus>
                  </div>
                  <div class="col-md-4 d-flex pt-3"> 
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="municipio" class="form-input" id="txt-input" type="text" placeholder="Municipio" required>
+                  <input name="municipio" class="form-input" id="txt-input" type="text" placeholder="Municipio" required value="{{ old('municipio', $cliente->municipio) }}" autofocus>
                  </div>
                </div>
                 <!--   user name -->
@@ -612,7 +613,35 @@ input:focus {
   </div>
 </div>
 </div>
-  
+
+
+{{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button> --}}
+
+<div class="modal fade" id="exampleModalCenteredelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-12">
+          <p>¿ESTAS SEGURO QUE DESEAS ELIMINAR AL CLIENTE?</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <form action="{{ route('clientes.delete',1) }}" method="POST">
+          @csrf
+          @method('DELETE')
+          <button class="btn btn-danger" type="submit" rel="tooltip">
+          <i class="material-icons">Eliminar</i>
+          </button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
   // Show/hide password onClick of button using Javascript only
@@ -641,6 +670,44 @@ document.getElementById("eye").addEventListener("click", function () {
     }
 }, false);
 
+
+
+$('#exampleModalCenteredelete').on('show.bs.modal', function (event)
+{
+  // Button that triggered the modal
+  var button = $(event.relatedTarget)
+  // Extract info from data-bs-* attributes
+  var id = button.data('id')
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+  var modal = $(this)
+    modal.find('.modal-title').text('Se va a eliminar el registro: ' + id)
+  // const modalTitle = exampleModal.querySelector('.modal-title')
+  // const modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+  // modalTitle.textContent = `New message to ${recipient}`
+  // modalBodyInput.value = recipient
+})
+
+
+// const exampleModal = document.getElementById('exampleModalCenteredelete')
+// exampleModal.addEventListener('show.bs.modal', event => {
+//   // Button that triggered the modal
+//   const button = event.relatedTarget
+//   // Extract info from data-bs-* attributes
+//   const recipient = button.getAttribute('id')
+//   // If necessary, you could initiate an AJAX request here
+//   // and then do the updating in a callback.
+//   //
+//   // Update the modal's content.
+//   const modalTitle = exampleModal.querySelector('.modal-title')
+//   // const modalBodyInput = exampleModal.querySelector('.modal-body input')
+// // `nuevo mensaje ${recipient}`
+//   modalTitle.textContent = "Estas eliminando el registro" + id; 
+//   modalBodyInput.value = recipient
+// })
 
 </script>
     
