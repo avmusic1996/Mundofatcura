@@ -21,5 +21,6 @@ class Clientes extends Model
         'pais',
         'departamento',
         'municipio',
+        'id',
     ];
 }

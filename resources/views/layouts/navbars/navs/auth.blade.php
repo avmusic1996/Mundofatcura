@@ -197,7 +197,7 @@
     </li>
     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
       <img alt="image" src="{{ asset('/img/default-avatar.png') }}" class="rounded-circle mr-1">
-      <div class="d-sm-none d-lg-inline-block">tt</div></a>
+      <div class="d-sm-none d-lg-inline-block">{{ auth()->user()->name }}</div></a>
       <div class="dropdown-menu dropdown-menu-right">
         <div class="dropdown-title"> {{ __( 'Logged in')}} hace 5 minutos</div>
         <a href="features-profile.html" class="dropdown-item has-icon">
