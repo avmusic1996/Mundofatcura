@@ -31,7 +31,7 @@
                         <div class="row p-3">
                           <div class="col-6 text-left">
                             {{--@can('user_create')--}}
-                            <a href="{{ route('categoria.index') }}" class="btn btn-md btn-primary">Categorias</a>
+                            <a href="{{ route('categoria.index') }}" class="btn btn-md btn-success">Categorias</a>
                             {{--@endcan--}}
                           </div>
                           <div class="col-6 text-right">

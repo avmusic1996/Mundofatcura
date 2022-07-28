@@ -69,8 +69,13 @@ class ClienteController extends Controller
 
      public function destroy($clientes)
     {
+        $clientes =Clientes::where('id', $clientes)->firstOrFail();
         $clientes->delete();
         return back()->with('succes', 'Usuario ELIMINADO correctamente');
+
+
+        // $clientes->delete();
+        // return back()->with('succes', 'Usuario ELIMINADO correctamente');
     }
      
 }
