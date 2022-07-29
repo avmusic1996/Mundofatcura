@@ -61,6 +61,11 @@ Route::delete('/clientes/{cliente}', [App\Http\Controllers\ClienteController::cl
 
 Route::put('/clientes/{cliente}', [App\Http\Controllers\ClienteController::class, 'update'])->name('clientes.update');
 
+
+Route::get('/Clientes', [App\Http\Controllers\ClienteController::class, 'byCliente'])->name('cliente');
+
+
+
 //FIN RUTAS DE LOS CLIENTES
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Clientes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\DB;
 
 
 class ClienteController extends Controller
@@ -76,6 +77,16 @@ class ClienteController extends Controller
 
         // $clientes->delete();
         // return back()->with('succes', 'Usuario ELIMINADO correctamente');
+    }
+
+
+    public function byCliente(request $request){
+        $id = $request->get('id');
+
+        return DB::table('clientes as cliente')
+             ->select('cliente.id','cliente.nit','cliente.nombresapellidos','cliente.razonsocial','cliente.tipodocumento','numerodocumento','cliente.correoelectronico','cliente.telefono','cliente.celular','cliente.pais','cliente.departamento','cliente.municipio')
+             ->where('cliente.id', '=', $id)
+             ->get();
     }
      
 }

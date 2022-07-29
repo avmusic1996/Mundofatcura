@@ -40,17 +40,15 @@
                         <div class="table-responsive">
                           <table class="table">
                             <thead class="text-primary">
-                              <th>ID</th>
-                              <th>CEDULA</th>
-                              <th>NOMBRES COMPLETOS</th>
-                              <th>CORREO</th>
+                              <th>Cedula</th>
+                              <th>Nombres completos</th>
+                              <th>Correo</th>
                               <th>Tel/Cel</th>
                               <th class="text-right">Acciones</th>
                             </thead>
                             <tbody>
                               @foreach ($clientes as $cliente)
                                 <tr>
-                                  <td>{{ $cliente->id }}</td>
                                   <td>{{ $cliente->numerodocumento }}
                                     {{-- <table align="right" cellspacing="1" cellpadding="1">
                                     <tr style="">
@@ -68,11 +66,7 @@
                             
                                   <td class="td-actions text-right">
                                   
-<<<<<<< HEAD
-                                  <a href="{{ $cliente->id }}" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenteredit"><i class="material-icons">Editar</i></a>
-=======
                                   <a  onclick="edit('{{$cliente->id}}')" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="material-icons">Editar</i></a>
->>>>>>> ac1f7d3a4dec71a0673ef6c7f8016707eb6d1b0b
 
                                   {{-- <a href="" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="material-icons">Editar</i></a> --}}
                                   <a href="" class="btn btn-primary"><i class="material-icons">Detalles</i></a>
@@ -348,7 +342,7 @@ input:focus {
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="nombresapellidos" class="form-input" id="txt-input" type="text" placeholder="Nombres y apellidos" required>
+                  <input name="nombresapellidos" class="form-input" id="nombresapellidos" type="text" placeholder="Nombres y apellidos" required>
                  </div>
                  <div class="col-md-4 d-flex pt-3"> 
                   <span class="input-item">
@@ -410,111 +404,50 @@ input:focus {
                   <input name="municipio" class="form-input" id="txt-input" type="text" placeholder="Municipio" required>
                  </div>
                </div>
-             </div>
-            </div>
-          
-      <hr>    
-      <div class="modal-footer" style="">
-        <button type="button" class="btn btn-cliente btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-cliente btn-primary">Save changes</button>
-      </div>
-
-    </form>
-    </div>
-  </div>
-</div>
-</div>
-
-
-
-<<<<<<< HEAD
-            @csrf
-            @method('PUT')
-             <!--   con = Container  for items in the form-->
-             <div class="con">
-             <!--     Start  header Content  -->
-             
-             <!--     End  header Content  -->
-             <br>
-             <div class="field-set">
-               <div class="row">
-                 <div class="col-md-4 d-flex pt-3">
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="nit" class="form-input" id="txt-input" type="text" placeholder="Nit" required value="{{ old('nit', $cliente->nit) }}" autofocus>
+                <!--   user name -->
+                   {{-- <span class="input-item">
+                     <i class="fa fa-user-circle"></i>
+                   </span>
+                  <!--   user name Input-->
+                   <input class="form-input" id="txt-input" type="text" placeholder="@UserName" required>
                
-
-                 </div>
-                 <div class="col-md-4 d-flex pt-3">
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="nombresapellidos" class="form-input" id="txt-input" type="text" placeholder="Nombres y apellidos" required value="{{ old('nombresapellidos', $cliente->nombresapellidos) }}" autofocus>
-                 </div>
-                 <div class="col-md-4 d-flex pt-3"> 
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="razonsocial" class="form-input" id="txt-input" type="text" placeholder="Razon social (Si acredita)" required value="{{ old('razonsocial', $cliente->razonsocial) }}" autofocus>
-                 </div>
-
-                 <div class="col-md-4 d-flex pt-3">
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="tipodocumento" class="form-input" id="txt-input" type="text" placeholder="Tipo documento" required value="{{ old('tipodocumento', $cliente->tipodocumento) }}" autofocus>
-                 </div>
-                 
-                 <div class="col-md-4 d-flex pt-3">
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="numerodocumento" class="form-input" id="txt-input" type="text" placeholder="Numero id" required value="{{ old('numerodocumento', $cliente->numerodocumento) }}" autofocus>
-                 </div>
-                 <div class="col-md-4 d-flex pt-3">
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="correoelectronico" class="form-input" id="txt-input" type="text" placeholder="@ejemplo.com" required value="{{ old('correoelectronico', $cliente->correoelectronico) }}" autofocus>
-                 </div>
-
-                 
-                 <div class="col-md-4 d-flex pt-3"> 
-                  <span class="input-item">
-                    <i class="fa fa-phone-square" aria-hidden="true"></i>
-                  </span>
-                  <input name="telefono" class="form-input" id="txt-input" type="text" placeholder="Telefono" required value="{{ old('telefono', $cliente->telefono) }}" autofocus>
-                 </div>
-                 <div class="col-md-4 d-flex pt-3"> 
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="celular" class="form-input" id="txt-input" type="text" placeholder="Celular" required value="{{ old('celular', $cliente->celular) }}" autofocus>
-                 </div>
-
-                 <div class="col-md-4 d-flex pt-3">
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="pais" class="form-input" id="txt-input" type="text" placeholder="Pais" required value="{{ old('pais', $cliente->pais) }}" autofocus>
-                 </div>
-                 <div class="col-md-4 d-flex pt-3">
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="departamento" class="form-input" id="txt-input" type="text" placeholder="Departamento" required value="{{ old('departamento', $cliente->departamento) }}" autofocus>
-                 </div>
-                 <div class="col-md-4 d-flex pt-3"> 
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="municipio" class="form-input" id="txt-input" type="text" placeholder="Municipio" required value="{{ old('municipio', $cliente->municipio) }}" autofocus>
-                 </div>
-               </div>
+                <br> --}}
+               
+                     {{-- <!--   Password -->
+               
+                <span class="input-item">
+                  <i class="fa fa-key"></i>
+                 </span>
+                <!--   Password Input-->
+                <input class="form-input" type="password" placeholder="Password" id="pwd"  name="password" required>
+               
+          <!--      Show/hide password  -->
+               <span>
+                  <i class="fa fa-eye" aria-hidden="true"  type="button" id="eye"></i>
+               </span>
+               
+               
+                <br> --}}
+          <!--        buttons -->
+          <!--      button LogIn -->
              </div>
+            
+          <!--   other buttons -->
+             {{-- <div class="other">
+          <!--      Forgot Password button-->
+                <button class="btn submits frgt-pass">Forgot Password</button>
+          <!--     Sign Up button -->
+                <button class="btn submits sign-up">Sign Up 
+          <!--         Sign Up font icon -->
+                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </button>
+          <!--      End Other the Division -->
+             </div> --}}
+               
+          <!--   End Conrainer  -->
             </div>
-
+            
+            <!-- End Form -->
           
       <hr>    
       <div class="modal-footer" style="">
@@ -527,8 +460,7 @@ input:focus {
   </div>
 </div>
 </div>
-=======
->>>>>>> ac1f7d3a4dec71a0673ef6c7f8016707eb6d1b0b
+
 
 
 
@@ -549,7 +481,7 @@ input:focus {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <form action="{{ route('clientes.delete', $clientes) }}" method="POST">
+        <form action="{{ route('clientes.delete',1) }}" method="POST">
           @csrf
           @method('DELETE')
           <button class="btn btn-danger" type="submit" rel="tooltip">
@@ -567,7 +499,14 @@ function edit(id) {
   
   document.getElementById("edit").value=2;
   document.getElementById("idcliente").value=id;
-}
+         $.get('{{ route('cliente') }}'), function(data){  
+            
+                   console.log(data);
+                $.each(data, function(id, opt) {
+                                         
+                    $("#nombresapellidos").val(data.nombresapellidos);
+                });
+}}
 
   // Show/hide password onClick of button using Javascript only
 
@@ -597,7 +536,24 @@ document.getElementById("eye").addEventListener("click", function () {
 
 
 
+$('#exampleModalCenteredelete').on('show.bs.modal', function (event)
+{
+  // Button that triggered the modal
+  var button = $(event.relatedTarget)
+  // Extract info from data-bs-* attributes
+  var id = button.data('id')
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+  var modal = $(this)
+    modal.find('.modal-title').text('Se va a eliminar el registro: ' + id)
+  // const modalTitle = exampleModal.querySelector('.modal-title')
+  // const modalBodyInput = exampleModal.querySelector('.modal-body input')
 
+  // modalTitle.textContent = `New message to ${recipient}`
+  // modalBodyInput.value = recipient
+})
 
 
 // const exampleModal = document.getElementById('exampleModalCenteredelete')
