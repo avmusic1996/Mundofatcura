@@ -12,7 +12,7 @@
                 <div class="card-header">
                   <h4 class="card-title">Clientes</h4>
                   <br>
-                  <p class="card-category">tabla de clientes</p>
+                
                 </div>
               </div>
             </div>
@@ -68,9 +68,13 @@
                             
                                   <td class="td-actions text-right">
                                   
+<<<<<<< HEAD
                                   <a href="{{ $cliente->id }}" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenteredit"><i class="material-icons">Editar</i></a>
+=======
+                                  <a  onclick="edit('{{$cliente->id}}')" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="material-icons">Editar</i></a>
+>>>>>>> ac1f7d3a4dec71a0673ef6c7f8016707eb6d1b0b
 
-                                  {{-- <a href="" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenteredit"><i class="material-icons">Editar</i></a> --}}
+                                  {{-- <a href="" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="material-icons">Editar</i></a> --}}
                                   <a href="" class="btn btn-primary"><i class="material-icons">Detalles</i></a>
                                   
                                 
@@ -326,12 +330,16 @@ input:focus {
              
              <!--     End  header Content  -->
              <br>
+             <input class="invisible" name="edit" id="edit" type="number" value="1" >
+                  <input class="invisible" name="idcliente" id="idcliente" type="number" value="0" >
              <div class="field-set">
                <div class="row">
                  <div class="col-md-4 d-flex pt-3">
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
+                  
+
                   <input name="nit" class="form-input" id="txt-input" type="text" placeholder="Nit" required>
                
 
@@ -418,21 +426,8 @@ input:focus {
 </div>
 
 
-{{-- MODAL EDITAR CLIENTE --}}
-<div class="modal fade bd-example-modal-lg" id="exampleModalCenteredit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background: #6777ef;">
-        <h5 class="modal-title text-white" id="exampleModalLongTitle">Clientes</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-    
-          <!-- LOGN IN FORM by Omar Dsoky -->
-          <form class="form-cliente" action="{{ route('clientes.update', $cliente->id) }}" method="post" enctype="multipart/form-data">
 
+<<<<<<< HEAD
             @csrf
             @method('PUT')
              <!--   con = Container  for items in the form-->
@@ -532,6 +527,8 @@ input:focus {
   </div>
 </div>
 </div>
+=======
+>>>>>>> ac1f7d3a4dec71a0673ef6c7f8016707eb6d1b0b
 
 
 
@@ -565,6 +562,13 @@ input:focus {
 </div>
 
 <script>
+
+function edit(id) {
+  
+  document.getElementById("edit").value=2;
+  document.getElementById("idcliente").value=id;
+}
+
   // Show/hide password onClick of button using Javascript only
 
 // https://stackoverflow.com/questions/31224651/show-hide-password-onclick-of-button-using-javascript-only
