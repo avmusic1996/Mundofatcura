@@ -40,17 +40,15 @@
                         <div class="table-responsive">
                           <table class="table">
                             <thead class="text-primary">
-                              <th>ID</th>
-                              <th>CEDULA</th>
-                              <th>NOMBRES COMPLETOS</th>
-                              <th>CORREO</th>
+                              <th>Cedula</th>
+                              <th>Nombres completos</th>
+                              <th>Correo</th>
                               <th>Tel/Cel</th>
                               <th class="text-right">Acciones</th>
                             </thead>
                             <tbody>
                               @foreach ($clientes as $cliente)
                                 <tr>
-                                  <td>{{ $cliente->id }}</td>
                                   <td>{{ $cliente->numerodocumento }}
                                     {{-- <table align="right" cellspacing="1" cellpadding="1">
                                     <tr style="">
@@ -344,7 +342,7 @@ input:focus {
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="nombresapellidos" class="form-input" id="txt-input" type="text" placeholder="Nombres y apellidos" required>
+                  <input name="nombresapellidos" class="form-input" id="nombresapellidos" type="text" placeholder="Nombres y apellidos" required>
                  </div>
                  <div class="col-md-4 d-flex pt-3"> 
                   <span class="input-item">
@@ -406,8 +404,50 @@ input:focus {
                   <input name="municipio" class="form-input" id="txt-input" type="text" placeholder="Municipio" required>
                  </div>
                </div>
+                <!--   user name -->
+                   {{-- <span class="input-item">
+                     <i class="fa fa-user-circle"></i>
+                   </span>
+                  <!--   user name Input-->
+                   <input class="form-input" id="txt-input" type="text" placeholder="@UserName" required>
+               
+                <br> --}}
+               
+                     {{-- <!--   Password -->
+               
+                <span class="input-item">
+                  <i class="fa fa-key"></i>
+                 </span>
+                <!--   Password Input-->
+                <input class="form-input" type="password" placeholder="Password" id="pwd"  name="password" required>
+               
+          <!--      Show/hide password  -->
+               <span>
+                  <i class="fa fa-eye" aria-hidden="true"  type="button" id="eye"></i>
+               </span>
+               
+               
+                <br> --}}
+          <!--        buttons -->
+          <!--      button LogIn -->
              </div>
+            
+          <!--   other buttons -->
+             {{-- <div class="other">
+          <!--      Forgot Password button-->
+                <button class="btn submits frgt-pass">Forgot Password</button>
+          <!--     Sign Up button -->
+                <button class="btn submits sign-up">Sign Up 
+          <!--         Sign Up font icon -->
+                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </button>
+          <!--      End Other the Division -->
+             </div> --}}
+               
+          <!--   End Conrainer  -->
             </div>
+            
+            <!-- End Form -->
           
       <hr>    
       <div class="modal-footer" style="">
@@ -420,6 +460,11 @@ input:focus {
   </div>
 </div>
 </div>
+
+
+
+
+
 {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button> --}}
 
 <div class="modal fade" id="exampleModalCenteredelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -436,7 +481,7 @@ input:focus {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <form action="{{ route('clientes.delete', $clientes) }}" method="POST">
+        <form action="{{ route('clientes.delete',1) }}" method="POST">
           @csrf
           @method('DELETE')
           <button class="btn btn-danger" type="submit" rel="tooltip">
@@ -454,7 +499,14 @@ function edit(id) {
   
   document.getElementById("edit").value=2;
   document.getElementById("idcliente").value=id;
-}
+         $.get('{{ route('cliente') }}'), function(data){  
+            
+                   console.log(data);
+                $.each(data, function(id, opt) {
+                                         
+                    $("#nombresapellidos").val(data.nombresapellidos);
+                });
+}}
 
   // Show/hide password onClick of button using Javascript only
 
@@ -484,7 +536,24 @@ document.getElementById("eye").addEventListener("click", function () {
 
 
 
+$('#exampleModalCenteredelete').on('show.bs.modal', function (event)
+{
+  // Button that triggered the modal
+  var button = $(event.relatedTarget)
+  // Extract info from data-bs-* attributes
+  var id = button.data('id')
+  // If necessary, you could initiate an AJAX request here
+  // and then do the updating in a callback.
+  //
+  // Update the modal's content.
+  var modal = $(this)
+    modal.find('.modal-title').text('Se va a eliminar el registro: ' + id)
+  // const modalTitle = exampleModal.querySelector('.modal-title')
+  // const modalBodyInput = exampleModal.querySelector('.modal-body input')
 
+  // modalTitle.textContent = `New message to ${recipient}`
+  // modalBodyInput.value = recipient
+})
 
 
 // const exampleModal = document.getElementById('exampleModalCenteredelete')
