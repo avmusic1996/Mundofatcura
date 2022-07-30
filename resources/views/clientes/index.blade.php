@@ -68,11 +68,7 @@
                             
                                   <td class="td-actions text-right">
                                   
-<<<<<<< HEAD
-                                  <a href="{{ $cliente->id }}" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenteredit"><i class="material-icons">Editar</i></a>
-=======
                                   <a  onclick="edit('{{$cliente->id}}')" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="material-icons">Editar</i></a>
->>>>>>> ac1f7d3a4dec71a0673ef6c7f8016707eb6d1b0b
 
                                   {{-- <a href="" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="material-icons">Editar</i></a> --}}
                                   <a href="" class="btn btn-primary"><i class="material-icons">Detalles</i></a>
@@ -424,115 +420,6 @@ input:focus {
   </div>
 </div>
 </div>
-
-
-
-<<<<<<< HEAD
-            @csrf
-            @method('PUT')
-             <!--   con = Container  for items in the form-->
-             <div class="con">
-             <!--     Start  header Content  -->
-             
-             <!--     End  header Content  -->
-             <br>
-             <div class="field-set">
-               <div class="row">
-                 <div class="col-md-4 d-flex pt-3">
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="nit" class="form-input" id="txt-input" type="text" placeholder="Nit" required value="{{ old('nit', $cliente->nit) }}" autofocus>
-               
-
-                 </div>
-                 <div class="col-md-4 d-flex pt-3">
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="nombresapellidos" class="form-input" id="txt-input" type="text" placeholder="Nombres y apellidos" required value="{{ old('nombresapellidos', $cliente->nombresapellidos) }}" autofocus>
-                 </div>
-                 <div class="col-md-4 d-flex pt-3"> 
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="razonsocial" class="form-input" id="txt-input" type="text" placeholder="Razon social (Si acredita)" required value="{{ old('razonsocial', $cliente->razonsocial) }}" autofocus>
-                 </div>
-
-                 <div class="col-md-4 d-flex pt-3">
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="tipodocumento" class="form-input" id="txt-input" type="text" placeholder="Tipo documento" required value="{{ old('tipodocumento', $cliente->tipodocumento) }}" autofocus>
-                 </div>
-                 
-                 <div class="col-md-4 d-flex pt-3">
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="numerodocumento" class="form-input" id="txt-input" type="text" placeholder="Numero id" required value="{{ old('numerodocumento', $cliente->numerodocumento) }}" autofocus>
-                 </div>
-                 <div class="col-md-4 d-flex pt-3">
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="correoelectronico" class="form-input" id="txt-input" type="text" placeholder="@ejemplo.com" required value="{{ old('correoelectronico', $cliente->correoelectronico) }}" autofocus>
-                 </div>
-
-                 
-                 <div class="col-md-4 d-flex pt-3"> 
-                  <span class="input-item">
-                    <i class="fa fa-phone-square" aria-hidden="true"></i>
-                  </span>
-                  <input name="telefono" class="form-input" id="txt-input" type="text" placeholder="Telefono" required value="{{ old('telefono', $cliente->telefono) }}" autofocus>
-                 </div>
-                 <div class="col-md-4 d-flex pt-3"> 
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="celular" class="form-input" id="txt-input" type="text" placeholder="Celular" required value="{{ old('celular', $cliente->celular) }}" autofocus>
-                 </div>
-
-                 <div class="col-md-4 d-flex pt-3">
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="pais" class="form-input" id="txt-input" type="text" placeholder="Pais" required value="{{ old('pais', $cliente->pais) }}" autofocus>
-                 </div>
-                 <div class="col-md-4 d-flex pt-3">
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="departamento" class="form-input" id="txt-input" type="text" placeholder="Departamento" required value="{{ old('departamento', $cliente->departamento) }}" autofocus>
-                 </div>
-                 <div class="col-md-4 d-flex pt-3"> 
-                  <span class="input-item">
-                    <i class="fa fa-user-circle"></i>
-                  </span>
-                  <input name="municipio" class="form-input" id="txt-input" type="text" placeholder="Municipio" required value="{{ old('municipio', $cliente->municipio) }}" autofocus>
-                 </div>
-               </div>
-             </div>
-            </div>
-
-          
-      <hr>    
-      <div class="modal-footer" style="">
-        <button type="button" class="btn btn-cliente btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-cliente btn-primary">Save changes</button>
-      </div>
-
-    </form>
-    </div>
-  </div>
-</div>
-</div>
-=======
->>>>>>> ac1f7d3a4dec71a0673ef6c7f8016707eb6d1b0b
-
-
-
-
 {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button> --}}
 
 <div class="modal fade" id="exampleModalCenteredelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
