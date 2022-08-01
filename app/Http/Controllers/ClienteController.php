@@ -37,11 +37,22 @@ class ClienteController extends Controller
                'departamento' => 'required',
                'municipio' => 'required'
            ]);
+           if($request->get('edit')==1){
+            Clientes::create($request->all());
+            return redirect()->route('clientes.index')->with('success', 'Cliente registrado correctamente');
+           }
+           else
+           {
 
-        Clientes::create($request->all());
+            $id = $request->get('idcliente');
+            Clientes::whereid($id)->update(request()->except(['_token', 'edit', 'idcliente']));
+           return redirect()->route('clientes.index')->with('success', 'Usuario actualizado correctamente');
+           }
+
+      
          // $roles = $request->input('roles', []);
          // $user->syncRoles($roles);
-         return redirect()->route('clientes.index')->with('success', 'Cliente registrado correctamente');
+         
      }
 
      public function update(Request $request, $id)
@@ -83,10 +94,11 @@ class ClienteController extends Controller
     public function byCliente(request $request){
         $id = $request->get('id');
 
-        return DB::table('clientes as cliente')
+         $consulta = DB::table('clientes as cliente')
              ->select('cliente.id','cliente.nit','cliente.nombresapellidos','cliente.razonsocial','cliente.tipodocumento','numerodocumento','cliente.correoelectronico','cliente.telefono','cliente.celular','cliente.pais','cliente.departamento','cliente.municipio')
              ->where('cliente.id', '=', $id)
              ->get();
+             return json_encode($consulta);
     }
      
 }

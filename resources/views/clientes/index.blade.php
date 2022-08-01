@@ -31,7 +31,7 @@
                           <div class="col-12 text-right">
                             {{--@can('user_create')--}}
                             {{-- <a href="{{ route('clientes.create') }}" class="btn btn-md btn-primary">Añadir Cliente</a> --}}
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            <button type="button" onclick="create()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                               Añadir Cliente
                             </button>
                             {{--@endcan--}}
@@ -315,7 +315,7 @@ input:focus {
       <div class="modal-body">
     
           <!-- LOGN IN FORM by Omar Dsoky -->
-          <form class="form-cliente" action="{{ route('clientes.store') }}" method="post" enctype="multipart/form-data">
+          <form id="formsave" class="form-cliente" action="{{ route('clientes.store') }}" method="post" enctype="multipart/form-data">
 
             @csrf
              <!--   con = Container  for items in the form-->
@@ -334,7 +334,7 @@ input:focus {
                   </span>
                   
 
-                  <input name="nit" class="form-input" id="txt-input" type="text" placeholder="Nit" required>
+                  <input name="nit" class="form-input" id="nit" type="text" placeholder="Nit" required>
                
 
                  </div>
@@ -348,27 +348,32 @@ input:focus {
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="razonsocial" class="form-input" id="txt-input" type="text" placeholder="Razon social (Si acredita)" required>
+                  <input name="razonsocial" class="form-input" id="razonsocial" type="text" placeholder="Razon social (Si acredita)" required>
                  </div>
 
                  <div class="col-md-4 d-flex pt-3">
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="tipodocumento" class="form-input" id="txt-input" type="text" placeholder="Tipo documento" required>
+                  <select style="padding-left: 14px;color:#5E6472;border:0px; width:100%;box-shadow: 5px 5px 15px 5px rgb(0 0 0 / 20%);" name="tipodocumento" class="form-input" id="tipodocumento" required>
+                    <option value="pasaporte">Pasaporte<option>
+                    <option value="extranjera">Cedula extranjera<option>
+                    <option value="ciudadania">Cedula de ciudadanía<option>
+                </select>
+                  
                  </div>
                  
                  <div class="col-md-4 d-flex pt-3">
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="numerodocumento" class="form-input" id="txt-input" type="text" placeholder="Numero id" required>
+                  <input name="numerodocumento" class="form-input" id="numerodocumento" type="text" placeholder="Numero id" required>
                  </div>
                  <div class="col-md-4 d-flex pt-3">
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="correoelectronico" class="form-input" id="txt-input" type="text" placeholder="@ejemplo.com" required>
+                  <input name="correoelectronico" class="form-input" id="correoelectronico" type="text" placeholder="@ejemplo.com" required>
                  </div>
 
                  
@@ -376,32 +381,32 @@ input:focus {
                   <span class="input-item">
                     <i class="fa fa-phone-square" aria-hidden="true"></i>
                   </span>
-                  <input name="telefono" class="form-input" id="txt-input" type="text" placeholder="Telefono" required>
+                  <input name="telefono" class="form-input" id="telefono" type="text" placeholder="Telefono" required>
                  </div>
                  <div class="col-md-4 d-flex pt-3"> 
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="celular" class="form-input" id="txt-input" type="text" placeholder="Celular" required>
+                  <input name="celular" class="form-input" id="celular" type="text" placeholder="Celular" required>
                  </div>
 
                  <div class="col-md-4 d-flex pt-3">
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="pais" class="form-input" id="txt-input" type="text" placeholder="Pais" required>
+                  <input name="pais" class="form-input" id="pais" type="text" placeholder="Pais" required>
                  </div>
                  <div class="col-md-4 d-flex pt-3">
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="departamento" class="form-input" id="txt-input" type="text" placeholder="Departamento" required>
+                  <input name="departamento" class="form-input" id="departamento" type="text" placeholder="Departamento" required>
                  </div>
                  <div class="col-md-4 d-flex pt-3"> 
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  <input name="municipio" class="form-input" id="txt-input" type="text" placeholder="Municipio" required>
+                  <input name="municipio" class="form-input" id="municipio" type="text" placeholder="Municipio" required>
                  </div>
                </div>
                 <!--   user name -->
@@ -493,20 +498,50 @@ input:focus {
   </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
+function create() {
+  document.getElementById("edit").value=1;
+  document.getElementById("idcliente").value="";
+  document.getElementById("formsave").reset();
+}
 
 function edit(id) {
   
   document.getElementById("edit").value=2;
   document.getElementById("idcliente").value=id;
-         $.get('{{ route('cliente') }}'), function(data){  
-            
-                   console.log(data);
-                $.each(data, function(id, opt) {
-                                         
-                    $("#nombresapellidos").val(data.nombresapellidos);
-                });
-}}
+  $.get('{{ route('cliente') }}',{id:id}, function (data) {
+    const dataa = data.slice(1);
+    const dataaa = dataa.substr(0, dataa.length - 1);
+
+
+localStorage.setItem("testJSON", dataaa);
+
+// Retrieving data:
+let text = localStorage.getItem("testJSON");
+let obj = JSON.parse(text);
+
+document.getElementById("nit").value=obj.nit;
+document.getElementById("nombresapellidos").value=obj.nombresapellidos;
+document.getElementById("razonsocial").value=obj.razonsocial;
+document.getElementById("tipodocumento").value=obj.tipodocumento;
+document.getElementById("numerodocumento").value=obj.numerodocumento
+document.getElementById("correoelectronico").value=obj.correoelectronico;
+document.getElementById("telefono").value=obj.telefono
+document.getElementById("celular").value=obj.celular
+document.getElementById("pais").value=obj.pais
+document.getElementById("departamento").value=obj.departamento
+document.getElementById("municipio").value=obj.municipio;
+
+
+
+
+
+      
+        })
+
+ 
+         }
 
   // Show/hide password onClick of button using Javascript only
 
