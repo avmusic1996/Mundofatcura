@@ -79,16 +79,7 @@ class ClienteController extends Controller
            return redirect()->route('clientes.index')->with('success', 'Usuario actualizado correctamente');
      }
 
-     public function destroy($clientes)
-    {
-        $clientes =Clientes::where('id', $clientes)->firstOrFail();
-        $clientes->delete();
-        return back()->with('succes', 'Usuario ELIMINADO correctamente');
-
-
-        // $clientes->delete();
-        // return back()->with('succes', 'Usuario ELIMINADO correctamente');
-    }
+    
 
 
     public function byCliente(request $request){
@@ -100,5 +91,17 @@ class ClienteController extends Controller
              ->get();
              return json_encode($consulta);
     }
-     
+
+
+    public function destroy($id)
+    {
+        $clientes = Clientes::Find($id);
+        // if ($clientes != null) {
+        //     $clientes->delete();
+        //     return redirect()->route('clientes.index')->with(['message'=> 'Successfully deleted!!']);
+        // }
+        $clientes->delete();
+        return redirect()->route('clientes.index')->with(['message'=> 'Wrond ID!!']);
+   
+    }
 }

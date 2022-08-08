@@ -485,14 +485,16 @@ input:focus {
         </div>
       </div>
       <div class="modal-footer">
+        @foreach($clientes as $cliente)
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <form action="{{ route('clientes.delete',1) }}" method="POST">
+        <form action="{{ route('clientes.delete', $cliente->id) }}" method="POST">
           @csrf
           @method('DELETE')
           <button class="btn btn-danger" type="submit" rel="tooltip">
           <i class="material-icons">Eliminar</i>
           </button>
       </form>
+      @endforeach
       </div>
     </div>
   </div>

@@ -1,6 +1,8 @@
 <?php
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImageController;
+use App\Models\Productos;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,30 @@ Auth::routes();
 
 
 // RUTAS DE LOS USUARIOS
+
+Route::post('dropzone/store', [ImageController::class, 'upload_image'])->name('dropzone.store');
+Route::get('/imageinmueble/fetch_image_show', [App\Http\Controllers\ImageController::class, 'fetch_image_show'])->name('imageinmueble.fetch_image_show');
+
+Route::get('/imageinmueble/fetch_image_modal', [App\Http\Controllers\ImageController::class, 'fetch_image_modal'])->name('imageinmueble.fetch_image_modal');
+
+
+Route::get('/imageinmueble', [App\Http\Controllers\ImageController::class, 'index'])->name('imageinmueble.index');
+Route::get('/imageinmueble/upload_image', [App\Http\Controllers\ImageController::class, 'upload_image'])->name('imageinmueble.upload_image');
+Route::get('/imageinmueble/fetch_image', [App\Http\Controllers\ImageController::class, 'fetch_image'])->name('imageinmueble.fetch_image');
+Route::get('/imageinmueble/delete_image', [App\Http\Controllers\ImageController::class, 'delete_image'])->name('imageinmueble.delete_image');
+
+
+
+Route::get('/imageinmueble/set_image', [App\Http\Controllers\ImageController::class, 'set_image'])->name('imageinmueble.set_image');
+Route::get('/imageinmueble/set_image2', [App\Http\Controllers\ImageController::class, 'set_image2'])->name('imageinmueble.set_image2');
+
+
+
+
+
+
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
