@@ -91,7 +91,7 @@
   /* inputs form  */
   input[class="form-input"]{
     width: 100%;  
-    height: 48px;
+    height: 35px;
       margin-top: 0%;
       padding: 0px 10px 0px 18px;
   
@@ -105,8 +105,8 @@
     
       border-radius: 0px 5px 5px 0px;
       transition: 0.2s linear;
-      -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.2); 
-  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.2);
+      -webkit-box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11); 
+box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11);
       
   }
   input[id="txt-input"] {width: 100%;}
@@ -183,17 +183,20 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
+
+
+  <script src="https://cdn.ckeditor.com/ckeditor5/18.0.0/classic/ckeditor.js"></script>
 </head>
 <div class="container-fluid">
   <div class="main-content">
     <div class="row">
-      <div class="col-8">
+      <div class="col-md-8 col-sm-12">
         <div class="card">
           
-          <div class="panel panel-default" style="margin-top: 50px; background: rgba(255, 255, 255, 0.349);">
+          <div class="panel panel-default" style="background: rgba(255, 255, 255, 0.349);">
             <div class="panel-body">
              
-              <form id="dropzoneForm" class="dropzone text-dark" action="{{ route('dropzone.store') }}" accept-charset="UTF-8" enctype="multipart/form-data" style="background: #dcdf54; border:none; border-radius:20px;">
+              <form id="dropzoneForm" class="dropzone text-dark" action="{{ route('dropzone.store') }}" accept-charset="UTF-8" enctype="multipart/form-data" style="border:none; border-radius:20px;">
                 @csrf
                 <div class="dz-message" data-dz-message><span>Haz clic aqui y carga las fotos que deseas</span></div>
 
@@ -216,21 +219,101 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-md-4 col-sm-12">
         <div class="card">
-          Datos de valores
+          <div class="row p-3">
+            <div class="col-md-4">
+              <label for="">Valor total</label>
+            </div>
+            <div class="col-md-8 d-flex justify-content-end">
+              <label for="">uu</label>
+            </div>
+          </div>
+          <hr>
+          <div class="row p-3">
+            
+            <div class="col-md-4">
+              <label for="">Valor Unidad</label>
+            </div>
+            <div class="col-md-8 d-flex justify-content-end">
+              <label class="toUpper" id="toUpper" for=""></label>
+            </div>
+
+
+            <div class="col-md-4">
+              <label for="">IVA</label>
+            </div>
+            <div class="col-md-8 d-flex justify-content-end">
+              <label class="" for=""></label>
+            </div>
+
+          </div>
+          
         </div>
       </div>
 
-      <div class="col-8">
+      <div class="col-md-8 col-sm-12">
         <div class="card">
-          Detalles
+          <div class="row p-3">
+            <div class="col-md-8 col-sm-12 mt-3">
+              <label for="">Nombre del producto</label>
+              <input name="numerodocumento" class="form-input" id="numerodocumento" type="text" placeholder="Eje: Iphone" required>
+            </div>
+            <div class="col-md-4 col-sm-12 mt-3">
+              {{-- <span class="input-item">
+                <i class="fa fa-user-circle"></i>
+              </span> --}}
+              <label for="">Selecionar categoria</label>
+              <select style="height: 35px; padding-left: 14px;color:#5E6472;border:0px; width:100%; -webkit-box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11); 
+              box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11);" name="tipodocumento" class="form-input" id="tipodocumento" required>
+                <option value="pasaporte">Pasaporte<option>
+                <option value="extranjera">Cedula extranjera<option>
+                <option value="ciudadania">Cedula de ciudadanía<option>
+            </select>
+             </div>
+          <div class="col-md-4 mt-3">
+            <label for="">Stock</label>
+            <input name="stock" class="form-input" id="stock" type="number" placeholder="N°" required></div>
+          
+
+          {{-- <div class="col-md-4 mt-3">
+            <label for="">Stock</label>
+            <input name="stock" class="form-input" id="numerodocumento" type="text" placeholder="N°" required></div>
+          
+
+          <div class="col-md-4 mt-3">
+            <label for="">Stock</label>
+            <input name="stock" class="form-input" id="numerodocumento" type="text" placeholder="N°" required>
+          </div> --}}
+          <div class="mt-5 text-center">
+            <textarea  type="text" name="txtDescripcion" id="txtDescripcion"></textarea>
+          </div>
+          
         </div>
       </div>
 
-      <div class="col-4">
-        <div class="card">
-          Datos del vendedor y comprador
+      </div>
+
+      <div class="col-md-4 col-sm-12">
+        <div class="card p-3">
+          <h5>Valores del producto</h5>
+          <div class="row">
+            <div class="col-md-4 mt-3">
+            <label for="">Valor unidad</label>
+          </div>
+          <div class="col-md-8 mt-3">
+            <input name="stock" class="form-input" id="valorunidad" type="number" placeholder="N°" required>
+          </div>
+
+          <div class="col-md-4 mt-3">
+            <label for="">Valor IVA</label>
+          </div>
+          <div class="col-md-8 mt-3">
+            <input name="stock" class="form-input" id="iva" type="text" placeholder="N°" required>
+          </div>
+
+          </div>
+          
         </div>
       </div>
 
@@ -533,6 +616,43 @@ $.ajax({
       }
     })  
 }
+
+
+          ClassicEditor
+            .create( document.querySelector( '#txtDescripcion' ) )
+            .catch( error => {
+            console.error( error );
+            } );
+
+
+  
+  // let text = document.querySelector("#valorunidad").value;
+  let text1 = document.getElementById('valorunidad');
+  text1.addEventListener('keyup',(event) => 
+  {
+    let text = document.getElementById('valorunidad').value;
+    let stock = document.getElementById('stock').value;
+    
+    var valortotal = text * stock;
+
+    // var valortotal = event.path[0].value;
+    document.getElementById('toUpper').innerHTML = valortotal;
+    
+  }
+  );
+
+
+
+  // var iva = document.getElementById('iva');
+  // text.addEventListener('keyup',(event) => 
+  // {
+  //   var inputext = event.path[0].value;
+  //   document.querySelector('ToUpper').innerHTML = inputext.toUpperCase();
+  // });
+
+
+  
+
 
 </script>
 
