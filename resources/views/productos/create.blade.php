@@ -223,10 +223,10 @@ box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11);
         <div class="card">
           <div class="row p-3">
             <div class="col-md-4">
-              <label for="">Valor total</label>
+              <label for="" >Valor total</label>
             </div>
             <div class="col-md-8 d-flex justify-content-end">
-              <label for="">uu</label>
+              <label for="" id="total"></label>
             </div>
           </div>
           <hr>
@@ -244,7 +244,7 @@ box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11);
               <label for="">IVA</label>
             </div>
             <div class="col-md-8 d-flex justify-content-end">
-              <label class="" for=""></label>
+              <label class="" for="" id="totaliva"></label>
             </div>
 
           </div>
@@ -302,14 +302,14 @@ box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11);
             <label for="">Valor unidad</label>
           </div>
           <div class="col-md-8 mt-3">
-            <input name="stock" class="form-input" id="valorunidad" type="number" placeholder="N°" required>
+            <input name="stock" class="form-input" id="valorunidad" type="number"  placeholder="N°" required>
           </div>
 
           <div class="col-md-4 mt-3">
             <label for="">Valor IVA</label>
           </div>
           <div class="col-md-8 mt-3">
-            <input name="stock" class="form-input" id="iva" type="text" placeholder="N°" required>
+            <input name="stock" class="form-input" id="iva" type="number" onkeyup="myFunction()" placeholder="N°" required>
           </div>
 
           </div>
@@ -624,22 +624,23 @@ $.ajax({
             console.error( error );
             } );
 
+         
 
+   
+    
   
-  // let text = document.querySelector("#valorunidad").value;
-  let text1 = document.getElementById('valorunidad');
-  text1.addEventListener('keyup',(event) => 
-  {
-    let text = document.getElementById('valorunidad').value;
-    let stock = document.getElementById('stock').value;
-    
-    var valortotal = text * stock;
+            function myFunction() {
+  var x = document.getElementById("valorunidad").value;
+  var y = document.getElementById("iva").value;
+  var z = document.getElementById("stock").value;
+  var totaliva = (x * y)/100;
+  var total = x * z;
+  document.getElementById("toUpper").innerHTML = x;
+  document.getElementById("total").innerHTML = total;
+  document.getElementById("totaliva").innerHTML = totaliva;
 
-    // var valortotal = event.path[0].value;
-    document.getElementById('toUpper').innerHTML = valortotal;
-    
-  }
-  );
+}
+ 
 
 
 
