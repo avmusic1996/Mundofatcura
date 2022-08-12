@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use Image;
 use Session;
 
@@ -21,6 +20,7 @@ class CategoriaController extends Controller
      }
     
     public function store(Request $request){
+
 
         Categoria::create($request->all());
 
@@ -42,6 +42,24 @@ class CategoriaController extends Controller
 
      }
 
+     public function bycategorias(request $request){
+        $id = $request->get('id');
+
+         $consulta = DB::table('categorias as categoria')
+             ->select('categoria.id','categoria.titulo')
+             ->where('categoria.idusuario', '=', $id)
+             ->get();
+             $res = '<select style="height: 35px; padding-left: 14px;color:#5E6472;border:0px; width:100%;" name="categoria_id" class="form-input" id="cateogira_id" required>';
+             foreach ($consulta as $categoria) {
+
+                $res1 = '<option value="'.$categoria->id.'">'.$categoria->titulo.'</option>';
+                $res = $res.$res1;
+            }
+            $res = $res.'</select>';
+             return ($res);
+        
+    }
+
      public function show($id){
          Session::put('categoria_id',$id);
              return redirect('categoria.index');
@@ -53,7 +71,6 @@ class CategoriaController extends Controller
 
         $categoria = Categoria::findOrFail($id);
          $categoria->titulo=$request->input('titulo');
-         $categoria->titulo=$request->input('orden');
          $categoria->titulo=$request->input('descripcion');
         // $categoria->fill($request->all());
             //  $foto_anterior     = $categoria->urlfoto;

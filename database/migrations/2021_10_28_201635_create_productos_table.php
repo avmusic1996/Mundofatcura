@@ -15,10 +15,16 @@ class CreateProductosTable extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
-
-            $table->string('titulo');
-            $table->string('orden');
-
+            $table->string('nombrepro');
+            $table->string('categoria_id');
+            $table->string('stockpro');
+            $table->string('marcapro');
+            $table->string('codigopro');
+            $table->string('modelopro');
+            $table->string('codigoprosku');
+            // $table->string('txtdescripcion');
+            $table->string('valorunidad');
+            $table->string('iva');
             $table->timestamps();
         });
     }

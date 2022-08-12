@@ -105,8 +105,9 @@
     
       border-radius: 0px 5px 5px 0px;
       transition: 0.2s linear;
-      -webkit-box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11); 
-box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11);
+      border-bottom: 1px solid #797373;
+      /* -webkit-box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11); 
+box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11); */
       
   }
   input[id="txt-input"] {width: 100%;}
@@ -114,6 +115,8 @@ box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11);
   input:focus {
       transform: translateX(-5px);
       border-radius: 30px;
+      -webkit-box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77); 
+box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
   }
   
   
@@ -190,6 +193,8 @@ box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11);
 <div class="container-fluid">
   <div class="main-content">
     <div class="row">
+      {{-- <form action="{{ route('productos.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
+            @csrf --}}
       <div class="col-md-8 col-sm-12">
         <div class="card">
           
@@ -218,76 +223,108 @@ box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11);
           </div>
         </div>
       </div>
-
-      <div class="col-md-4 col-sm-12">
-        <div class="card">
+      
+      <div class="col-md-4 col-sm-12" style="">
+        <div class="card" style="box-shadow: inset 0px 5px 30px -3px rgba(16, 109, 104, 0.336);">
           <div class="row p-3">
-            <div class="col-md-4">
-              <label for="" >Valor total</label>
+            <div class="col-md-12">
+              <label for="" >Valor total con IVA</label>
             </div>
-            <div class="col-md-8 d-flex justify-content-end">
+            <div class="col-md-12 d-flex justify-content-end">
+              <label style="font-weight: 700; font-size:25px; color:rgb(214, 40, 40);" for="" id="totalconiva"></label>
+            </div>
+
+            <div class="col-md-12">
+              <label for="" >Valor total sin IVA x STOCK</label>
+            </div>
+            
+            <div class="col-md-12 d-flex justify-content-end">
               <label for="" id="total"></label>
             </div>
+
           </div>
           <hr>
           <div class="row p-3">
             
-            <div class="col-md-4">
+            <div class="col-md-6">
               <label for="">Valor Unidad</label>
             </div>
-            <div class="col-md-8 d-flex justify-content-end">
+            <div class="col-md-6 d-flex justify-content-end">
               <label class="toUpper" id="toUpper" for=""></label>
             </div>
 
 
-            <div class="col-md-4">
+            <div class="col-md-6">
               <label for="">IVA</label>
+              <p id="ivaporcentaje"></p>
             </div>
-            <div class="col-md-8 d-flex justify-content-end">
+            <div class="col-md-6 d-flex justify-content-end">
               <label class="" for="" id="totaliva"></label>
+            </div>
+
+            <div class="col-md-10">
+              <label for="">Cantidad</label>
+              <label for="" id=""></label>
+            </div>
+            <div class="col-md-2 d-flex justify-content-end">
+              <label for="" id="cantstock"></label>
             </div>
 
           </div>
           
         </div>
       </div>
-
+      <form action="{{ route('productos.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
+        @csrf
+        <div class="row">
       <div class="col-md-8 col-sm-12">
-        <div class="card">
-          <div class="row p-3">
+        <div class="card p-4" style="box-shadow: inset 0px 5px 30px -3px rgba(16, 109, 104, 0.336);">
+          <div class="row">
+            <div class="col-12">
+              <h5>Detalles del producto</h5>
+            </div>
+            
             <div class="col-md-8 col-sm-12 mt-3">
               <label for="">Nombre del producto</label>
-              <input name="numerodocumento" class="form-input" id="numerodocumento" type="text" placeholder="Eje: Iphone" required>
+              <input name="nombrepro" class="form-input" id="nombrepro" type="text" placeholder="Eje: Iphone" required>
             </div>
             <div class="col-md-4 col-sm-12 mt-3">
               {{-- <span class="input-item">
                 <i class="fa fa-user-circle"></i>
               </span> --}}
+
               <label for="">Selecionar categoria</label>
-              <select style="height: 35px; padding-left: 14px;color:#5E6472;border:0px; width:100%; -webkit-box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11); 
-              box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11);" name="tipodocumento" class="form-input" id="tipodocumento" required>
-                <option value="pasaporte">Pasaporte<option>
-                <option value="extranjera">Cedula extranjera<option>
-                <option value="ciudadania">Cedula de ciudadanía<option>
-            </select>
+                <div id="cate_id"></div>
              </div>
           <div class="col-md-4 mt-3">
             <label for="">Stock</label>
-            <input name="stock" class="form-input" id="stock" type="number" placeholder="N°" required></div>
-          
-
-          {{-- <div class="col-md-4 mt-3">
-            <label for="">Stock</label>
-            <input name="stock" class="form-input" id="numerodocumento" type="text" placeholder="N°" required></div>
+            <input name="stockpro" class="form-input" id="stock" type="number" placeholder="N°" required onkeyup="myFunction()"></div>
           
 
           <div class="col-md-4 mt-3">
-            <label for="">Stock</label>
-            <input name="stock" class="form-input" id="numerodocumento" type="text" placeholder="N°" required>
-          </div> --}}
-          <div class="mt-5 text-center">
-            <textarea  type="text" name="txtDescripcion" id="txtDescripcion"></textarea>
+            <label for="">Codigo</label>
+            <input name="codigopro" class="form-input" id="codigopro" type="text" placeholder="N°" required></div>
+          
+
+          <div class="col-md-4 mt-3">
+            <label for="">Marca</label>
+            <input name="marcapro" class="form-input" id="marcapro" type="text" placeholder="Eje: Apple" required>
           </div>
+
+          <div class="col-md-4 mt-3">
+            <label for="">Modelo</label>
+            <input name="modelopro" class="form-input" id="modelopro" type="text" placeholder="Eje: Pro max" required>
+          </div>
+
+          <div class="col-md-4 mt-3">
+            <label for="">Codigo SKU</label>
+            <input name="codigoprosku" class="form-input" id="codigoprosku" type="text" placeholder="Eje: Pro max" required>
+          </div>
+
+
+          {{-- <div class="col-md-12 mt-5 d-flex justify-content-center">
+            <textarea  type="text" name="txtdescripcion" id="txtdescripcion"></textarea>
+          </div> --}}
           
         </div>
       </div>
@@ -295,244 +332,34 @@ box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11);
       </div>
 
       <div class="col-md-4 col-sm-12">
-        <div class="card p-3">
+        <div class="card p-4" style="box-shadow: inset 0px 5px 30px -3px rgba(16, 109, 104, 0.336);">
           <h5>Valores del producto</h5>
           <div class="row">
             <div class="col-md-4 mt-3">
             <label for="">Valor unidad</label>
           </div>
           <div class="col-md-8 mt-3">
-            <input name="stock" class="form-input" id="valorunidad" type="number"  placeholder="N°" required>
+            <input name="valorunidad" class="form-input" id="valorunidad" type="number"  placeholder="N°" required onkeyup="myFunction()">
           </div>
 
           <div class="col-md-4 mt-3">
             <label for="">Valor IVA</label>
           </div>
           <div class="col-md-8 mt-3">
-            <input name="stock" class="form-input" id="iva" type="number" onkeyup="myFunction()" placeholder="N°" required>
+            <input name="iva" class="form-input" id="iva" type="number" onkeyup="myFunction()" placeholder="N°" required>
           </div>
 
           </div>
           
         </div>
       </div>
-
-      
-      <div class="col-sm-10">
-        <form action="{{ route('productos.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
-          @csrf
-           <!--   con = Container  for items in the form-->
-           <div class="con">
-           <!--     Start  header Content  -->
-           
-           <!--     End  header Content  -->
-           <br>
-           <input class="invisible" name="edit" id="edit" type="number" value="1" >
-                <input class="invisible" name="idcliente" id="idcliente" type="number" value="0" >
-           <div class="field-set">
-             <div class="row">
-               <div class="col-md-4 d-flex pt-3">
-                <span class="input-item">
-                  <i class="fa fa-user-circle"></i>
-                </span>
-                
-
-                <input name="nit" class="form-input" id="nit" type="text" placeholder="Nit" required>
-             
-
-               </div>
-               <div class="col-md-4 d-flex pt-3">
-                <span class="input-item">
-                  <i class="fa fa-user-circle"></i>
-                </span>
-                <input name="nombresapellidos" class="form-input" id="nombresapellidos" type="text" placeholder="Nombres y apellidos" required>
-               </div>
-               <div class="col-md-4 d-flex pt-3"> 
-                <span class="input-item">
-                  <i class="fa fa-user-circle"></i>
-                </span>
-                <input name="razonsocial" class="form-input" id="razonsocial" type="text" placeholder="Razon social (Si acredita)" required>
-               </div>
-
-               <div class="col-md-4 d-flex pt-3">
-                <span class="input-item">
-                  <i class="fa fa-user-circle"></i>
-                </span>
-                <select style="padding-left: 14px;color:#5E6472;border:0px; width:100%;box-shadow: 5px 5px 15px 5px rgb(0 0 0 / 20%);" name="tipodocumento" class="form-input" id="tipodocumento" required>
-                  <option value="pasaporte">Pasaporte<option>
-                  <option value="extranjera">Cedula extranjera<option>
-                  <option value="ciudadania">Cedula de ciudadanía<option>
-              </select>
-                
-               </div>
-               
-               <div class="col-md-4 d-flex pt-3">
-                <span class="input-item">
-                  <i class="fa fa-user-circle"></i>
-                </span>
-                <input name="numerodocumento" class="form-input" id="numerodocumento" type="text" placeholder="Numero id" required>
-               </div>
-               <div class="col-md-4 d-flex pt-3">
-                <span class="input-item">
-                  <i class="fa fa-user-circle"></i>
-                </span>
-                <input name="correoelectronico" class="form-input" id="correoelectronico" type="text" placeholder="@ejemplo.com" required>
-               </div>
-
-               
-               <div class="col-md-4 d-flex pt-3"> 
-                <span class="input-item">
-                  <i class="fa fa-phone-square" aria-hidden="true"></i>
-                </span>
-                <input name="telefono" class="form-input" id="telefono" type="text" placeholder="Telefono" required>
-               </div>
-               <div class="col-md-4 d-flex pt-3"> 
-                <span class="input-item">
-                  <i class="fa fa-user-circle"></i>
-                </span>
-                <input name="celular" class="form-input" id="celular" type="text" placeholder="Celular" required>
-               </div>
-
-               <div class="col-md-4 d-flex pt-3">
-                <span class="input-item">
-                  <i class="fa fa-user-circle"></i>
-                </span>
-                <input name="pais" class="form-input" id="pais" type="text" placeholder="Pais" required>
-               </div>
-               <div class="col-md-4 d-flex pt-3">
-                <span class="input-item">
-                  <i class="fa fa-user-circle"></i>
-                </span>
-                <input name="departamento" class="form-input" id="departamento" type="text" placeholder="Departamento" required>
-               </div>
-               <div class="col-md-4 d-flex pt-3"> 
-                <span class="input-item">
-                  <i class="fa fa-user-circle"></i>
-                </span>
-                <input name="municipio" class="form-input" id="municipio" type="text" placeholder="Municipio" required>
-               </div>
-             </div>
-              <!--   user name -->
-                 {{-- <span class="input-item">
-                   <i class="fa fa-user-circle"></i>
-                 </span>
-                <!--   user name Input-->
-                 <input class="form-input" id="txt-input" type="text" placeholder="@UserName" required>
-             
-              <br> --}}
-             
-                   {{-- <!--   Password -->
-             
-              <span class="input-item">
-                <i class="fa fa-key"></i>
-               </span>
-              <!--   Password Input-->
-              <input class="form-input" type="password" placeholder="Password" id="pwd"  name="password" required>
-             
-        <!--      Show/hide password  -->
-             <span>
-                <i class="fa fa-eye" aria-hidden="true"  type="button" id="eye"></i>
-             </span>
-             
-             
-              <br> --}}
-        <!--        buttons -->
-        <!--      button LogIn -->
-           </div>
-          
-        <!--   other buttons -->
-           {{-- <div class="other">
-        <!--      Forgot Password button-->
-              <button class="btn submits frgt-pass">Forgot Password</button>
-        <!--     Sign Up button -->
-              <button class="btn submits sign-up">Sign Up 
-        <!--         Sign Up font icon -->
-              <i class="fa fa-user-plus" aria-hidden="true"></i>
-              </button>
-        <!--      End Other the Division -->
-           </div> --}}
-             
-        <!--   End Conrainer  -->
-          </div>
-          
-          <!-- End Form -->
-        
+    </div>     
     <hr>    
     <div class="modal-footer" style="">
-      <button type="button" class="btn btn-cliente btn-secondary" data-dismiss="modal">Close</button>
-      <button type="submit" class="btn btn-cliente btn-primary">Save changes</button>
+      <button type="button" class="btn btn-cliente btn-secondary" data-dismiss="modal">CANCELAR</button>
+      <button type="submit" class="btn btn-cliente btn-primary">GUARDAR CAMBIOS</button>
     </div>
-
   </form>
-        {{-- <form action="{{ route('categoria.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
-          @csrf
-        <div class="form-group">
-            <label for="title">INGRESE TITLE</label>
-            <input type="text" class="form-control" name="titulo" placeholder="Ingrese su nombre" value="{{ old('titulo') }}" autofocus>
-                    @if ($errors->has('titulo'))
-                      <span class="error text-danger" for="input-name">{{ $errors->first('titulo') }}</span>
-                    @endif
-        </div>
-
-        <div class="form-group">
-          <label for="title">INGRESE ORDEN</label>
-          <input type="text" class="form-control" name="orden" placeholder="Ingrese su nombre" value="{{ old('titulo') }}" autofocus>
-                  @if ($errors->has('orden'))
-                    <span class="error text-danger" for="input-name">{{ $errors->first('orden') }}</span>
-                  @endif
-        </div>
-
-      <div class="form-group">
-        <label for="title">INGRESE TITLE</label>
-        <textarea name="descripcion" id="" cols="30" rows="10" placeholder="Ingrese su nombre" value="{{ old('titulo') }}" autofocus></textarea>
-                @if ($errors->has('descripcion'))
-                  <span class="error text-danger" for="input-name">{{ $errors->first('descripcion') }}</span>
-                @endif
-      </div>
-
-        <button type="submit" class="btn col-md-12 btn-primary">Guardar</button>
-        </form> --}}
-
-
-          {{-- {!! Form::open(['route'=>['categoria.store'],'method'=>'POST','files'=>true]) !!} --}}
-{{-- 
-          <div class="jumbotron">
-              <div class="form-group">
-                  <label for="title">INGRESE TITLE</label>
-                  {!! Form::text('title',null ,['class'=>'form-control','maxlength'=>'67']) !!}
-              </div>
-              <div class="form-group">
-                  <label for="description">INGRESE DESCRIPTION</label>
-                  {!! Form::text('description',null ,['class'=>'form-control','maxlength'=>'67']) !!}
-              </div>
-
-              <div class="form-group">
-                  <label for="nombre">INGRESE NOMBRE</label>
-                  {!! Form::text('nombre',null ,['class'=>'form-control','maxlength'=>'67']) !!}
-              </div>
-              
-
-              <div class="form-group">
-                  <label for="orden">INGRESE ORDEN</label>
-                  {!! Form::text('orden',null ,['class'=>'form-control']) !!}
-              </div>
-
-              <div class="form-group">
-                <label for="descripcion">INGRESE DESCRIPCIÓN</label>
-                {!! Form::text('descripcion',null ,['class'=>'form-control','maxlength'=>'67']) !!}
-              </div>
-
-
-              <div class="form-group">
-                  <label for="urlfoto">IMAGEN</label> <br>
-                  <img src="/img/categoria/foto.jpg">
-                  {!! Form::file('urlfoto') !!}
-              </div>
-
-          </div>
-          {!! Form::submit('GUARDAR',['class'=>'btn btn-success']) !!}
-          {!! Form::close() !!} --}}
-      </div>
   </div>
   </div>
 </div>
@@ -629,18 +456,40 @@ $.ajax({
    
     
   
-            function myFunction() {
+  function myFunction() {
+
+  
   var x = document.getElementById("valorunidad").value;
   var y = document.getElementById("iva").value;
   var z = document.getElementById("stock").value;
   var totaliva = (x * y)/100;
   var total = x * z;
-  document.getElementById("toUpper").innerHTML = x;
-  document.getElementById("total").innerHTML = total;
+  var totalconiva = totaliva * z;
+  var totalconiva1 = total + totalconiva;
+  var monedaconiva = new Intl.NumberFormat("es-CO", {style: "currency", currency: "COP"}).format(totalconiva1);
+  var monedasiniva = new Intl.NumberFormat("es-CO", {style: "currency", currency: "COP"}).format(total);
+  var valoru = new Intl.NumberFormat("es-CO", {style: "currency", currency: "COP"}).format(x);
+  var porcentaje = "%";
+  document.getElementById("toUpper").innerHTML = valoru;
+  document.getElementById("total").innerHTML = monedasiniva;
   document.getElementById("totaliva").innerHTML = totaliva;
-
+  document.getElementById("totalconiva").innerHTML = monedaconiva;
+  document.getElementById("cantstock").innerHTML = z;
+  document.getElementById("ivaporcentaje").innerHTML = porcentaje + y;
 }
+
+
+window.onload = function(){  
+  $.get('{{ route('categorias') }}',{id:{{ auth()->id() }}}, function (data) {
+
+    document.getElementById("cate_id").innerHTML = data;
+        }
+)
+}
+  
  
+
+
 
 
 

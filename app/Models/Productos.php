@@ -8,17 +8,24 @@ use Illuminate\Database\Eloquent\Model;
 class Productos extends Model
 {
     use HasFactory;
-
+    // protected $table = "productos";
+    // protected $primaryKey = "id";
     protected $fillable = [
         'id',
         'nombrepro',
-        'categoriapro',
-        'stock',
+        'categoria_id',
+        'stockpro',
         'marcapro',
         'codigopro',
-        'descripcionpro',
+        'modelopro',
+        'codigoprosku',
+        // 'txtdescripcion',
         'valorunidad',
         'iva',
-        'cantidad',
     ];
+
+    public function categoria()
+    {
+        return $this->belongsToMany(Categoria::class);
+    }
 }

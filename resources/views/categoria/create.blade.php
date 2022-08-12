@@ -8,24 +8,21 @@
       <div class="col-sm-10">
         <form action="{{ route('categoria.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
           @csrf
-        <div class="form-group">
-            <label for="title">INGRESE TITLE</label>
-            <input type="text" class="form-control" name="titulo" placeholder="Ingrese su nombre" value="{{ old('titulo') }}" autofocus>
-                    @if ($errors->has('titulo'))
-                      <span class="error text-danger" for="input-name">{{ $errors->first('titulo') }}</span>
-                    @endif
-        </div>
+        
+
+        <input type="text" class="" name="idusuario" id="idusuario" value="{{ auth()->id() }}">
+        
 
         <div class="form-group">
-          <label for="title">INGRESE ORDEN</label>
-          <input type="text" class="form-control" name="orden" placeholder="Ingrese su nombre" value="{{ old('titulo') }}" autofocus>
-                  @if ($errors->has('orden'))
-                    <span class="error text-danger" for="input-name">{{ $errors->first('orden') }}</span>
+          <label for="title">INGRESE NOMBRE CATEGORIA</label>
+          <input type="text" class="form-control" name="titulo" placeholder="Ingrese su nombre" value="{{ old('titulo') }}" autofocus>
+                  @if ($errors->has('titulo'))
+                    <span class="error text-danger" for="input-name">{{ $errors->first('titulo') }}</span>
                   @endif
         </div>
 
       <div class="form-group">
-        <label for="title">INGRESE TITLE</label>
+        <label for="title">INGRESE descripcion</label>
         <textarea name="descripcion" id="" cols="30" rows="10" placeholder="Ingrese su nombre" value="{{ old('titulo') }}" autofocus></textarea>
                 @if ($errors->has('descripcion'))
                   <span class="error text-danger" for="input-name">{{ $errors->first('descripcion') }}</span>

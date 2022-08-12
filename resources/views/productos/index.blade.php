@@ -49,7 +49,7 @@
                         <div class="table-responsive">
                           <table class="table">
                             <thead class="text-primary">
-                              <th>Imagen</th>
+
                               <th>Codigo</th>
                               <th>Nombre</th>
                               <th>Cantidad</th>
@@ -58,13 +58,14 @@
                               <th class="text-right">Acciones</th>
                             </thead>
                             <tbody>
+                              @forelse ($productos as $producto)
                                 <tr>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  <td></td>
-                                  {{-- <td class="td-actions text-right">
+                                  <td>{{$producto->codigopro}}</td>
+                                  <td>{{$producto->nombrepro}}</td>
+                                  <td>{{$producto->stockpro}}</td>
+                                  <td>{{$producto->valorunidad}}</td>
+                                  <td>{{$producto->categoria_id}}</td>
+                                  <td class="td-actions text-right">
                                 
                                   <a href="" class="btn btn-warning"><i class="material-icons">Editar</i></a>
   
@@ -80,7 +81,7 @@
                                     </button>
                                 </form>
                                   
-                                  </td> --}}
+                                  </td>
                                   {{-- <td>
                                       @forelse ($user->roles as $role)
                                         <span class="badge badge-info">{{ $role->name }}</span>
@@ -106,6 +107,9 @@
                                     @endcan
                                   </td> --}}
                                 </tr>
+                                @empty
+                            
+                        @endforelse
                             
                             </tbody>
                           </table>

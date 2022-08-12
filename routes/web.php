@@ -113,6 +113,7 @@ Route::delete('/productos/{user}', [App\Http\Controllers\ProductosController::cl
 
 Route::put('/productos/{user}', [App\Http\Controllers\ProductosController::class, 'update'])->name('productos.update');
 
+Route::get('/Categorias', [App\Http\Controllers\CategoriaController::class, 'bycategorias'])->name('categorias');
 // FIN DE LAS RUTAS DE PRODUCTOS
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////

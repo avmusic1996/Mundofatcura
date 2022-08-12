@@ -2,11 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
-
-
-
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Productos;
@@ -17,10 +12,29 @@ use Session;
 class ProductosController extends Controller
 {
     public function index(){
-        return view('productos.index');
+        $productos = Productos::all();
+        return view('productos.index',compact('productos'));
      }
     public function create(){
          return view('productos.create');
+     }
+     public function store(Request $request)
+     {
+        $request->validate([
+            'nombrepro' => 'required',
+            'categoria_id' => 'required',
+            'stockpro' => 'required',
+            'marcapro' => 'required',
+            'codigopro' => 'required',
+            'modelopro' => 'required',
+            'codigoprosku' => 'required',
+            'iva' => 'required',
+            'valorunidad' => 'required',
+        ]);
+        
+        Productos::create($request->all());
+        return redirect()->route('productos.index')->with('success', 'producto registrado correctamente');
+
      }
     // public function store(Request $request){
 
