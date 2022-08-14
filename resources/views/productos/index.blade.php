@@ -1,6 +1,9 @@
 
 @extends('layouts.main', ['activePage' => 'producto', 'titlePage' => 'PRODUCTOS'])
 @section('content')
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
       <div class="container-fluid">
         <div class="main-content">
 
@@ -53,7 +56,10 @@
                               <th>Codigo</th>
                               <th>Nombre</th>
                               <th>Cantidad</th>
+                              <th>Marca</th>
+                              <th>Modelo</th>
                               <th>Precio/U</th>
+                              <th>Iva</th>
                               <th>Categoria</th>
                               <th class="text-right">Acciones</th>
                             </thead>
@@ -63,24 +69,27 @@
                                   <td>{{$producto->codigopro}}</td>
                                   <td>{{$producto->nombrepro}}</td>
                                   <td>{{$producto->stockpro}}</td>
+                                  <td>{{$producto->marcapro}}</td>
+                                  <td>{{$producto->modelopro}}</td>
                                   <td>{{$producto->valorunidad}}</td>
+                                  <td>%{{$producto->iva}}</td>
                                   <td>{{$producto->categoria_id}}</td>
                                   <td class="td-actions text-right">
                                 
-                                  <a href="" class="btn btn-warning"><i class="material-icons">Editar</i></a>
+                                  <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-warning"><i class="material-icons">Editar</i></a>
   
                                   
                                   <a href="" class="btn btn-primary"><i class="material-icons">Detalles</i></a>
                                   
+
                                 
-                                  <form action="" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
+                                  <form action="{{ route('productos.delete', $producto->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-danger" type="submit" rel="tooltip">
                                     <i class="material-icons">Eliminar</i>
                                     </button>
                                 </form>
-                                  
                                   </td>
                                   {{-- <td>
                                       @forelse ($user->roles as $role)
@@ -127,7 +136,7 @@
       </div>
     
 @endsection
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js" integrity="sha512-U2WE1ktpMTuRBPoCFDzomoIorbOyUv0sP8B+INA3EzNAhehbzED1rOJg6bCqPf/Tuposxb5ja/MAUnC8THSbLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
   var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))
 triggerTabList.forEach(function (triggerEl) {
@@ -138,4 +147,6 @@ triggerTabList.forEach(function (triggerEl) {
     tabTrigger.show()
   })
 })
+
+
 </script>

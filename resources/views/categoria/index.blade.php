@@ -30,7 +30,7 @@
                     <tbody>
                         @forelse ($categorias as $item)
                         <tr>
-                            <td>{{$item->orden}}</td>
+                            <td id="id_pro"></td>
                             <td>{{$item->titulo}}</td>
                             <td>{{$item->descripcion}}</td>
                             <td>

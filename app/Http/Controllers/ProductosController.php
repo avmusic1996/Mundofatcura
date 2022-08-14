@@ -56,45 +56,55 @@ class ProductosController extends Controller
     //     return redirect('/productos');
 
     // }
-    // public function update(Request $request,$id){
+    public function update(Request $request,$id){
 
-    //     $producto = Producto::findOrFail($id);
+        $producto = Productos::find($id);
+        
+        $producto->nombrepro=$request->input('nombrepro');
+        $producto->categoria_id=$request->input('categoria_id');
+        $producto->stockpro=$request->input('stockpro');
+        $producto->marcapro=$request->input('marcapro');
+        $producto->codigopro=$request->input('codigopro');
+        $producto->modelopro=$request->input('modelopro');
+        $producto->codigoprosku=$request->input('codigoprosku');
+        $producto->iva=$request->input('iva');
+        $producto->valorunidad=$request->input('valorunidad');
+        $producto->save();
+        return redirect()->route('productos.index')->with('success', 'Usuario actualizado correctamente');
+        // $producto = Producto::findOrFail($id);
     
-    //     $foto_anterior     = $producto->urlfoto;
+        // $foto_anterior     = $producto->urlfoto;
 
 
-    //     if($request->hasFile('urlfoto')){
+        // if($request->hasFile('urlfoto')){
 
-    //         $rutaAnterior = public_path('/img/producto/'.$foto_anterior);
-    //         if(file_exists($rutaAnterior)){ unlink(realpath($rutaAnterior)); }
+        //     $rutaAnterior = public_path('/img/producto/'.$foto_anterior);
+        //     if(file_exists($rutaAnterior)){ unlink(realpath($rutaAnterior)); }
 
         
-    //         $nuevonombre = Str::slug($request->nombre).'.'.$imagen->guessExtension();
-    //         Image::make($imagen->getRealPath())
+        //     $nuevonombre = Str::slug($request->nombre).'.'.$imagen->guessExtension();
+        //     Image::make($imagen->getRealPath())
             
-    //         ->save( public_path('/img/producto/'.$nuevonombre));
+        //     ->save( public_path('/img/producto/'.$nuevonombre));
 
-    //         $producto->urlfoto = $nuevonombre;
-    //     }
-    //     $producto->slug    =   Str::slug($request->nombre);
-    //     $producto->save();
-    //     return redirect('/producto');
-    // }
+        //     $producto->urlfoto = $nuevonombre;
+        // }
+        // $producto->slug    =   Str::slug($request->nombre);
+        // $producto->save();
+        // return redirect('/producto');
+    }
 
     public function edit($id){ 
         $producto = Productos::findOrFail($id);
          return view('productos.edit',compact('producto'));
      }
 
-    
-    // public function destroy($id){
-    //     $producto = Producto::findOrFail($id);
-    //     if(file_exists($borrar)){ unlink(realpath($borrar)); }
-
-    //     $producto->delete();
-
-    //     return redirect('/admin/producto');
-    // }
+    public function destroy($id)
+    {
+        $producto = Productos::findOrFail($id);
+         $producto->delete();
+         return back()->with('succes', 'El producto se ha eliminado correctamente');
+    }
 }
 
 
@@ -177,8 +187,5 @@ class ProductosController extends Controller
 //      * @param  int  $id
 //      * @return \Illuminate\Http\Response
 //      */
-//     public function destroy($id)
-//     {
-//         //
-//     }
+    
 // }

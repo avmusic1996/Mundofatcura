@@ -29,20 +29,22 @@ Auth::routes();
 // RUTAS DE LOS USUARIOS
 
 Route::post('dropzone/store', [ImageController::class, 'upload_image'])->name('dropzone.store');
-Route::get('/imageinmueble/fetch_image_show', [App\Http\Controllers\ImageController::class, 'fetch_image_show'])->name('imageinmueble.fetch_image_show');
+Route::get('/productos/fetch_image_show', [App\Http\Controllers\ImageController::class, 'fetch_image_show'])->name('productos.fetch_image_show');
 
-Route::get('/imageinmueble/fetch_image_modal', [App\Http\Controllers\ImageController::class, 'fetch_image_modal'])->name('imageinmueble.fetch_image_modal');
-
-
-Route::get('/imageinmueble', [App\Http\Controllers\ImageController::class, 'index'])->name('imageinmueble.index');
-Route::get('/imageinmueble/upload_image', [App\Http\Controllers\ImageController::class, 'upload_image'])->name('imageinmueble.upload_image');
-Route::get('/imageinmueble/fetch_image', [App\Http\Controllers\ImageController::class, 'fetch_image'])->name('imageinmueble.fetch_image');
-Route::get('/imageinmueble/delete_image', [App\Http\Controllers\ImageController::class, 'delete_image'])->name('imageinmueble.delete_image');
+Route::get('/productos/fetch_image_modal', [App\Http\Controllers\ImageController::class, 'fetch_image_modal'])->name('productos.fetch_image_modal');
 
 
+Route::get('/productos', [App\Http\Controllers\ImageController::class, 'index'])->name('productos.index');
+Route::get('/productos/upload_image', [App\Http\Controllers\ImageController::class, 'upload_image'])->name('productos.upload_image');
+Route::get('/productos/fetch_image', [App\Http\Controllers\ImageController::class, 'fetch_image'])->name('productos.fetch_image');
+Route::get('/productos/delete_image', [App\Http\Controllers\ImageController::class, 'delete_image'])->name('productos.delete_image');
 
-Route::get('/imageinmueble/set_image', [App\Http\Controllers\ImageController::class, 'set_image'])->name('imageinmueble.set_image');
-Route::get('/imageinmueble/set_image2', [App\Http\Controllers\ImageController::class, 'set_image2'])->name('imageinmueble.set_image2');
+
+
+
+
+Route::get('/productos/set_image', [App\Http\Controllers\ImageController::class, 'set_image'])->name('productos.set_image');
+Route::get('/productos/set_image2', [App\Http\Controllers\ImageController::class, 'set_image2'])->name('productos.set_image2');
 
 
 
@@ -114,6 +116,8 @@ Route::delete('/productos/{user}', [App\Http\Controllers\ProductosController::cl
 Route::put('/productos/{user}', [App\Http\Controllers\ProductosController::class, 'update'])->name('productos.update');
 
 Route::get('/Categorias', [App\Http\Controllers\CategoriaController::class, 'bycategorias'])->name('categorias');
+
+
 // FIN DE LAS RUTAS DE PRODUCTOS
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////

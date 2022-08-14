@@ -16,7 +16,8 @@ class CategoriaController extends Controller
         return view("categoria.index",compact('categorias'));
     }
      public function create(){
-        return view('categoria.create');
+        $categorias = Categoria::all();
+        return view('categoria.create',compact('categorias'));
      }
     
     public function store(Request $request){
@@ -52,13 +53,34 @@ class CategoriaController extends Controller
              $res = '<select style="height: 35px; padding-left: 14px;color:#5E6472;border:0px; width:100%;" name="categoria_id" class="form-input" id="cateogira_id" required>';
              foreach ($consulta as $categoria) {
 
-                $res1 = '<option value="'.$categoria->id.'">'.$categoria->titulo.'</option>';
+                $res1 = '<option value="'.$categoria->titulo.'">'.$categoria->titulo.'</option>';
                 $res = $res.$res1;
             }
             $res = $res.'</select>';
              return ($res);
         
     }
+
+    // public function bycatepro(request $request){
+    //     $id = $request->get('stockpro');
+
+    //      $consulta1 = DB::table('productos as producto')
+    //          ->select('producto.stockpro','producto.stockpro')
+    //          ->where('producto.stockpro', '=', $id)
+    //          ->get();
+    //          $res = '<p>';
+    //          foreach ($consulta1 as $producto) {
+
+    //             $res1 = ''.$producto->stockpro.'';
+    //             $res = $res.$res1;
+    //         }
+    //         $res = $res.'</p>';
+    //          return ($res);
+        
+    // }
+    
+
+
 
      public function show($id){
          Session::put('categoria_id',$id);
