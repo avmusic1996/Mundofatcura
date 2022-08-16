@@ -30,17 +30,23 @@
                     <tbody>
                         @forelse ($categorias as $item)
                         <tr>
-                            <td>{{$item->orden}}</td>
-                            <td>{{$item->titulo}}</td>
-                            <td>{{$item->descripcion}}</td>
-                            <td>
-                                <a href="{{ route('productos.index',$item->id)}}" class="btn btn-success"><i class="material-icons">Productos</i></a>
-                                <a href="{{ route('categoria.edit',$item->id)}}" class="btn btn-warning"><i class="material-icons">Editar</i></a>
+                            <td id="id_pro"></td>
+                            <td style="font-size: 13px;">{{$item->titulo}}</td>
+                            <td style="font-size: 13px;">{{$item->descripcion}}</td>
+                            <td style="font-size: 13px;">
+
+                                <a href="{{ route('categoria.edit',$item->id)}}" class=""><img src="{{ asset('img/editar.png') }}" width="30" alt="" srcset=""></a>
+
+
+                                
+                                <a href="" class=""><img src="{{ asset('img/info.jpg') }}" width="30" alt="" srcset=""></a>
+                                
+                              <a href="" class=""><img src="{{ asset('img/verproductos.png') }}" width="30" alt="" srcset=""></a>
                                 <form action="{{ route('categoria.delete', $item->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
                                   @csrf
                                   @method('DELETE')
-                                  <button class="btn btn-danger" type="submit" rel="tooltip">
-                                  <i class="material-icons">Eliminar</i>
+                                  <button class="btn" type="submit" rel="tooltip"style="border: none; background: transparent;">
+                                    <img src="{{ asset('img/delete.png') }}" width="30" alt="" srcset="">
                                   </button>
                                 </form>
                             </td>

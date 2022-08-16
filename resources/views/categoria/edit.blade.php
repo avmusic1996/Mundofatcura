@@ -15,11 +15,23 @@
                           @endif
               </div>
       
+<<<<<<< HEAD
               
+=======
+              {{-- <div class="form-group">
+                <label for="title">INGRESE ORDEN</label>
+                <input type="text" class="form-control" name="orden" placeholder="Ingrese su nombre" value="{{ old('titulo', $categoria->orden) }}" autofocus>
+                        @if ($errors->has('orden'))
+                          <span class="error text-danger" for="input-name">{{ $errors->first('orden') }}</span>
+                        @endif
+              </div> --}}
+>>>>>>> f53c1bea7525cdbdf54166914dc642d3e3ff47e4
       
             <div class="form-group">
 
-              <input name="descripcion" id="" cols="80" rows="4" placeholder="Ingrese la descripcion de la categoria" value="{{ old('descripcion', $categoria->descripcion) }}" autofocus>
+              <textarea  cols="80" rows="4" placeholder="Ingrese la descripcion de la categoria" value="" autofocus>
+                {{ old('descripcion', $categoria->descripcion) }}
+              </textarea>
                       @if ($errors->has('descripcion'))
                         <span class="error text-danger" for="input-name">{{ $errors->first('descripcion') }}</span>
                       @endif

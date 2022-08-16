@@ -2,7 +2,10 @@
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\Categoriasontroller;
 use App\Models\Productos;
+use App\Models\Categorias;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,20 +32,22 @@ Auth::routes();
 // RUTAS DE LOS USUARIOS
 
 Route::post('dropzone/store', [ImageController::class, 'upload_image'])->name('dropzone.store');
-Route::get('/imageinmueble/fetch_image_show', [App\Http\Controllers\ImageController::class, 'fetch_image_show'])->name('imageinmueble.fetch_image_show');
+Route::get('/productos/fetch_image_show', [App\Http\Controllers\ImageController::class, 'fetch_image_show'])->name('productos.fetch_image_show');
 
-Route::get('/imageinmueble/fetch_image_modal', [App\Http\Controllers\ImageController::class, 'fetch_image_modal'])->name('imageinmueble.fetch_image_modal');
-
-
-Route::get('/imageinmueble', [App\Http\Controllers\ImageController::class, 'index'])->name('imageinmueble.index');
-Route::get('/imageinmueble/upload_image', [App\Http\Controllers\ImageController::class, 'upload_image'])->name('imageinmueble.upload_image');
-Route::get('/imageinmueble/fetch_image', [App\Http\Controllers\ImageController::class, 'fetch_image'])->name('imageinmueble.fetch_image');
-Route::get('/imageinmueble/delete_image', [App\Http\Controllers\ImageController::class, 'delete_image'])->name('imageinmueble.delete_image');
+Route::get('/productos/fetch_image_modal', [App\Http\Controllers\ImageController::class, 'fetch_image_modal'])->name('productos.fetch_image_modal');
 
 
+Route::get('/productos', [App\Http\Controllers\ImageController::class, 'index'])->name('productos.index');
+Route::get('/productos/upload_image', [App\Http\Controllers\ImageController::class, 'upload_image'])->name('productos.upload_image');
+Route::get('/productos/fetch_image', [App\Http\Controllers\ImageController::class, 'fetch_image'])->name('productos.fetch_image');
+Route::get('/productos/delete_image', [App\Http\Controllers\ImageController::class, 'delete_image'])->name('productos.delete_image');
 
-Route::get('/imageinmueble/set_image', [App\Http\Controllers\ImageController::class, 'set_image'])->name('imageinmueble.set_image');
-Route::get('/imageinmueble/set_image2', [App\Http\Controllers\ImageController::class, 'set_image2'])->name('imageinmueble.set_image2');
+
+
+
+
+Route::get('/productos/set_image', [App\Http\Controllers\ImageController::class, 'set_image'])->name('productos.set_image');
+Route::get('/productos/set_image2', [App\Http\Controllers\ImageController::class, 'set_image2'])->name('productos.set_image2');
 
 
 
@@ -99,6 +104,7 @@ Route::get('/Clientes', [App\Http\Controllers\ClienteController::class, 'byClien
 
 
 // RUTAS DE PRODUCTOS
+
 Route::get('/productos', [App\Http\Controllers\ProductosController::class, 'index'])->name('productos.index');
 
 Route::get('/productos/create', [App\Http\Controllers\ProductosController::class, 'create'])->name('productos.create');
@@ -113,7 +119,17 @@ Route::delete('/productos/{user}', [App\Http\Controllers\ProductosController::cl
 
 Route::put('/productos/{user}', [App\Http\Controllers\ProductosController::class, 'update'])->name('productos.update');
 
-Route::get('/Categorias', [App\Http\Controllers\CategoriaController::class, 'bycategorias'])->name('categorias');
+
+
+
+
+
+
+
+
+
+
+
 // FIN DE LAS RUTAS DE PRODUCTOS
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -158,6 +174,12 @@ Route::get('/categoria/{user}/edit', [App\Http\Controllers\CategoriaController::
 Route::delete('/categoria/{user}', [App\Http\Controllers\CategoriaController::class, 'destroy'])->name('categoria.delete');
 
 Route::put('/categoria/{user}', [App\Http\Controllers\CategoriaController::class, 'update'])->name('categoria.update');
+
+
+Route::get('/Categorias', [App\Http\Controllers\CategoriaController::class, 'bycategorias'])->name('categorias');
+
+// Route::get('/categorias', [App\Http\Controllers\CategoriaController::class, 'byconteo'])->name('categorias');
+
 // FIN DE LAS RUTAS DE CATEGORIAS
 
 // Route::get('/proveedor', [App\Http\Controllers\ProveedorController::class, 'index'])->name('proveedor.index');

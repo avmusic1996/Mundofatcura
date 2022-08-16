@@ -11,12 +11,14 @@ use Session;
 
 class CategoriaController extends Controller
 {
+
     public function index(){
         $categorias = Categoria::all();
         return view("categoria.index",compact('categorias'));
     }
      public function create(){
-        return view('categoria.create');
+        $categorias = Categoria::all();
+        return view('categoria.create',compact('categorias'));
      }
     
     public function store(Request $request){
@@ -41,6 +43,43 @@ class CategoriaController extends Controller
          return redirect()->route('categoria.index')->with('success', 'Usuario creado correctamente');
 
      }
+    //  public function byconteo(request $request)
+    // {
+    //     $stock = $request->get('stockpro');
+    //     $low = 5;
+    //     $lowmedium = 15;
+    //     $medium = 25;
+    //     $mediumfull = 33;
+    //     $full = 40;
+    //     $consulta = DB::table('productos as producto')
+    //     ->select('producto.stockpro')
+    //     ->get();
+    //     $etiqueta = '<a>';
+
+    //         foreach ($consulta as $producto) {
+    //             $resul = $producto->stockpro;
+    //             if ($resul <= $low) {
+    //                 $resul1 = '<div style="display:flex; justify-content: center; align-items:center;width:44px; height:30px; background:red; border-radius:50px; color:white;"><label style="position:relative;top:4px;">'.$producto->stockpro.'</label></div>';
+    //             }elseif ($resul <= $lowmedium) {
+    //                 $resul1 = '<div style="display:flex; justify-content: center; align-items:center;width:30px; height:30px; background:#FF7400; border-radius:50px; color:white;"><label>'.$producto->stockpro.'</label></div>';
+    //             }
+    //             elseif ($resul <= $medium) {
+    //                 $resul1 = '<div style="display:flex; justify-content: center; align-items:center;width:30px; height:30px; background:#FFE800; border-radius:50px; color:white;"><label>'.$producto->stockpro.'</label></div>';
+    //             }
+    //             elseif ($resul <= $mediumfull) {
+    //                 $resul1 = '<div style="display:flex; justify-content: center; align-items:center;width:30px; height:30px; background:#CDFF00; border-radius:50px; color:white;"><label>'.$producto->stockpro.'</label></div>';
+    //             }
+    //             elseif ($resul <= $full) {
+    //                 $resul1 = '<div style="display:flex; justify-content: center; align-items:center;width:30px; height:30px; background:#2FDC00; border-radius:50px; color:white;"><label>'.$producto->stockpro.'</label></div';
+    //             }
+    //             $etiqueta = $resul1.'</a>';
+    //             return ($etiqueta);
+                
+                                
+    //         }
+            
+    // }
+
 
      public function bycategorias(request $request){
         $id = $request->get('id');
@@ -52,13 +91,15 @@ class CategoriaController extends Controller
              $res = '<select style="height: 35px; padding-left: 14px;color:#5E6472;border:0px; width:100%;" name="categoria_id" class="form-input" id="cateogira_id" required>';
              foreach ($consulta as $categoria) {
 
-                $res1 = '<option value="'.$categoria->id.'">'.$categoria->titulo.'</option>';
+                $res1 = '<option value="'.$categoria->titulo.'">'.$categoria->titulo.'</option>';
                 $res = $res.$res1;
             }
             $res = $res.'</select>';
              return ($res);
-        
     }
+
+    
+
 
      public function show($id){
          Session::put('categoria_id',$id);
@@ -153,89 +194,3 @@ class CategoriaController extends Controller
     //     return redirect('/categoria');
     // }
 }
-
-
-
-
-
-
-// use Illuminate\Http\Request;
-
-// class CategoriaProducto extends Controller
-// {
-//     /**
-//      * Display a listing of the resource.
-//      *
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function index()
-//     {
-//         //
-//     }
-
-//     /**
-//      * Show the form for creating a new resource.
-//      *
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function create()
-//     {
-//         //
-//     }
-
-//     /**
-//      * Store a newly created resource in storage.
-//      *
-//      * @param  \Illuminate\Http\Request  $request
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function store(Request $request)
-//     {
-//         //
-//     }
-
-//     /**
-//      * Display the specified resource.
-//      *
-//      * @param  int  $id
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function show($id)
-//     {
-//         //
-//     }
-
-//     /**
-//      * Show the form for editing the specified resource.
-//      *
-//      * @param  int  $id
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function edit($id)
-//     {
-//         //
-//     }
-
-//     /**
-//      * Update the specified resource in storage.
-//      *
-//      * @param  \Illuminate\Http\Request  $request
-//      * @param  int  $id
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function update(Request $request, $id)
-//     {
-//         //
-//     }
-
-//     /**
-//      * Remove the specified resource from storage.
-//      *
-//      * @param  int  $id
-//      * @return \Illuminate\Http\Response
-//      */
-//     public function destroy($id)
-//     {
-//         //
-//     }
-// }

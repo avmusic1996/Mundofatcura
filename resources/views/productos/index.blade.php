@@ -1,6 +1,7 @@
 
 @extends('layouts.main', ['activePage' => 'producto', 'titlePage' => 'PRODUCTOS'])
 @section('content')
+
       <div class="container-fluid">
         <div class="main-content">
 
@@ -40,12 +41,6 @@
                             {{--@endcan--}}
                           </div>
                         </div>
-
-
-                       
-
-
-
                         <div class="table-responsive">
                           <table class="table">
                             <thead class="text-primary">
@@ -53,59 +48,72 @@
                               <th>Codigo</th>
                               <th>Nombre</th>
                               <th>Cantidad</th>
+                              <th>Marca</th>
+                              <th>Modelo</th>
                               <th>Precio/U</th>
+                              <th>Iva</th>
                               <th>Categoria</th>
                               <th class="text-right">Acciones</th>
                             </thead>
                             <tbody>
                               @forelse ($productos as $producto)
                                 <tr>
-                                  <td>{{$producto->codigopro}}</td>
-                                  <td>{{$producto->nombrepro}}</td>
-                                  <td>{{$producto->stockpro}}</td>
-                                  <td>{{$producto->valorunidad}}</td>
-                                  <td>{{$producto->categoria_id}}</td>
-                                  <td class="td-actions text-right">
+                                  <td style="font-size: 13px;">{{$producto->codigopro}}</td>
+                                  <td style="font-size: 13px;">{{$producto->nombrepro}}</td>
+                                  @if ($producto->stockpro <= 5)
+                                  
+                                    <td style="font-size: 13px;" id="stockpro"><label for="" style="width:44px; height:30px; background:red; border-radius:50px; color:white; display:flex; justify-content: center; align-items:center;" >{{$producto->stockpro}}</label></td>
+                                  
+
+                                  @elseif ($producto->stockpro <= 10)
+                                  
+                                    <td style="font-size: 13px;" id="stockpro"><label for="" style="width:44px; height:30px; background:rgb(255, 51, 0); border-radius:50px; color:white; display:flex; justify-content: center; align-items:center;" >{{$producto->stockpro}}</label></td>
+                                  
+                                  
+                                  @elseif ($producto->stockpro <= 20)
+                                  
+                                    <td style="font-size: 13px;" id="stockpro"><label for="" style="width:44px; height:30px; background:rgb(255, 145, 0); border-radius:50px; color:white; display:flex; justify-content: center; align-items:center;" >{{$producto->stockpro}}</label></td>
+                                  
+
+                                  @elseif ($producto->stockpro <= 25)
+                                  
+                                    <td style="font-size: 13px;" id="stockpro"><label for="" style="width:44px; height:30px;background:rgb(184, 181, 0); border-radius:50px; color:white; display:flex; justify-content: center; align-items:center;" >{{$producto->stockpro}}</label></td>
+                                  
+
+                                  @elseif ($producto->stockpro <= 30)
+                                  
+                                    <td style="font-size: 13px;" id="stockpro"><label for="" style="width:44px; height:30px; background:rgb(143, 196, 0); border-radius:50px; color:white; display:flex; justify-content: center; align-items:center;" >{{$producto->stockpro}}</label></td>
+                                  
+                                  @endif
+                                  
+
+
+                                  <td style="font-size: 13px;">{{$producto->marcapro}}</td>
+                                  <td style="font-size: 13px;">{{$producto->modelopro}}</td>
+                                  <td style="font-size: 13px;">{{$producto->valorunidad}}</td>
+                                  <td style="font-size: 13px;">%{{$producto->iva}}</td>
+                                  <td style="font-size: 13px;">{{$producto->categoria_id}}</td>
+                                  <td style="font-size: 13px;" class="td-actions text-right">
                                 
+<<<<<<< HEAD
                                   <a href="" class="btn btn-warning" onclick="editar('{{$producto->id}}'"><i class="material-icons">Editar</i></a>
+=======
+                                  <a href="{{ route('productos.edit', $producto->id) }}" class=""><img src="{{ asset('img/editar.png') }}" width="30" alt="" srcset=""></a>
+>>>>>>> f53c1bea7525cdbdf54166914dc642d3e3ff47e4
   
                                   
-                                  <a href="" class="btn btn-primary"><i class="material-icons">Detalles</i></a>
+                                  <a href="" class=""data-toggle="modal" data-target="#exampleModalCenterinfo"><img src="{{ asset('img/info.jpg') }}" width="30" alt="" srcset=""></a>
                                   
+
                                 
-                                  <form action="" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
+                                  <form action="{{ route('productos.delete', $producto->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger" type="submit" rel="tooltip">
-                                    <i class="material-icons">Eliminar</i>
+                                    <button class="btn" type="submit" rel="tooltip" style="border: none; background: transparent;">
+                                      <img src="{{ asset('img/delete.png') }}" width="30" alt="" srcset="">
                                     </button>
-                                </form>
-                                  
+                                  </form>
                                   </td>
-                                  {{-- <td>
-                                      @forelse ($user->roles as $role)
-                                        <span class="badge badge-info">{{ $role->name }}</span>
-                                      @empty
-                                        <span class="badge badge-danger">No roles</span>
-                                      @endforelse
-                                    </td>
-                                  <td class="td-actions text-right">
-                                    @can('user_show')
-                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
-                                    @endcan
-                                    @can('user_edit')
-                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>
-                                    @endcan
-                                    @can('user_destroy')
-                                    <form action="{{ route('users.delete', $user->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
-                                    @csrf
-                                    @method('DELETE')
-                                        <button class="btn btn-danger" type="submit" rel="tooltip">
-                                        <i class="material-icons">close</i>
-                                        </button>
-                                    </form>
-                                    @endcan
-                                  </td> --}}
                                 </tr>
                                 @empty
                             
@@ -115,7 +123,7 @@
                           </table>
                         </div>
                         <div class="card-footer ml-auto">
-                          {{-- {{ $users->links() }} --}}
+                          {{-- {{ $productos->links() }} --}}
                         </div>
                   </div>
                 </div>
@@ -125,9 +133,37 @@
         </div>
         
       </div>
+
+
+<div  class="modal fade bd-example-modal-lg" id="exampleModalCenterinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: #6777ef;">
+        <h5 class="modal-title text-white" id="exampleModalLongTitle">DETALLES DEL PRODUCTO</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ route('productos.index', $producto->id) }}">
+          <div class="row">
+          
+          <div class="col-md-7">
+
+          </div>
+          <div class="col-md-5">
+            <label for="" value="">{{$producto->nombrepro}}</label><br>
+            <label for="" value="">{{$producto->valorunidad}}</label>
+          </div>
+        
+        </div></form>
+      </div>
+    </div>
+  </div> 
+</div>
     
 @endsection
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js" integrity="sha512-U2WE1ktpMTuRBPoCFDzomoIorbOyUv0sP8B+INA3EzNAhehbzED1rOJg6bCqPf/Tuposxb5ja/MAUnC8THSbLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
   var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))
 triggerTabList.forEach(function (triggerEl) {
@@ -138,4 +174,11 @@ triggerTabList.forEach(function (triggerEl) {
     tabTrigger.show()
   })
 })
+
+// window.onload = function(){   
+//   $.get('{{ route('categorias') }}',{id:{{ auth()->id() }}}, function (data) {
+//     document.getElementById("stockpro").innerHTML = data;
+//         }
+// )
+// }
 </script>

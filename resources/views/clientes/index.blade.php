@@ -409,51 +409,8 @@ input:focus {
                   <input name="municipio" class="form-input" id="municipio" type="text" placeholder="Municipio" required>
                  </div>
                </div>
-                <!--   user name -->
-                   {{-- <span class="input-item">
-                     <i class="fa fa-user-circle"></i>
-                   </span>
-                  <!--   user name Input-->
-                   <input class="form-input" id="txt-input" type="text" placeholder="@UserName" required>
-               
-                <br> --}}
-               
-                     {{-- <!--   Password -->
-               
-                <span class="input-item">
-                  <i class="fa fa-key"></i>
-                 </span>
-                <!--   Password Input-->
-                <input class="form-input" type="password" placeholder="Password" id="pwd"  name="password" required>
-               
-          <!--      Show/hide password  -->
-               <span>
-                  <i class="fa fa-eye" aria-hidden="true"  type="button" id="eye"></i>
-               </span>
-               
-               
-                <br> --}}
-          <!--        buttons -->
-          <!--      button LogIn -->
              </div>
-            
-          <!--   other buttons -->
-             {{-- <div class="other">
-          <!--      Forgot Password button-->
-                <button class="btn submits frgt-pass">Forgot Password</button>
-          <!--     Sign Up button -->
-                <button class="btn submits sign-up">Sign Up 
-          <!--         Sign Up font icon -->
-                <i class="fa fa-user-plus" aria-hidden="true"></i>
-                </button>
-          <!--      End Other the Division -->
-             </div> --}}
-               
-          <!--   End Conrainer  -->
-            </div>
-            
-            <!-- End Form -->
-          
+            </div> 
       <hr>    
       <div class="modal-footer" style="">
         <button type="button" class="btn btn-cliente btn-secondary" data-dismiss="modal">Close</button>
@@ -534,15 +491,7 @@ document.getElementById("celular").value=obj.celular
 document.getElementById("pais").value=obj.pais
 document.getElementById("departamento").value=obj.departamento
 document.getElementById("municipio").value=obj.municipio;
-
-
-
-
-
-      
         })
-
- 
          }
 
   // Show/hide password onClick of button using Javascript only
