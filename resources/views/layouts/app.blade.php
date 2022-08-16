@@ -93,6 +93,7 @@ window.dataLayer = window.dataLayer || [];
 
         
     </div>
+ 
     <script src="{{ asset('modules/popper.js') }}"></script>
     <script src="{{ asset('modules/tooltip.js') }}"></script>
     <script src="{{ asset('modules/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -100,7 +101,10 @@ window.dataLayer = window.dataLayer || [];
     <script src="{{ asset('modules/moment.min.js') }}"></script>
     <script src="{{ asset('modules/jquery.min.js') }}"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
-  <script src="{{ asset('js/custom.js') }}"></script>
+  
+    
+   
+    
 
   <main class="">
     @yield('content')

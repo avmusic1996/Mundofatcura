@@ -42,7 +42,7 @@
                           </div>
                         </div>
                         <div class="table-responsive">
-                          <table class="table">
+                          <table class="table" id="example">
                             <thead class="text-primary">
 
                               <th>Codigo</th>
@@ -95,11 +95,9 @@
                                   <td style="font-size: 13px;">{{$producto->categoria_id}}</td>
                                   <td style="font-size: 13px;" class="td-actions text-right">
                                 
-<<<<<<< HEAD
-                                  <a href="" class="btn btn-warning" onclick="editar('{{$producto->id}}'"><i class="material-icons">Editar</i></a>
-=======
+
                                   <a href="{{ route('productos.edit', $producto->id) }}" class=""><img src="{{ asset('img/editar.png') }}" width="30" alt="" srcset=""></a>
->>>>>>> f53c1bea7525cdbdf54166914dc642d3e3ff47e4
+
   
                                   
                                   <a href="" class=""data-toggle="modal" data-target="#exampleModalCenterinfo"><img src="{{ asset('img/info.jpg') }}" width="30" alt="" srcset=""></a>
@@ -181,4 +179,5 @@ triggerTabList.forEach(function (triggerEl) {
 //         }
 // )
 // }
+
 </script>
