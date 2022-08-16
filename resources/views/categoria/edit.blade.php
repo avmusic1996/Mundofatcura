@@ -15,13 +15,7 @@
                           @endif
               </div>
       
-              <div class="form-group">
-                <label for="title">INGRESE ORDEN</label>
-                <input type="text" class="form-control" name="orden" placeholder="Ingrese su nombre" value="{{ old('titulo', $categoria->orden) }}" autofocus>
-                        @if ($errors->has('orden'))
-                          <span class="error text-danger" for="input-name">{{ $errors->first('orden') }}</span>
-                        @endif
-              </div>
+              
       
             <div class="form-group">
 

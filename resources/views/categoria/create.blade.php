@@ -10,20 +10,20 @@
           @csrf
         
 
-        <input type="text" class="" name="idusuario" id="idusuario" value="{{ auth()->id() }}">
-        
+        <input type="text" class="invisible" name="idusuario" id="idusuario" value="{{ auth()->id() }}">
+        <br>
 
         <div class="form-group">
           <label for="title">INGRESE NOMBRE CATEGORIA</label>
-          <input type="text" class="form-control" name="titulo" placeholder="Ingrese su nombre" value="{{ old('titulo') }}" autofocus>
+          <input type="text" class="form-control" name="titulo" placeholder="Titulo" value="{{ old('titulo') }}" autofocus>
                   @if ($errors->has('titulo'))
                     <span class="error text-danger" for="input-name">{{ $errors->first('titulo') }}</span>
                   @endif
         </div>
-
+        <label for="title"> DESCRIPCIÓN</label>
       <div class="form-group">
-        <label for="title">INGRESE descripcion</label>
-        <textarea name="descripcion" id="" cols="30" rows="10" placeholder="Ingrese su nombre" value="{{ old('titulo') }}" autofocus></textarea>
+        
+        <textarea name="descripcion" id="" cols="30" rows="10" placeholder="Descripción" value="{{ old('titulo') }}" autofocus></textarea>
                 @if ($errors->has('descripcion'))
                   <span class="error text-danger" for="input-name">{{ $errors->first('descripcion') }}</span>
                 @endif

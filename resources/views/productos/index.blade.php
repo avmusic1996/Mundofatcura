@@ -67,7 +67,7 @@
                                   <td>{{$producto->categoria_id}}</td>
                                   <td class="td-actions text-right">
                                 
-                                  <a href="" class="btn btn-warning"><i class="material-icons">Editar</i></a>
+                                  <a href="" class="btn btn-warning" onclick="editar('{{$producto->id}}'"><i class="material-icons">Editar</i></a>
   
                                   
                                   <a href="" class="btn btn-primary"><i class="material-icons">Detalles</i></a>
