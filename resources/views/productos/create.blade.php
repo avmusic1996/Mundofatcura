@@ -197,11 +197,11 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
             @csrf --}}
             <div class="col-md-8" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.904)50%,rgba(255, 255, 255, 0.925)100%);">
               
-              <div class="panel panel-default" style="margin-top: 50px; background: rgba(255, 255, 255, 0.349);">
+              <div class="panel panel-default  p-3" style="">
                 <div class="panel-body">
                   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
                   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
-                  <form id="dropzoneForm" class="dropzone text-dark" action="{{ route('dropzone.store') }}" accept-charset="UTF-8" enctype="multipart/form-data" style="background: #ffbf35; border:none; border-radius:20px;">
+                  <form id="dropzoneForm" class="dropzone text-dark" action="{{ route('dropzone.store') }}" accept-charset="UTF-8" enctype="multipart/form-data" style="">
                     @csrf
                     <div class="dz-message" data-dz-message><span>Haz clic aqui y carga las fotos que deseas</span></div>
                     <input type="text" class="hidden" name="folder" id="folder" value="producto1">
