@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Productos;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use Image;
 use Session;
 
@@ -59,7 +60,6 @@ class ProductosController extends Controller
     public function update(Request $request,$id){
 
         $producto = Productos::find($id);
-        
         $producto->nombrepro=$request->input('nombrepro');
         $producto->categoria_id=$request->input('categoria_id');
         $producto->stockpro=$request->input('stockpro');
@@ -93,6 +93,7 @@ class ProductosController extends Controller
         // $producto->save();
         // return redirect('/producto');
     }
+
 
     public function edit($id){ 
         $producto = Productos::findOrFail($id);

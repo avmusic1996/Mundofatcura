@@ -2,7 +2,10 @@
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\Categoriasontroller;
 use App\Models\Productos;
+use App\Models\Categorias;
 
 /*
 |--------------------------------------------------------------------------
@@ -101,6 +104,7 @@ Route::get('/Clientes', [App\Http\Controllers\ClienteController::class, 'byClien
 
 
 // RUTAS DE PRODUCTOS
+
 Route::get('/productos', [App\Http\Controllers\ProductosController::class, 'index'])->name('productos.index');
 
 Route::get('/productos/create', [App\Http\Controllers\ProductosController::class, 'create'])->name('productos.create');
@@ -115,7 +119,15 @@ Route::delete('/productos/{user}', [App\Http\Controllers\ProductosController::cl
 
 Route::put('/productos/{user}', [App\Http\Controllers\ProductosController::class, 'update'])->name('productos.update');
 
-Route::get('/Categorias', [App\Http\Controllers\CategoriaController::class, 'bycategorias'])->name('categorias');
+
+
+
+
+
+
+
+
+
 
 
 // FIN DE LAS RUTAS DE PRODUCTOS
@@ -162,6 +174,12 @@ Route::get('/categoria/{user}/edit', [App\Http\Controllers\CategoriaController::
 Route::delete('/categoria/{user}', [App\Http\Controllers\CategoriaController::class, 'destroy'])->name('categoria.delete');
 
 Route::put('/categoria/{user}', [App\Http\Controllers\CategoriaController::class, 'update'])->name('categoria.update');
+
+
+Route::get('/Categorias', [App\Http\Controllers\CategoriaController::class, 'bycategorias'])->name('categorias');
+
+// Route::get('/categorias', [App\Http\Controllers\CategoriaController::class, 'byconteo'])->name('categorias');
+
 // FIN DE LAS RUTAS DE CATEGORIAS
 
 // Route::get('/proveedor', [App\Http\Controllers\ProveedorController::class, 'index'])->name('proveedor.index');

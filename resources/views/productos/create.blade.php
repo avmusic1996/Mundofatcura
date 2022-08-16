@@ -106,6 +106,7 @@
       border-radius: 0px 5px 5px 0px;
       transition: 0.2s linear;
       border-bottom: 1px solid #797373;
+      background: transparent;
       /* -webkit-box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11); 
 box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11); */
       
@@ -194,10 +195,8 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
     <div class="row">
       {{-- <form action="{{ route('productos.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
             @csrf --}}
-            <div class="container-fluid" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.904)50%,rgba(255, 255, 255, 0.925)100%);">
-              <br />
-            <h3 align="center"> Carga las imagenes y verifica antes de guardar </h3>
-            <br />
+            <div class="col-md-8" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.904)50%,rgba(255, 255, 255, 0.925)100%);">
+              
               <div class="panel panel-default" style="margin-top: 50px; background: rgba(255, 255, 255, 0.349);">
                 <div class="panel-body">
                   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -210,9 +209,6 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
                   <div align="center">
                     <button type="button" class="w-25 btn" id="submit-all" style="background: transparent; border: 1px solid rgb(14, 226, 145); color: rgb(14, 226, 145);">CARGAR</button>
                   </div><br>
-                  <div align="center">
-                    <button type="button" class="w-25 btn " id="submit-all" style="background: transparent; color: rgb(255, 135, 135); border: 1px solid rgb(255, 135, 135);"><a class=" " href="">CANCELAR</a></button>
-                  </div>
                 </div>
               
               </div>
@@ -229,7 +225,9 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
             </div>
       
       <div class="col-md-4 col-sm-12" style="">
-        <div class="card" style="box-shadow: inset 0px 5px 30px -3px rgba(16, 109, 104, 0.158);">
+        <div class="card" style="-webkit-box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);
+        -moz-box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);
+        box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);">
           <div class="row p-3">
             <div class="col-md-12">
               <label for="" >Valor total con IVA</label>
@@ -282,7 +280,9 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
         @csrf
         <div class="row">
       <div class="col-md-8 col-sm-12">
-        <div class="card p-4" style="box-shadow: inset 0px 5px 30px -3px rgba(16, 109, 104, 0.144);">
+        <div class="card p-4" style="-webkit-box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);
+        -moz-box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);
+        box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);">
           <div class="row">
             <div class="col-12">
               <h5>Detalles del producto</h5>
@@ -298,7 +298,7 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
               </span> --}}
 
               <label for="">Selecionar categoria</label>
-                <div id="cate_id"></div>
+                <div id="cateid"></div>
              </div>
           <div class="col-md-4 mt-3">
             <label for="">Stock</label>
@@ -336,7 +336,9 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
       </div>
 
       <div class="col-md-4 col-sm-12">
-        <div class="card p-4" style="box-shadow: inset 0px 5px 30px -3px rgba(16, 109, 104, 0.212);">
+        <div class="card p-4" style="-webkit-box-shadow: inset 3px 41px 108px -46px rgba(0, 89, 255, 0.363);
+        -moz-box-shadow: inset 3px 41px 108px -46px rgb(146, 148, 255);
+        box-shadow: inset 3px 41px 108px -46px rgba(0, 102, 255, 0.664);">
           <h5>Valores del producto</h5>
           <div class="row">
             <div class="col-md-4 mt-3">
@@ -359,10 +361,8 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
       </div>
     </div>     
     <hr>    
-    <div class="modal-footer" style="">
-      <button type="button" class="btn btn-cliente btn-secondary" data-dismiss="modal">CANCELAR</button>
+    <a href="{{ route('productos.index') }}" class="btn btn-cliente btn-secondary">CANCELAR</a>
       <button type="submit" class="btn btn-cliente btn-primary">GUARDAR CAMBIOS</button>
-    </div>
   </form>
   </div>
   </div>
@@ -451,11 +451,11 @@ $.ajax({
 }
 
 
-          ClassicEditor
-            .create( document.querySelector( '#txtDescripcion' ) )
-            .catch( error => {
-            console.error( error );
-            } );
+          // ClassicEditor
+          //   .create( document.querySelector( '#txtDescripcion' ) )
+          //   .catch( error => {
+          //   console.error( error );
+          //   } );
 
          
 
@@ -487,7 +487,7 @@ $.ajax({
 
 window.onload = function(){  
   $.get('{{ route('categorias') }}',{id:{{ auth()->id() }}}, function (data) {
-    document.getElementById("cate_id").innerHTML = data;
+    document.getElementById("cateid").innerHTML = data;
     
         }
 )
