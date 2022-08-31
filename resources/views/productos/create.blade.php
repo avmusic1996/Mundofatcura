@@ -195,7 +195,9 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
     <div class="row">
       {{-- <form action="{{ route('productos.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
             @csrf --}}
-            <div class="col-md-8" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.904)50%,rgba(255, 255, 255, 0.925)100%);">
+            <div class="col-md-8" style="box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
+            -webkit-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);">
               
               <div class="panel panel-default  p-3" style="">
                 <div class="panel-body">
@@ -223,11 +225,10 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
                 </div>
               </div>
             </div>
-      
       <div class="col-md-4 col-sm-12" style="">
-        <div class="card" style="-webkit-box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);
-        -moz-box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);
-        box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);">
+        <div class="card" style="box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
+        -webkit-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);">
           <div class="row p-3">
             <div class="col-md-12">
               <label for="" >Valor total con IVA</label>
@@ -278,11 +279,11 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
       </div>
       <form action="{{ route('productos.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
         @csrf
-        <div class="row">
+      <div class="row pt-3">
       <div class="col-md-8 col-sm-12">
-        <div class="card p-4" style="-webkit-box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);
-        -moz-box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);
-        box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);">
+        <div class="card p-4" style="box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
+        -webkit-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);">
           <div class="row">
             <div class="col-12">
               <h5>Detalles del producto</h5>
@@ -336,9 +337,9 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
       </div>
 
       <div class="col-md-4 col-sm-12">
-        <div class="card p-4" style="-webkit-box-shadow: inset 3px 41px 108px -46px rgba(0, 89, 255, 0.363);
-        -moz-box-shadow: inset 3px 41px 108px -46px rgb(146, 148, 255);
-        box-shadow: inset 3px 41px 108px -46px rgba(0, 102, 255, 0.664);">
+        <div class="card p-4" style="box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
+        -webkit-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);">
           <h5>Valores del producto</h5>
           <div class="row">
             <div class="col-md-4 mt-3">
