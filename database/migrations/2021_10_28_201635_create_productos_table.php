@@ -17,6 +17,8 @@ class CreateProductosTable extends Migration
             $table->id();
             $table->string('nombrepro');
             $table->string('categoria_id');
+        
+            $table->string('imagenuna');
             $table->string('stockpro');
             $table->string('marcapro');
             $table->string('codigopro');

@@ -199,8 +199,9 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
               
               <div class="panel panel-default  p-3" style="">
                 <div class="panel-body">
-                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
                   <form id="dropzoneForm" class="dropzone text-dark" action="{{ route('dropzone.store') }}" accept-charset="UTF-8" enctype="multipart/form-data" style="">
                     @csrf
                     <div class="dz-message" data-dz-message><span>Haz clic aqui y carga las fotos que deseas</span></div>
@@ -373,30 +374,30 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
 
 <script type="text/javascript">
     
-  Dropzone.options.dropzoneForm = {
-    autoProcessQueue : false,
-    acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
-    init:function(){
-      var submitButton = document.querySelector("#submit-all");
-      myDropzone = this;
-      submitButton.addEventListener('click', function(){
-        myDropzone.processQueue();
-      });
-      this.on("complete", function(){
-        if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
-        {
-          var _this = this;
-          _this.removeAllFiles();
+    Dropzone.options.dropzoneForm = {
+        autoProcessQueue : false,
+        acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
+        init:function(){
+          var submitButton = document.querySelector("#submit-all");
+          myDropzone = this;
+          submitButton.addEventListener('click', function(){
+            myDropzone.processQueue();
+          });
+          this.on("complete", function(){
+            if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
+            {
+              var _this = this;
+              _this.removeAllFiles();
+            }
+            load_images();
+          });  
         }
-        load_images();
-      });  
-    }
-  };
+      };
 
 
 
 
-  load_images();
+  
   function load_images()
   {
   var folder =document.getElementById('folder').value;
@@ -409,6 +410,7 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
       }
     })
   }
+  load_images();
 
   
   $(document).on('click', '.remove_image', function(){

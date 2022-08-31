@@ -39,7 +39,7 @@ Route::get('/productos/fetch_image_modal', [App\Http\Controllers\ImageController
 
 Route::get('/productos', [App\Http\Controllers\ImageController::class, 'index'])->name('productos.index');
 Route::get('/productos/upload_image', [App\Http\Controllers\ImageController::class, 'upload_image'])->name('productos.upload_image');
-Route::get('/productos/fetch_image', [App\Http\Controllers\ImageController::class, 'fetch_image'])->name('productos.fetch_image');
+Route::get('/productos/fetch_image', [App\Http\Controllers\ProductosController::class, 'fetch_image'])->name('productos.fetch_image');
 Route::get('/productos/delete_image', [App\Http\Controllers\ImageController::class, 'delete_image'])->name('productos.delete_image');
 
 
