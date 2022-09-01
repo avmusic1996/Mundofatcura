@@ -31,13 +31,14 @@ Auth::routes();
 
 // RUTAS DE LOS USUARIOS
 
-Route::post('dropzone/store', [ImageController::class, 'upload_image'])->name('dropzone.store');
+Route::post('dropzone/store', [App\Http\Controllers\ProductosController::class, 'upload_image'])->name('dropzone.store');
 Route::get('/productos/fetch_image_show', [App\Http\Controllers\ImageController::class, 'fetch_image_show'])->name('productos.fetch_image_show');
 
 Route::get('/productos/fetch_image_modal', [App\Http\Controllers\ImageController::class, 'fetch_image_modal'])->name('productos.fetch_image_modal');
 
 
 Route::get('/productos', [App\Http\Controllers\ImageController::class, 'index'])->name('productos.index');
+Route::get('/crearproductos', [App\Http\Controllers\ImageController::class, 'index'])->name('crearproducto.index');
 Route::get('/productos/upload_image', [App\Http\Controllers\ImageController::class, 'upload_image'])->name('productos.upload_image');
 Route::get('/productos/fetch_image', [App\Http\Controllers\ProductosController::class, 'fetch_image'])->name('productos.fetch_image');
 Route::get('/productos/delete_image', [App\Http\Controllers\ImageController::class, 'delete_image'])->name('productos.delete_image');

@@ -13,6 +13,7 @@ use Session;
 
 class ProductosController extends Controller
 {
+    
     function fetch_image(Request $request)
     {
     $folder = $request->get('folder');
@@ -35,10 +36,7 @@ class ProductosController extends Controller
         $estilo = 'filter: blur(1px); border: 3px solid #fda30e;';
         $btn = 'display:none;';
     }
-    if ($imagen2 == $image->getFilename()) {
-        $estilo = 'filter: blur(1px); border: 3px solid #fda30e;';
-        $btn2 = 'display:none;';
-    }
+   
     $output .= '<div class="col-md-3 mb-3">
                 <div class="row d-flex justify-content-center">
                 <div class="col-md-12 text-center">
@@ -48,11 +46,9 @@ class ProductosController extends Controller
                 <button type="button" class="btn btn-danger remove_image" id="'.$image->getFilename().'">Eliminar foto</button>
                 </div>
                 <div class="col-md-3 col-sm-12 mt-4">
-                <button onclick="fijar_imagen('.$fijarimagen.');" type="button" class="btn btn-primary set_image" id="'.$image->getFilename().'" style="'.$btn.'">Fijar 1</button>
+                <button onclick="fijar_imagen('.$fijarimagen.');" type="button" class="btn btn-primary set_image" id="'.$image->getFilename().'" style="'.$btn.'">Fijar </button>
                 </div>
-                <div class="col-md-3 col-sm-12 mt-4">
-                <button onclick="fijar_imagen2('.$fijarimagen.');" type="button" class="btn btn-primary set_image" id="'.$image->getFilename().'" style="'.$btn2.'">Fijar 2</button>
-                </div>
+                
                 </div>
 
             </div>';
@@ -71,7 +67,9 @@ class ProductosController extends Controller
         return view('productos.index',compact('productos'));
      }
     public function create(){
-         return view('productos.create');
+        $folder = Str::random(15);  
+        return view ('productos.create', ['folder' => $folder]);
+  
      }
      public function store(Request $request)
      {
@@ -159,6 +157,24 @@ class ProductosController extends Controller
         $producto = Productos::findOrFail($id);
          $producto->delete();
          return back()->with('succes', 'El producto se ha eliminado correctamente');
+    }
+    public function upload_image(Request $request)
+    {
+        $image = $request->file('file');
+
+        $folder = $request->input('folder');
+
+        $path = "productos";
+
+        
+        $pathimage = $path . $folder;
+
+        $imageName = time().'.'.$image->extension();
+
+        $image->move(public_path('productos/' . $folder),$imageName);
+
+        return response()->json(['success'=>$imageName]);
+       
     }
 }
 
