@@ -10,6 +10,7 @@ class Clientes extends Model
     use HasFactory;
 
     protected $fillable = [
+        '_token',
         'nit',
         'nombresapellidos',
         'razonsocial',
