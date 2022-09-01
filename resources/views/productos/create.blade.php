@@ -1,5 +1,8 @@
 @extends('layouts.main', ['activePage' => 'users', 'titlePage' => 'Nuevo usuario'])
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 <style>
   /* Fonts Form Google Font ::- https://fonts.google.com/  -:: */
   @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
@@ -201,17 +204,25 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
               
               <div class="panel panel-default  p-3" style="">
                 <div class="panel-body">
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
-                  <form id="dropzoneForm" class="dropzone text-dark" action="{{ route('dropzone.store') }}" accept-charset="UTF-8" enctype="multipart/form-data" style="">
-                    @csrf
-                    <div class="dz-message" data-dz-message><span>Haz clic aqui y carga las fotos que deseas</span></div>
-                    <input type="text" class="hidden" name="folder" id="folder" value="producto1">
-                  </form><br>
-                  <div align="center">
-                    <button type="button" class="w-25 btn" id="submit-all" style="background: transparent; border: 1px solid rgb(14, 226, 145); color: rgb(14, 226, 145);">CARGAR</button>
-                  </div><br>
+                <div class="panel panel-default" style="margin-top: 50px; background: rgba(255, 255, 255, 0.349);">
+            <div class="panel-heading" style="background: rgb(255, 255, 255);">
+              <b><h2 style="color: #0d6efd;">Agregar fotos</h2></b>
+            </div>
+            <div class="panel-body">
+            <form id="dropzoneForm" class="dropzone text-dark" action="{{ route('dropzone.store') }}"method="post" name="file" files="true" enctype="multipart/form-data" class="dropzone" id="image-upload"> 
+            @method('POST')
+            @csrf
+            <div class="dz-message" data-dz-message><span>Haz clic aqui o arrastra y carga las fotos que deseas</span></div>
+              
+            <input type="text" class="invisible" name="folder" id="folder" value="producto1"></form>
+            <br>      
+              <div align="center">
+                <button type="button" class="w-25 btn" id="submit-all" style="background: transparent; border: 1px solid rgb(14, 226, 145); color: rgb(14, 226, 145);">CARGAR</button>
+              </div><br>
+             
+            </div>
+          
+          </div>
                 </div>
               
               </div>
@@ -315,7 +326,7 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
           <div class="col-md-4 mt-3">
             <label for="">Marca</label>
             <input name="marcapro" class="form-input" id="marcapro" type="text" placeholder="Eje: Apple" required>
-          </div>
+          </div>  
 
           <div class="col-md-4 mt-3">
             <label for="">Modelo</label>
@@ -374,8 +385,8 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
 
 
 <script type="text/javascript">
-    
-    Dropzone.options.dropzoneForm = {
+     
+     Dropzone.options.dropzoneForm = {
         autoProcessQueue : false,
         acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
         init:function(){
@@ -394,9 +405,6 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
           });  
         }
       };
-
-
-
 
   
   function load_images()
@@ -512,8 +520,8 @@ window.onload = function(){
 
   
 
-
+  
 </script>
 
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
 @endsection
