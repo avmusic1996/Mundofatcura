@@ -3,9 +3,6 @@
 <div class="container-fluid">
   <div class="main-content">
     <div class="row">
-
-<<<<<<< HEAD
-
       <div class="col-sm-10">
         <form action="{{ route('categoria.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
           @csrf
