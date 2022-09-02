@@ -176,7 +176,6 @@ Route::delete('/categoria/{user}', [App\Http\Controllers\CategoriaController::cl
 
 Route::put('/categoria/{user}', [App\Http\Controllers\CategoriaController::class, 'update'])->name('categoria.update');
 
-
 Route::get('/Categorias', [App\Http\Controllers\CategoriaController::class, 'bycategorias'])->name('categorias');
 
 // Route::get('/categorias', [App\Http\Controllers\CategoriaController::class, 'byconteo'])->name('categorias');

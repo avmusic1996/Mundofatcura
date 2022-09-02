@@ -185,198 +185,203 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
   }
   
   </style>
- <head>
   <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title> Js</title>
-      
-      
-    </head>
-</head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>      
+  </head>
 <div class="container-fluid">
   <div class="main-content">
     <div class="row">
       {{-- <form action="{{ route('productos.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
             @csrf --}}
-            <div class="col-md-8" style="box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
-            -webkit-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
-            -moz-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);">
-              
+            <div class="col-md-12">
+              <div class="card " style="box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
+                    -webkit-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
+                    -moz-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);">             
               <div class="panel panel-default  p-3" style="">
                 <div class="panel-body">
+                                 
                 <div class="panel panel-default" style="margin-top: 50px; background: rgba(255, 255, 255, 0.349);">
-            <div class="panel-heading" style="background: rgb(255, 255, 255);">
-              <b><h2 style="color: #0d6efd;">Agregar fotos</h2></b>
-            </div>
-            <div class="panel-body">
-            <form id="dropzoneForm" class="dropzone text-dark" action="{{ route('dropzone.store') }}"method="post" name="file" files="true" enctype="multipart/form-data" class="dropzone" id="image-upload"> 
-            @method('POST')
-            @csrf
-            <div class="dz-message" data-dz-message><span>Haz clic aqui o arrastra y carga las fotos que deseas</span></div>
-              
-            <input type="text" class="invisible" name="folder" id="folder" value="producto1"></form>
-            <br>      
-              <div align="center">
-                <button type="button" class="w-25 btn" id="submit-all" style="background: transparent; border: 1px solid rgb(14, 226, 145); color: rgb(14, 226, 145);">CARGAR</button>
-              </div><br>
+                    <div class="panel-body">
+                      <form id="dropzoneForm" class="dropzone text-dark" action="{{ route('dropzone.store') }}"method="post" name="file" files="true" enctype="multipart/form-data" class="dropzone" id="image-upload" style="border: rgb(126, 119, 119) 3px dashed; border-radius:8px;"> 
+                        @method('POST')
+                        @csrf
+                        <div class="dz-message" data-dz-message><span>Haz clic aqui o arrastra y carga las fotos que deseas</span></div>
+                        <input type="text" class="invisible" name="folder" id="folder" value="{{ $folder }}"></form>
+                        <br>      
+                        <div align="center">
+                          <button type="button" class="w-25 btn" id="submit-all" style="background: transparent; border: 1px solid rgb(14, 226, 145); color: rgb(14, 226, 145);" onclick="miFunc()">CARGAR</button>
+                        </div><br>
              
-            </div>
-          
-          </div>
+                    </div>
                 </div>
-              
+                </div>
               </div>
               <br />
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
-              <div class="panel panel-default">
-            <div class="panel-heading">
+              <div class="panel panel-default p-3">
+                <div class="panel-heading">
                   <h3 class="panel-title">Imagenes cargadas con exito</h3>
                 </div>
                 <div class="panel-body" id="uploaded_image">
       
                 </div>
               </div>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
             </div>
-      <div class="col-md-4 col-sm-12" style="">
-        <div class="card" style="box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
-        -webkit-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);">
-          <div class="row p-3">
-            <div class="col-md-12">
-              <label for="" >Valor total con IVA</label>
             </div>
-            <div class="col-md-12 d-flex justify-content-end">
-              <label style="font-weight: 700; font-size:25px; color:rgb(214, 40, 40);" for="" id="totalconiva"></label>
+        
+        <div class="col-md-8">
+        
+          <form action="{{ route('productos.store') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+            @csrf
+          <div class="row pt-3">
+          <div class="col-md-12 col-sm-12">
+            <div class="card p-4" style="box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
+            -webkit-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
+            -moz-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);">
+              <div class="row">
+                <div class="col-12">
+                  <h5>Detalles del producto</h5>
+                </div>
+                
+                <div class="col-md-8 col-sm-12 mt-3">
+                  <label for="">Nombre del producto</label>
+                  <input name="nombrepro" class="form-input" id="nombrepro" type="text" placeholder="Eje: Iphone" required>
+                </div>
+                <div class="col-md-4 col-sm-12 mt-3">
+                  {{-- <span class="input-item">
+                    <i class="fa fa-user-circle"></i>
+                  </span> --}}
+    
+                  <label for="">Selecionar categoria</label>
+                    <div id="cateid"></div>
+                 </div>
+              <div class="col-md-4 mt-3">
+                <label for="">Stock</label>
+                <input name="stockpro" class="form-input" id="stock" type="number" placeholder="N°" required onkeyup="myFunction()"></div>
+              
+    
+              <div class="col-md-4 mt-3">
+                <label for="">Codigo</label>
+                <input name="codigopro" class="form-input" id="codigopro" type="text" placeholder="N°" required></div>
+              
+    
+              <div class="col-md-4 mt-3">
+                <label for="">Marca</label>
+                <input name="marcapro" class="form-input" id="marcapro" type="text" placeholder="Eje: Apple" required>
+              </div>
+    
+              <div class="col-md-4 mt-3">
+                <label for="">Modelo</label>
+                <input name="modelopro" class="form-input" id="modelopro" type="text" placeholder="Eje: Pro max" required>
+              </div>
+    
+              <div class="col-md-4 mt-3">
+                <label for="">Codigo SKU</label>
+                <input name="codigoprosku" class="form-input" id="codigoprosku" type="text" placeholder="Eje: Pro max" required>
+              </div>
+    
+    
+              {{-- <div class="col-md-12 mt-5 d-flex justify-content-center">
+                <textarea  type="text" name="txtdescripcion" id="txtdescripcion"></textarea>
+              </div> --}}
+              
             </div>
-
-            <div class="col-md-12">
-              <label for="" >Valor total sin IVA x STOCK</label>
-            </div>
+          </div>
+    
+          </div>
+    
+          <div class="col-md-4 col-sm-12">
             
-            <div class="col-md-12 d-flex justify-content-end">
-              <label for="" id="total"></label>
-            </div>
-
           </div>
-          <hr>
-          <div class="row p-3">
-            
-            <div class="col-md-6">
-              <label for="">Valor Unidad</label>
-            </div>
-            <div class="col-md-6 d-flex justify-content-end">
-              <label class="toUpper" id="toUpper" for=""></label>
-            </div>
-
-
-            <div class="col-md-6">
-              <label for="">IVA</label>
-              <p id="ivaporcentaje"></p>
-            </div>
-            <div class="col-md-6 d-flex justify-content-end">
-              <label class="" for="" id="totaliva"></label>
-            </div>
-
-            <div class="col-md-10">
-              <label for="">Cantidad</label>
-              <label for="" id=""></label>
-            </div>
-            <div class="col-md-2 d-flex justify-content-end">
-              <label for="" id="cantstock"></label>
-            </div>
-
-          </div>
-          
+        </div>     
+        <hr>    
+        <a href="{{ route('productos.index') }}" class="btn btn-cliente btn-secondary">CANCELAR</a>
+          <button type="submit" class="btn btn-cliente btn-primary">GUARDAR CAMBIOS</button>
+      </form>
         </div>
-      </div>
-      <form action="{{ route('productos.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
-        @csrf
-      <div class="row pt-3">
-      <div class="col-md-8 col-sm-12">
-        <div class="card p-4" style="box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
-        -webkit-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);">
-          <div class="row">
-            <div class="col-12">
-              <h5>Detalles del producto</h5>
-            </div>
-            
-            <div class="col-md-8 col-sm-12 mt-3">
-              <label for="">Nombre del producto</label>
-              <input name="nombrepro" class="form-input" id="nombrepro" type="text" placeholder="Eje: Iphone" required>
-            </div>
-            <div class="col-md-4 col-sm-12 mt-3">
-              {{-- <span class="input-item">
-                <i class="fa fa-user-circle"></i>
-              </span> --}}
-
-              <label for="">Selecionar categoria</label>
-                <div id="cateid"></div>
-             </div>
-          <div class="col-md-4 mt-3">
-            <label for="">Stock</label>
-            <input name="stockpro" class="form-input" id="stock" type="number" placeholder="N°" required onkeyup="myFunction()"></div>
-          
-
-          <div class="col-md-4 mt-3">
-            <label for="">Codigo</label>
-            <input name="codigopro" class="form-input" id="codigopro" type="text" placeholder="N°" required></div>
-          
-
-          <div class="col-md-4 mt-3">
-            <label for="">Marca</label>
-            <input name="marcapro" class="form-input" id="marcapro" type="text" placeholder="Eje: Apple" required>
-          </div>  
-
-          <div class="col-md-4 mt-3">
-            <label for="">Modelo</label>
-            <input name="modelopro" class="form-input" id="modelopro" type="text" placeholder="Eje: Pro max" required>
+        <div class="col-md-4">
+          <div class="row pt-3">
+            <div class="col-md-12"><div class="card" style="box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
+              -webkit-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
+              -moz-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);">
+                <div class="row p-3">
+                  <div class="col-md-12">
+                    <label for="" >Valor total con IVA</label>
+                  </div>
+                  <div class="col-md-12 d-flex justify-content-end">
+                    <label style="font-weight: 700; font-size:25px; color:rgb(214, 40, 40);" for="" id="totalconiva"></label>
+                  </div>
+      
+                  <div class="col-md-12">
+                    <label for="" >Valor total sin IVA x STOCK</label>
+                  </div>
+                  
+                  <div class="col-md-12 d-flex justify-content-end">
+                    <label for="" id="total"></label>
+                  </div>
+      
+                </div>
+                <hr>
+                <div class="row p-3">
+                  
+                  <div class="col-md-6">
+                    <label for="">Valor Unidad</label>
+                  </div>
+                  <div class="col-md-6 d-flex justify-content-end">
+                    <label class="toUpper" id="toUpper" for=""></label>
+                  </div>
+      
+      
+                  <div class="col-md-6">
+                    <label for="">IVA</label>
+                    <p id="ivaporcentaje"></p>
+                  </div>
+                  <div class="col-md-6 d-flex justify-content-end">
+                    <label class="" for="" id="totaliva"></label>
+                  </div>
+      
+                  <div class="col-md-10">
+                    <label for="">Cantidad</label>
+                    <label for="" id=""></label>
+                  </div>
+                  <div class="col-md-2 d-flex justify-content-end">
+                    <label for="" id="cantstock"></label>
+                  </div>
+      
+                </div>
+                
+              </div></div>
+              <div class="col-md-12 col-sm-12">
+                <div class="card p-4" style="box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 0.486);
+                -webkit-box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 0.486);
+                -moz-box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 0.486);">
+                  <h5>Valores del producto</h5>
+                  <div class="row">
+                    <div class="col-md-4 mt-3">
+                    <label for="">Valor unidad</label>
+                  </div>
+                  <div class="col-md-8 mt-3">
+                    <input name="valorunidad" class="form-input" id="valorunidad" type="number"  placeholder="N°" required onkeyup="myFunction()">
+                  </div>
+        
+                  <div class="col-md-4 mt-3">
+                    <label for="">Valor IVA</label>
+                  </div>
+                  <div class="col-md-8 mt-3">
+                    <input name="iva" class="form-input" id="iva" type="number" onkeyup="myFunction()" placeholder="N°" required>
+                  </div>
+        
+                  </div>
+                  
+                </div>
+              </div>
           </div>
-
-          <div class="col-md-4 mt-3">
-            <label for="">Codigo SKU</label>
-            <input name="codigoprosku" class="form-input" id="codigoprosku" type="text" placeholder="Eje: Pro max" required>
-          </div>
-
-
-          {{-- <div class="col-md-12 mt-5 d-flex justify-content-center">
-            <textarea  type="text" name="txtdescripcion" id="txtdescripcion"></textarea>
-          </div> --}}
-          
         </div>
-      </div>
-
-      </div>
-
-      <div class="col-md-4 col-sm-12">
-        <div class="card p-4" style="box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
-        -webkit-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);
-        -moz-box-shadow: -1px 3px 13px 0px rgba(0,0,0,0.75);">
-          <h5>Valores del producto</h5>
-          <div class="row">
-            <div class="col-md-4 mt-3">
-            <label for="">Valor unidad</label>
-          </div>
-          <div class="col-md-8 mt-3">
-            <input name="valorunidad" class="form-input" id="valorunidad" type="number"  placeholder="N°" required onkeyup="myFunction()">
-          </div>
-
-          <div class="col-md-4 mt-3">
-            <label for="">Valor IVA</label>
-          </div>
-          <div class="col-md-8 mt-3">
-            <input name="iva" class="form-input" id="iva" type="number" onkeyup="myFunction()" placeholder="N°" required>
-          </div>
-
-          </div>
-          
-        </div>
-      </div>
     </div>     
-    <hr>    
-    <a href="{{ route('productos.index') }}" class="btn btn-cliente btn-secondary">CANCELAR</a>
-      <button type="submit" class="btn btn-cliente btn-primary">GUARDAR CAMBIOS</button>
-  </form>
   </div>
   </div>
 </div>
@@ -385,29 +390,30 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
 
 
 <script type="text/javascript">
-//  Dropzone.options.dropzoneForm = {
-      
-//         acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
-//     init: function() {
-//       this.on("sending", function(file) {
-//         alert('Sending the file' +  file.name);
-//         var _this = this;
-//         _this.removeAllFiles();
-//       });
-
-//       // Using a closure.
-      
-//     function getItDone(){
+function miFunc() {
+      load_images();
+  } 
      
-        
-//     }
-//     btn.addEventListener('click', getItDone);
-//       // Setup the observer for the button.
-     
-//     }
-//   };
+     Dropzone.options.dropzoneForm = {
+        autoProcessQueue : false,
+        acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
+        init:function(){
+          var submitButton = document.querySelector("#submit-all");
+          myDropzone = this;
+          submitButton.addEventListener('click', function(){
+            myDropzone.processQueue();
+          });
+          this.on("complete", function(){
+            if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
+            {
+              var _this = this;
+              _this.removeAllFiles();
+            }
+            load_images();
+          });  
+        }
+      };
 
-    
   
   function load_images()
   {
@@ -505,7 +511,8 @@ window.onload = function(){
         }
 )
 }
-  
+
+ 
  
 
 

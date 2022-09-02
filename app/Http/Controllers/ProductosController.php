@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use App\Models\Productos;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Image;
@@ -13,7 +14,7 @@ use Session;
 
 class ProductosController extends Controller
 {
-    
+
     function fetch_image(Request $request)
     {
     $folder = $request->get('folder');
@@ -66,8 +67,18 @@ class ProductosController extends Controller
         $productos = Productos::all();
         return view('productos.index',compact('productos'));
      }
-    public function create(){
+    public function create(Request $request){
         $folder = Str::random(15);  
+        $folderx ="productos/";
+        $path = $folderx . $folder; 
+
+        $ruta= public_path($path);
+        if(!File::isDirectory($ruta))
+        {
+        File::makeDirectory($ruta, 0777, true, true);
+        }
+        $request = ucfirst($request);
+
         return view ('productos.create', ['folder' => $folder]);
   
      }
