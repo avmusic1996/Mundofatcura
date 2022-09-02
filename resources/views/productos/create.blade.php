@@ -385,27 +385,29 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
 
 
 <script type="text/javascript">
-     
-     Dropzone.options.dropzoneForm = {
-        autoProcessQueue : false,
-        acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
-        init:function(){
-          var submitButton = document.querySelector("#submit-all");
-          myDropzone = this;
-          submitButton.addEventListener('click', function(){
-            myDropzone.processQueue();
-          });
-          this.on("complete", function(){
-            if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
-            {
-              var _this = this;
-              _this.removeAllFiles();
-            }
-            load_images();
-          });  
-        }
-      };
+//  Dropzone.options.dropzoneForm = {
+      
+//         acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
+//     init: function() {
+//       this.on("sending", function(file) {
+//         alert('Sending the file' +  file.name);
+//         var _this = this;
+//         _this.removeAllFiles();
+//       });
 
+//       // Using a closure.
+      
+//     function getItDone(){
+     
+        
+//     }
+//     btn.addEventListener('click', getItDone);
+//       // Setup the observer for the button.
+     
+//     }
+//   };
+
+    
   
   function load_images()
   {
