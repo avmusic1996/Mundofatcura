@@ -47,14 +47,14 @@
                   <label for="nombre">INGRESE NOMBRE</label>
                   {!! Form::text('nombre',null ,['class'=>'form-control','maxlength'=>'67']) !!}
               </div>
-=======
+
       <div class="col-md-6">
         <div class="card">
           <div class="row p-3">
             <div class="col-md-12">
               <form action="{{ route('categoria.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
                 @csrf
->>>>>>> f53c1bea7525cdbdf54166914dc642d3e3ff47e4
+
               
       
               <input type="text" class="invisible" name="idusuario" id="idusuario" value="{{ auth()->id() }}">

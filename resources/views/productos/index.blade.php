@@ -143,18 +143,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{ route('productos.index', $producto->id) }}">
-          <div class="row">
-          
-          <div class="col-md-7">
-
-          </div>
-          <div class="col-md-5">
-            <label for="" value="">{{$producto->nombrepro}}</label><br>
-            <label for="" value="">{{$producto->valorunidad}}</label>
-          </div>
-        
-        </div></form>
+   
       </div>
     </div>
   </div> 
