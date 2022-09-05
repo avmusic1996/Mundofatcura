@@ -223,9 +223,9 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
               <br />
               <div class="panel panel-default p-3">
                 <div class="panel-heading">
-                  <h3 class="panel-title">Imagenes cargadas con exito</h3>
+                  <h5 class="panel-title">Imagenes cargadas con exito</h5>
                 </div>
-                <div class="panel-body" id="uploaded_image">
+                <div class="panel-body" id="uploadedimage" >
       
                 </div>
               </div>
@@ -423,7 +423,7 @@ function miFunc() {
       url:"{{ route('productos.fetch_image') }}",
       success:function(data)
       {
-        $('#uploaded_image').html(data);
+        $('#uploadedimage').html(data);
       }
     })
   }
