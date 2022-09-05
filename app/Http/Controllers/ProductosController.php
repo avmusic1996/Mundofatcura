@@ -69,7 +69,7 @@ class ProductosController extends Controller
      }
     public function create(Request $request){
         $folder = Str::random(15);  
-        $folderx ="productos/";
+        $folderx ="img-productos/";
         $path = $folderx . $folder; 
 
         $ruta= public_path($path);
