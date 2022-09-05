@@ -182,7 +182,7 @@ class ProductosController extends Controller
 
         $imageName = time().'.'.$image->extension();
 
-        $image->move(public_path('productos/' . $folder),$imageName);
+        $image->move(public_path('img-productos/' . $folder),$imageName);
 
         return response()->json(['success'=>$imageName]);
        
