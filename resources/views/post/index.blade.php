@@ -11,7 +11,13 @@
                 <div class="card-header">
                   <h4 class="card-title">Productos</h4>
                   <br>
-                  <p class="card-category"></p>
+                  <p class="card-category">
+                    @if (session('success'))
+                        <div class="alert alert-success" role="success">
+                          {{ session('success') }}
+                        </div>
+                      @endif
+                  </p>
                 </div>
               </div>
             </div>
@@ -23,12 +29,7 @@
                 <div class="row">
                   <div class="col-md-12">
                       
-                      @if (session('success'))
-                        <div class="alert alert-success" role="success">
-                          {{ session('success') }}
-                        </div>
-                      @endif
-                        
+                                              
                         <div class="row p-3">
                           <div class="col-6 text-left">
                             {{--@can('user_create')--}}

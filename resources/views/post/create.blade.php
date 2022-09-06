@@ -214,7 +214,7 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
                       </form>
                         <br>     
                         <div align="left">
-                          <button type="button" class="w-25 btn" id="submit-all" style="background: transparent; border: 1px solid rgb(14, 226, 145); color: rgb(14, 226, 145);" onclick="miFunc()">CARGAR</button>
+                          <button type="button" class="w-10 btn btn-dark" id="submit-all" style="" onclick="miFunc()">CARGAR</button>
                         </div>
                    </div>
                 </div>
