@@ -12,16 +12,16 @@ class Productos extends Model
     // protected $primaryKey = "id";
     protected $fillable = [
         'id',
-        // 'imagenuna',
-        // 'folder',
+        'imagenuna',
+        
         'nombrepro',
+        'folder',
         'categoria_id',
         'stockpro',
         'marcapro',
         'codigopro',
         'modelopro',
         'codigoprosku',
-        // 'txtdescripcion',
         'valorunidad',
         'iva',
     ];

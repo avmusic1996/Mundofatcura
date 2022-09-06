@@ -187,7 +187,7 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
 <div class="container-fluid">
   <div class="main-content">
     <div class="row">
-      {{-- <form action="{{ route('productos.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
+      {{-- <form action="{{ route('producto.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
             @csrf --}}
             <div class="col-md-8" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.904)50%,rgba(255, 255, 255, 0.925)100%);">
               
@@ -270,7 +270,7 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
           
         </div>
       </div>
-      <form action="{{ route('productos.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
+      <form action="{{ route('producto.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
         @csrf
         <div class="row">
       <div class="col-md-8 col-sm-12">
@@ -355,7 +355,7 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
       </div>
     </div>     
     <hr>    
-      <a href="{{ route('productos.index') }}" class="btn btn-cliente btn-secondary">CANCELAR</a>
+      <a href="{{ route('post.index') }}" class="btn btn-cliente btn-secondary">CANCELAR</a>
       <button type="submit" class="btn btn-cliente btn-primary">GUARDAR CAMBIOS</button>
   </form>
   </div>

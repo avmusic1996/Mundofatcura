@@ -195,8 +195,7 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
 <div class="container-fluid">
   <div class="main-content">
     <div class="row">
-      {{-- <form action="{{ route('productos.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
-            @csrf --}}
+    
             
             <div class="col-md-12">
               <div class="card " style="box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
@@ -236,15 +235,18 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
         
         <div class="col-md-8">
         
-          <form id="formpost" action="{{ route('post.store') }}" method="post" class="form-horizontal" enctype="multipart/form-data" name="formpost">
-            @csrf
+
+          <form id="formpost" name="formpost" action="{{ route('producto.store') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+          @csrf
+          @method('post')           
           <div class="row pt-3">
           <div class="col-md-12 col-sm-12">
             <div class="card p-4" style="box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
             -webkit-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
             -moz-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);">
               <div class="row">
-                {{-- <input type="text" class="invisible" name="folder" id="folder" value="{{ $folder }}"> --}}
+                 <input type="text" class="invisible" name="folder" id="folder" value="{{ $folder }}">
+                 <input type="text" class="invisible" name="imagenuna" id="" value="{{ $folder }}">
                 <div class="col-12">
                   <h5>Detalles del producto</h5>
                 </div>
@@ -292,9 +294,8 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
         </div>     
         <hr>    
         <a href="{{ route('post.index') }}" class="btn btn-cliente btn-secondary">CANCELAR</a>
-        <button type="submit" class="btn btn-cliente btn-primary">GUARDAR CAMBIOS</button>  
-      </form>
       
+      <button onclick="formulariouno()" class="btn btn-cliente btn-primary" >GUARDAR CAMBIOS</button> 
         </div>
         
         <div class="col-md-4">
@@ -368,7 +369,9 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
                   <div class="col-md-8 mt-3">
                     <input name="iva" class="form-input" id="iva" type="number" onkeyup="myFunction()" placeholder="N°" required>
                   </div>
-        
+    
+                  <input type="submit" value="Save">
+                </form>  
                   </div>
                   
                 </div>
@@ -385,10 +388,10 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
 
 <script type="text/javascript">
 
-// function formulariouno(){
-//   // alert('PERRO');
-//    document.formpost.submit();
-// }
+ function formulariouno(){
+   
+   document.formpost.submit();
+}
 
 function miFunc() {
       load_images();

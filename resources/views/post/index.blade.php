@@ -96,7 +96,7 @@
                                   <td style="font-size: 13px;" class="td-actions text-right">
                                 
 
-                                  <a href="{{ route('productos.edit', $producto->id) }}" class=""><img src="{{ asset('img/editar.png') }}" width="30" alt="" srcset=""></a>
+                                  <a href="{{ route('post.edit', $producto->id) }}" class=""><img src="{{ asset('img/editar.png') }}" width="30" alt="" srcset=""></a>
 
   
                                   
@@ -104,7 +104,7 @@
                                   
 
                                 
-                                  <form action="{{ route('productos.delete', $producto->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
+                                  <form action="{{ route('post.delete', $producto->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn" type="submit" rel="tooltip" style="border: none; background: transparent;">

@@ -56,7 +56,7 @@ Route::get('/post/set_image2', [App\Http\Controllers\ImageController::class, 'se
 
 
 
-
+Route::get('/ejemplo', [App\Http\Controllers\ProductosController::class, 'ejemplo'])->name('ejemplo');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
@@ -110,9 +110,9 @@ Route::get('/post', [App\Http\Controllers\ProductosController::class, 'index'])-
 
 Route::get('/post/create', [App\Http\Controllers\ProductosController::class, 'create'])->name('post.create');
 
-Route::post('/post', [App\Http\Controllers\ProductosController::class, 'store'])->name('post.store');
+Route::post('/producto/create', [App\Http\Controllers\ProductosController::class, 'store'])->name('producto.store');
 
-Route::get('/post/{users}', [App\Http\Controllers\ProductosController::class, 'show'])->name('post.show');
+Route::get('/post/{id}', [App\Http\Controllers\ProductosController::class, 'show'])->name('post.show');
 
 Route::get('/post/{user}/edit', [App\Http\Controllers\ProductosController::class, 'edit'])->name('post.edit');
 

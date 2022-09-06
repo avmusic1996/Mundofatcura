@@ -83,6 +83,7 @@ class ProductosController extends Controller
         $productos = Productos::all();
         return view('post.index',compact('productos'));
      }
+     
     public function create(Request $request){
         $folder = Str::random(15);
         $folderx ="img-productos/";
@@ -99,18 +100,24 @@ class ProductosController extends Controller
         return view ('post.create', ['folder' => $folder]);
      }
 
-     public function store(Request $request)
+     public function store(Request $request) {
+        Productos::create($request->all());
+        return redirect()->route('post.index')->with('success', 'producto registrado correctamente');
+      }
+     public function newproduct(Request $request)
      {
         $request->validate([
             'nombrepro' => 'required',
             'categoria_id' => 'required',
             'stockpro' => 'required',
+            'folder' => 'required',
             'marcapro' => 'required',
             'codigopro' => 'required',
             'modelopro' => 'required',
             'codigoprosku' => 'required',
             'iva' => 'required',
             'valorunidad' => 'required',
+            'imagenuna' => 'required',
         ]);
         
         Productos::create($request->all());
