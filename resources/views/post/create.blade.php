@@ -395,6 +395,8 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
 
 function miFunc() {
       load_images();
+      var myDropzone = Dropzone.forElement("#dropzoneForm");
+    myDropzone.removeAllFiles(true); 
   }
      Dropzone.options.dropzoneForm = {
         autoProcessQueue : false,
@@ -456,33 +458,7 @@ $.ajax({
       }
     })  
 }
-
-
-
-function fijar_imagen2(nombreimagen) {
-var folder = document.getElementById('folder').value;
-$.ajax({
-      url:"{{ route('post.set_image2') }}",
-      data:{nombreimagen : nombreimagen, folder : folder},
-      success:function(data){
-        
-        load_images();
-      }
-    })  
-}
-
-
-          // ClassicEditor
-          //   .create( document.querySelector( '#txtDescripcion' ) )
-          //   .catch( error => {
-          //   console.error( error );
-          //   } );
-
-         
-
-   
-    
-  
+       
   function myFunction() {
 
   

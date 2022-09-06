@@ -41,7 +41,7 @@ Route::get('/post', [App\Http\Controllers\ImageController::class, 'index'])->nam
 Route::get('/crearproductos', [App\Http\Controllers\ImageController::class, 'index'])->name('crearproducto.index');
 Route::get('/post/upload_image', [App\Http\Controllers\ImageController::class, 'upload_image'])->name('post.upload_image');
 Route::get('/post/fetch_image', [App\Http\Controllers\ProductosController::class, 'fetch_image'])->name('post.fetch_image');
-Route::get('/post/delete_image', [App\Http\Controllers\ImageController::class, 'delete_image'])->name('post.delete_image');
+
 
 
 
@@ -106,6 +106,7 @@ Route::get('/Clientes', [App\Http\Controllers\ClienteController::class, 'byClien
 
 // RUTAS DE PRODUCTOS
 
+Route::get('/post/delete_image', [App\Http\Controllers\ProductosController::class, 'delete_image'])->name('post.delete_image');
 Route::get('/post', [App\Http\Controllers\ProductosController::class, 'index'])->name('post.index');
 
 Route::get('/post/create', [App\Http\Controllers\ProductosController::class, 'create'])->name('post.create');
