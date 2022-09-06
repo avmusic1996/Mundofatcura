@@ -100,7 +100,7 @@
 
   
                                   
-                                  <a href="" class=""data-toggle="modal" data-target="#exampleModalCenterinfo"><img src="{{ asset('img/info.jpg') }}" width="30" alt="" srcset=""></a>
+                                  <a href="{{ route('post.show', $producto->id) }}" class=""><img src="{{ asset('img/info.jpg') }}" width="30" alt="" srcset=""></a>
                                   
 
                                 

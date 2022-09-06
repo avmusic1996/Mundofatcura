@@ -127,7 +127,7 @@ class ProductosController extends Controller
      public function show($id)
      {
 
-        $producto = User::findOrFail($id);
+        $producto = Productos::findOrFail($id);
         //   dd($user);
          return view('post.show', compact('producto'));
     }

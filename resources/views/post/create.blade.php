@@ -223,7 +223,7 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
               
               <div class="panel panel-default p-3">
                 <div class="panel-heading">
-                  <h5 class="panel-title">Imagenes cargadas con exito</h5>
+                  <h5 class="panel-title"></h5>
                 </div>
                 <div class="panel-body" id="uploadedimage" >
       
@@ -370,7 +370,7 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
                     <input name="iva" class="form-input" id="iva" type="number" onkeyup="myFunction()" placeholder="N°" required>
                   </div>
     
-                  <input type="submit" value="Save">
+                  
                 </form>  
                   </div>
                   

@@ -270,7 +270,11 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
           
         </div>
       </div>
+<<<<<<< HEAD
       <form action="{{ route('producto.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
+=======
+      <form action="{{ route('post.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
+>>>>>>> 545994cc0c0fe474b9856870a4e75afd928fef8e
         @csrf
         <div class="row">
       <div class="col-md-8 col-sm-12">
