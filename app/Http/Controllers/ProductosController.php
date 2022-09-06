@@ -20,14 +20,14 @@ class ProductosController extends Controller
 
         $folder = $request->input('folder');
 
-        $path = "productos";
+        $path = "img-productos";
 
         
         $pathimage = $path . $folder;
 
         $imageName = time().'.'.$image->extension();
 
-        $image->move(public_path('productos/' . $folder),$imageName);
+        $image->move(public_path('img-productos/' . $folder),$imageName);
 
         return response()->json(['success'=>$imageName]);
        
@@ -38,11 +38,11 @@ class ProductosController extends Controller
     $folder = $request->get('folder');
     $imagen1 = DB::table('productos')->where('folder',$folder)->value('imagenuna');
   
-    $images = \File::allFiles(public_path('productos/' . $folder));
+    $images = \File::allFiles(public_path('img-productos/' . $folder));
     $output = '<div class="container"><div class="row">';
     
     
-    $folder ='productos/' . $folder . '/';
+    $folder ='img-productos/' . $folder . '/';
     // $imagen1 = DB::table('inmuebles')->select('imagenuna')->where('folder', '=', $folder)->first();
     $estilo = '';
     $btn = '';
@@ -78,6 +78,16 @@ class ProductosController extends Controller
      $output .= '</div></div>';
      echo $output;
      
+    }
+    function delete_image(Request $request)
+    {
+        $folder = $request->get('folder');
+        $folder ='img-productos' . $folder . '/';
+     if($request->get('name'))
+     {
+        
+      \File::delete(public_path($folder . $request->get('name')));
+     }
     }
     public function index(){
         $productos = Productos::all();
