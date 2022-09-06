@@ -13,7 +13,7 @@
                         <a href="{{route('categoria.create')}}" class="btn btn-success">NUEVA CATEGORIA</a>
                     </div>
                     <div class="col-md-6 col-sm-6 text-right">
-                        <a href="{{route('productos.index')}}" class="btn btn-info">LISTA PRODUCTOS</a>
+                        <a href="{{route('post.index')}}" class="btn btn-info">LISTA PRODUCTOS</a>
                     </div>
                 </div>
           </div>

@@ -67,9 +67,7 @@ class ProductosController extends Controller
                 <div class="col-md-3 col-sm-12 mt-4">
                 <button onclick="fijar_imagen('.$fijarimagen.');" type="button" class="btn btn-primary set_image" id="'.$image->getFilename().'" style="'.$btn.'">Fijar </button>
                 </div>
-                
                 </div>
-
             </div>';
      $estilo = '';
      $btn = '';
@@ -83,23 +81,24 @@ class ProductosController extends Controller
     }
     public function index(){
         $productos = Productos::all();
-        return view('productos.index',compact('productos'));
+        return view('post.index',compact('productos'));
      }
     public function create(Request $request){
-        $folder = Str::random(15);  
+        $folder = Str::random(15);
         $folderx ="img-productos/";
-        $path = $folderx . $folder; 
+        $path = $folderx . $folder;
 
         $ruta= public_path($path);
         if(!File::isDirectory($ruta))
         {
         File::makeDirectory($ruta, 0777, true, true);
         }
+
         $request = ucfirst($request);
 
-        return view ('productos.create', ['folder' => $folder]);
-  
+        return view ('post.create', ['folder' => $folder]);
      }
+
      public function store(Request $request)
      {
         $request->validate([
@@ -115,9 +114,16 @@ class ProductosController extends Controller
         ]);
         
         Productos::create($request->all());
-        return redirect()->route('productos.index')->with('success', 'producto registrado correctamente');
+        return redirect()->route('post.index')->with('success', 'producto registrado correctamente');
 
      }
+     public function show($id)
+     {
+
+        $producto = User::findOrFail($id);
+        //   dd($user);
+         return view('post.show', compact('producto'));
+    }
     // public function store(Request $request){
 
     //     $producto = new Producto($request->all());
@@ -151,7 +157,7 @@ class ProductosController extends Controller
         $producto->iva=$request->input('iva');
         $producto->valorunidad=$request->input('valorunidad');
         $producto->save();
-        return redirect()->route('productos.index')->with('success', 'Usuario actualizado correctamente');
+        return redirect()->route('post.index')->with('success', 'Usuario actualizado correctamente');
         // $producto = Producto::findOrFail($id);
     
         // $foto_anterior     = $producto->urlfoto;
@@ -178,7 +184,7 @@ class ProductosController extends Controller
 
     public function edit($id){ 
         $producto = Productos::findOrFail($id);
-         return view('productos.edit',compact('producto'));
+         return view('post.edit',compact('producto'));
      }
 
     public function destroy($id)

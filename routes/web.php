@@ -32,23 +32,23 @@ Auth::routes();
 // RUTAS DE LOS USUARIOS
 
 Route::post('dropzone/store', [App\Http\Controllers\ProductosController::class, 'upload_image'])->name('dropzone.store');
-Route::get('/productos/fetch_image_show', [App\Http\Controllers\ImageController::class, 'fetch_image_show'])->name('productos.fetch_image_show');
+Route::get('/post/fetch_image_show', [App\Http\Controllers\ImageController::class, 'fetch_image_show'])->name('post.fetch_image_show');
 
-Route::get('/productos/fetch_image_modal', [App\Http\Controllers\ImageController::class, 'fetch_image_modal'])->name('productos.fetch_image_modal');
+Route::get('/post/fetch_image_modal', [App\Http\Controllers\ImageController::class, 'fetch_image_modal'])->name('post.fetch_image_modal');
 
 
-Route::get('/productos', [App\Http\Controllers\ImageController::class, 'index'])->name('productos.index');
+Route::get('/post', [App\Http\Controllers\ImageController::class, 'index'])->name('post.index');
 Route::get('/crearproductos', [App\Http\Controllers\ImageController::class, 'index'])->name('crearproducto.index');
-Route::get('/productos/upload_image', [App\Http\Controllers\ImageController::class, 'upload_image'])->name('productos.upload_image');
-Route::get('/productos/fetch_image', [App\Http\Controllers\ProductosController::class, 'fetch_image'])->name('productos.fetch_image');
-Route::get('/productos/delete_image', [App\Http\Controllers\ImageController::class, 'delete_image'])->name('productos.delete_image');
+Route::get('/post/upload_image', [App\Http\Controllers\ImageController::class, 'upload_image'])->name('post.upload_image');
+Route::get('/post/fetch_image', [App\Http\Controllers\ProductosController::class, 'fetch_image'])->name('post.fetch_image');
+Route::get('/post/delete_image', [App\Http\Controllers\ImageController::class, 'delete_image'])->name('post.delete_image');
 
 
 
 
 
-Route::get('/productos/set_image', [App\Http\Controllers\ImageController::class, 'set_image'])->name('productos.set_image');
-Route::get('/productos/set_image2', [App\Http\Controllers\ImageController::class, 'set_image2'])->name('productos.set_image2');
+Route::get('/post/set_image', [App\Http\Controllers\ImageController::class, 'set_image'])->name('post.set_image');
+Route::get('/post/set_image2', [App\Http\Controllers\ImageController::class, 'set_image2'])->name('post.set_image2');
 
 
 
@@ -106,19 +106,19 @@ Route::get('/Clientes', [App\Http\Controllers\ClienteController::class, 'byClien
 
 // RUTAS DE PRODUCTOS
 
-Route::get('/productos', [App\Http\Controllers\ProductosController::class, 'index'])->name('productos.index');
+Route::get('/post', [App\Http\Controllers\ProductosController::class, 'index'])->name('post.index');
 
-Route::get('/productos/create', [App\Http\Controllers\ProductosController::class, 'create'])->name('productos.create');
+Route::get('/post/create', [App\Http\Controllers\ProductosController::class, 'create'])->name('post.create');
 
-Route::post('/productos', [App\Http\Controllers\ProductosController::class, 'store'])->name('productos.store');
+Route::post('/post', [App\Http\Controllers\ProductosController::class, 'store'])->name('post.store');
 
-Route::get('/productos/{users}', [App\Http\Controllers\ProductosController::class, 'show'])->name('productos.show');
+Route::get('/post/{users}', [App\Http\Controllers\ProductosController::class, 'show'])->name('post.show');
 
-Route::get('/productos/{user}/edit', [App\Http\Controllers\ProductosController::class, 'edit'])->name('productos.edit');
+Route::get('/post/{user}/edit', [App\Http\Controllers\ProductosController::class, 'edit'])->name('post.edit');
 
-Route::delete('/productos/{user}', [App\Http\Controllers\ProductosController::class, 'destroy'])->name('productos.delete');
+Route::delete('/post/{user}', [App\Http\Controllers\ProductosController::class, 'destroy'])->name('post.delete');
 
-Route::put('/productos/{user}', [App\Http\Controllers\ProductosController::class, 'update'])->name('productos.update');
+Route::put('/post/{user}', [App\Http\Controllers\ProductosController::class, 'update'])->name('post.update');
 
 
 

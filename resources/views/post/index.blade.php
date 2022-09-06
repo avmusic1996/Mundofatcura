@@ -37,7 +37,7 @@
                           </div>
                           <div class="col-6 text-right">
                             {{--@can('user_create')--}}
-                            <a href="{{ route('productos.create') }}" class="btn btn-md btn-primary">Agregar producto</a>
+                            <a href="{{ route('post.create') }}" class="btn btn-md btn-primary">Agregar producto</a>
                             {{--@endcan--}}
                           </div>
                         </div>

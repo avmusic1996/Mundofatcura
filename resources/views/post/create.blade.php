@@ -118,9 +118,9 @@ box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11); */
   /* focus  */
   input:focus {
       transform: translateX(-5px);
-      border-radius: 30px;
-      -webkit-box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77); 
-box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
+      border-radius: 8px;
+      -webkit-box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.528); 
+box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
   }
   
   
@@ -197,6 +197,7 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
     <div class="row">
       {{-- <form action="{{ route('productos.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
             @csrf --}}
+            
             <div class="col-md-12">
               <div class="card " style="box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
                     -webkit-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
@@ -210,17 +211,17 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
                         @method('POST')
                         @csrf
                         <div class="dz-message" data-dz-message><span>Haz clic aqui o arrastra y carga las fotos que deseas</span></div>
-                        <input type="text" class="invisible" name="folder" id="folder" value="{{ $folder }}"></form>
-                        <br>      
-                        <div align="center">
+                        <input type="text" class="invisible" name="folder" id="folder" value="{{ $folder }}">
+                      </form>
+                        <br>     
+                        <div align="left">
                           <button type="button" class="w-25 btn" id="submit-all" style="background: transparent; border: 1px solid rgb(14, 226, 145); color: rgb(14, 226, 145);" onclick="miFunc()">CARGAR</button>
-                        </div><br>
-             
-                    </div>
+                        </div>
+                   </div>
                 </div>
                 </div>
               </div>
-              <br />
+              
               <div class="panel panel-default p-3">
                 <div class="panel-heading">
                   <h5 class="panel-title">Imagenes cargadas con exito</h5>
@@ -235,7 +236,7 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
         
         <div class="col-md-8">
         
-          <form action="{{ route('productos.store') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+          <form id="formpost" action="{{ route('post.store') }}" method="post" class="form-horizontal" enctype="multipart/form-data" name="formpost">
             @csrf
           <div class="row pt-3">
           <div class="col-md-12 col-sm-12">
@@ -243,10 +244,10 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
             -webkit-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
             -moz-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);">
               <div class="row">
+                {{-- <input type="text" class="invisible" name="folder" id="folder" value="{{ $folder }}"> --}}
                 <div class="col-12">
                   <h5>Detalles del producto</h5>
                 </div>
-                
                 <div class="col-md-8 col-sm-12 mt-3">
                   <label for="">Nombre del producto</label>
                   <input name="nombrepro" class="form-input" id="nombrepro" type="text" placeholder="Eje: Iphone" required>
@@ -262,13 +263,9 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
               <div class="col-md-4 mt-3">
                 <label for="">Stock</label>
                 <input name="stockpro" class="form-input" id="stock" type="number" placeholder="N°" required onkeyup="myFunction()"></div>
-              
-    
               <div class="col-md-4 mt-3">
                 <label for="">Codigo</label>
                 <input name="codigopro" class="form-input" id="codigopro" type="text" placeholder="N°" required></div>
-              
-    
               <div class="col-md-4 mt-3">
                 <label for="">Marca</label>
                 <input name="marcapro" class="form-input" id="marcapro" type="text" placeholder="Eje: Apple" required>
@@ -291,18 +288,15 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
               
             </div>
           </div>
-    
-          </div>
-    
-          <div class="col-md-4 col-sm-12">
-            
           </div>
         </div>     
         <hr>    
-        <a href="{{ route('productos.index') }}" class="btn btn-cliente btn-secondary">CANCELAR</a>
-          <button type="submit" class="btn btn-cliente btn-primary">GUARDAR CAMBIOS</button>
+        <a href="{{ route('post.index') }}" class="btn btn-cliente btn-secondary">CANCELAR</a>
+        <button type="submit" class="btn btn-cliente btn-primary">GUARDAR CAMBIOS</button>  
       </form>
+      
         </div>
+        
         <div class="col-md-4">
           <div class="row pt-3">
             <div class="col-md-12"><div class="card" style="box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
@@ -351,10 +345,10 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
                   <div class="col-md-2 d-flex justify-content-end">
                     <label for="" id="cantstock"></label>
                   </div>
-      
                 </div>
-                
-              </div></div>
+              </div>
+            </div>
+
               <div class="col-md-12 col-sm-12">
                 <div class="card p-4" style="box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 0.486);
                 -webkit-box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 0.486);
@@ -390,10 +384,15 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
 
 
 <script type="text/javascript">
+
+// function formulariouno(){
+//   // alert('PERRO');
+//    document.formpost.submit();
+// }
+
 function miFunc() {
       load_images();
-  } 
-     
+  }
      Dropzone.options.dropzoneForm = {
         autoProcessQueue : false,
         acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
@@ -420,7 +419,7 @@ function miFunc() {
   var folder =document.getElementById('folder').value;
     $.ajax({
    data:{folder : folder},
-      url:"{{ route('productos.fetch_image') }}",
+      url:"{{ route('post.fetch_image') }}",
       success:function(data)
       {
         $('#uploadedimage').html(data);
@@ -434,7 +433,7 @@ function miFunc() {
     var folder = document.getElementById('folder').value;
     var name = $(this).attr('id');
     $.ajax({
-      url:"{{ route('productos.delete_image') }}",
+      url:"{{ route('post.delete_image') }}",
       data:{name : name, folder : folder},
       success:function(data){
         load_images();
@@ -444,10 +443,10 @@ function miFunc() {
 
 
 
-  function fijar_imagen(nombreimagen) {
+function fijar_imagen(nombreimagen) {
 var folder = document.getElementById('folder').value;
 $.ajax({
-      url:"{{ route('productos.set_image') }}",
+      url:"{{ route('post.set_image') }}",
       data:{nombreimagen : nombreimagen, folder : folder},
       success:function(data){
         load_images();
@@ -460,7 +459,7 @@ $.ajax({
 function fijar_imagen2(nombreimagen) {
 var folder = document.getElementById('folder').value;
 $.ajax({
-      url:"{{ route('productos.set_image2') }}",
+      url:"{{ route('post.set_image2') }}",
       data:{nombreimagen : nombreimagen, folder : folder},
       success:function(data){
         

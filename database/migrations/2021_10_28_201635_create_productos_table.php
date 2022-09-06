@@ -18,6 +18,7 @@ class CreateProductosTable extends Migration
             $table->string('nombrepro');
             $table->string('categoria_id');
             $table->string('imagenuna');
+            $table->string('folder');
             $table->string('stockpro');
             $table->string('marcapro');
             $table->string('codigopro');
@@ -29,7 +30,6 @@ class CreateProductosTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
