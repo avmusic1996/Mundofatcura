@@ -8,7 +8,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>MundoFactura</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  
+  <meta name="description" content="Slicebox - 3D Image Slider with Fallback" />
+  <meta name="keywords" content="jquery, css3, 3d, webkit, fallback, slider, css3, 3d transforms, slices, rotate, box, automatic" />
+  <meta name="author" content="Pedro Botelho for Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico">
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="{{ asset('modules/bootstrap/css/bootstrap.min.css') }}">
@@ -23,9 +26,7 @@
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('css/components.css') }}">
   <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
-  
-3
-<link rel="stylesheet" type="text/css" href="modules/datatables/datatables.min.css"/>
+ <link rel="stylesheet" type="text/css" href="modules/datatables/datatables.min.css"/>
 
 
 
@@ -70,6 +71,7 @@
  
   <!--   Core JS Files   -->
   <script src=""></script>
+  
   <script src="{{ asset('js/validator.min.js') }}"></script>
   <script src="{{ asset('js/contact-form.js') }}"></script>
 

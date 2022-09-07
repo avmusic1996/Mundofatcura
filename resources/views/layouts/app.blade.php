@@ -28,8 +28,11 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    
     <link rel="stylesheet" href="{{ asset('css/components.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slide/demo.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slide/slicebox.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/slide/custom.css') }}">
+    <script type="text/javascript" src="js/slidejs/modernizr.custom.46884.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
