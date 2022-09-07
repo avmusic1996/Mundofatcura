@@ -79,6 +79,40 @@ class ProductosController extends Controller
      echo $output;
      
     }
+    
+    function fetch_image_show(Request $request)
+    {
+    $folder = $request->get('folder');
+    $images = \File::allFiles(public_path('img-productos/' . $folder));
+
+    $contar = 1;
+    $output = '';
+    $folder ='img-productos/' . $folder . '/';
+    foreach($images as $image)
+    {
+    
+    $output .= '<div class="slide" style=" z-index: 1;position: absolute;width: 100%;
+    clip-path: circle(0% at 0 50%);">
+                <img src="'.asset($folder . $image->getFilename()).'" style="width: 100%;" id="'.$contar.'"/></div>';
+    
+                $contar++;
+    }
+    $output .= '';
+                // foreach($images as $image)
+                //     {
+                    
+                //     $output .= '<a href="#" title="01 (1)"><span><img src="'.asset($folder . $image->getFilename()).'" style="width:100px; height: 80px;" class="img-thumbnail" alt="01 (1)"/>'.$contar.'</span></a>';
+                    
+                //                 $contar++;
+                //     }
+    // $output .= '</div><div class="ws_shadow"></div></div>
+    // <script type="text/javascript" src="../assets/slider/js/wowslider.js"></script>
+    // <script type="text/javascript" src="../assets/slider/js/script.js"></script>'; 
+     echo $output;
+     
+    }
+
+
     function delete_image(Request $request)
     {
         $folder = $request->get('folder');

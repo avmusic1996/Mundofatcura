@@ -11,12 +11,12 @@
 box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.37);
 }
 
-.img-slider .slide{
+/* .img-slider .slide{
   z-index: 1;
   position: absolute;
   width: 100%;
   clip-path: circle(0% at 0 50%);
-}
+} */
 
 .img-slider .slide.active{
   clip-path: circle(150% at 0 50%);
@@ -178,43 +178,14 @@ box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.37);
                 <div class="row">
                     <div class="col-md-5 col-sm-12 p-2 slidercontent">
                         <div class="img-slider">
-                            <div class="slide active">
-                              <img src="{{ asset('assets/img/prueba/bg1.jpeg')}}" alt="">
-                              <div class="info">
-                                <h5>Slide 01</h5>
-                                
-                              </div>
-                            </div>
-                            <div class="slide">
-                              <img src="{{ asset('assets/img/prueba/bg2.jpg')}}" alt="">
-                              <div class="info">
-                                <h5>Slide 02</h5>
-                                
-                              </div>
-                            </div>
-                            <div class="slide">
-                              <img src="{{ asset('assets/img/prueba/bg3.jpeg')}}" alt="">
-                              <div class="info">
-                                <h5>Slide 03</h5>
-                                
-                              </div>
-                            </div>
-                            <div class="slide">
-                              <img src="{{ asset('assets/img/prueba/bg4.jpeg')}}" alt="">
-                              <div class="info">
-                                <h5>Slide 04</h5>
-                                
-                              </div>
-                            </div>
-                            <div class="slide">
-                              <img src="{{ asset('assets/img/prueba/bg5.jpg')}}" alt="">
-                              <div class="info">
-                                <h5>Slide 05</h5>
-                                
-                              </div>
+                          <input type="text" class="invisible" name="folder" id="folder" value="{{ $producto->folder }}">
+                            <div class="slide active" id="uploaded_image" style="clip-path: circle(150% at 0 50%);
+                            transition: 2s;
+                            transition-property: clip-path;">
+                    
                             </div>
                             <div class="navigation">
-                              <div >
+                              <div>
                                 <li class="btn active"></li>
                               </div>
                               <div class="">
@@ -258,7 +229,22 @@ box-shadow: 0px 2px 18px 0px rgba(0,0,0,0.37);
     </div>
 </div>
 <script>
-        var slides = document.querySelectorAll('.slide');
+load_images();
+function load_images()
+{
+var folder =document.getElementById('folder').value;
+ $.ajax({
+data:{folder : folder},
+   url:"{{ route('post.fetch_image_show') }}",
+   success:function(data)
+   {
+     $('#uploaded_image').html(data);
+   }
+ })
+}
+
+
+var slides = document.querySelectorAll('.slide');
     var btns = document.querySelectorAll('.btn');
     let currentSlide = 1;
 

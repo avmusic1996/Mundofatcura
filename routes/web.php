@@ -32,7 +32,7 @@ Auth::routes();
 // RUTAS DE LOS USUARIOS
 
 Route::post('dropzone/store', [App\Http\Controllers\ProductosController::class, 'upload_image'])->name('dropzone.store');
-Route::get('/post/fetch_image_show', [App\Http\Controllers\ImageController::class, 'fetch_image_show'])->name('post.fetch_image_show');
+Route::get('/post/fetch_image_show', [App\Http\Controllers\ProductosController::class, 'fetch_image_show'])->name('post.fetch_image_show');
 
 Route::get('/post/fetch_image_modal', [App\Http\Controllers\ImageController::class, 'fetch_image_modal'])->name('post.fetch_image_modal');
 
