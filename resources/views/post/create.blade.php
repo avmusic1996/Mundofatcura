@@ -483,16 +483,21 @@ $.ajax({
 }
 
 
-window.onload = function(){  
+
+
+function categorias(){
+ 
   $.get('{{ route('categorias') }}',{id:{{ auth()->id() }}}, function (data) {
     document.getElementById("cateid").innerHTML = data;
     
         }
 )
-}
 
+}
  
- 
+
+
+ categorias();
 
 
 

@@ -24,14 +24,14 @@
                     </div>
                     <div class="col-md-7 col-sm-12" style="border: 8px solid white;">
                         <h1 style="padding: 5px;">{{$producto->nombrepro}}</h1>
-                        <p style="text-align: justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui voluptatibus animi enim cum quisquam a nostrum similique itaque, neque molestias obcaecati ipsum officiis soluta cumque dolore quod ipsam pariatur ex.</p>
+                        <p style="text-align: justify">{{$producto->descripcion}}</p>
                         <p style="font-size: 22px; font-weight:700;">$ {{$producto->valorunidad}} <label style="font-size: 10px;">UND</label></p>
                         <label>Iva - {{$producto->iva}}%</label><br>
                         <label>Stock - {{$producto->stockpro}}</label>
                         <div class="row p-3">
                             <div class="col-6 text-left">
                               {{--@can('user_create')--}}
-                              <a href="{{ route('post.index') }}" class="btn btn-md btn-secondary">Volver</a>
+                              <a href="{{ route('post.index') }}" class="btn btn-md btn-primary">Volver</a>
                               <a href="{{ route('post.edit', $producto->id) }}" class="btn btn-md btn-success">Editar</a>
                               {{--@endcan--}}
                             </div>

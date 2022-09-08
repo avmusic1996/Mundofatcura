@@ -117,7 +117,7 @@ class ProductosController extends Controller
     {
     
     $output .= '<li>
-                <img src="'.asset($folder . $image->getFilename()).'" class="img-thumbnail" style="max-width: 430px; width:100%; max-height:300px; height:100%;" alt="image1" id="'.$contar.'"/>
+                <img src="'.asset($folder . $image->getFilename()).'" class="" style="max-width: 430px; width:100%; max-height:300px; height:100%;" alt="image1" id="'.$contar.'"/>
                 </li>';
                
                
