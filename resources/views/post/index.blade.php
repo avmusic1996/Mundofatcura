@@ -11,25 +11,24 @@
                 <div class="card-header">
                   <h4 class="card-title">Productos</h4>
                   <br>
-                  <p class="card-category">
-                    @if (session('success'))
-                        <div class="alert alert-success" role="success">
-                          {{ session('success') }}
-                        </div>
-                      @endif
-                  </p>
+                  <p class="card-category"></p>
                 </div>
               </div>
             </div>
 
            
 
-           <div class="row">
+           <div class="row" >
               <div class="col-md-12">
                 <div class="row">
                   <div class="col-md-12">
                       
-                                              
+                      @if ( session('success'))
+                        <div class="alert alert-success" role="success">
+                          {{ session('success') }}
+                        </div>
+                      @endif
+                        
                         <div class="row p-3">
                           <div class="col-6 text-left">
                             {{--@can('user_create')--}}
@@ -42,7 +41,7 @@
                             {{--@endcan--}}
                           </div>
                         </div>
-                        <div class="table-responsive">
+                        <div  class="table-responsive" >
                           <table class="table" id="example">
                             <thead class="text-primary">
 
@@ -97,11 +96,11 @@
                                   <td style="font-size: 13px;" class="td-actions text-right">
                                 
 
-                                  <a href="{{ route('post.edit', $producto->id) }}" class=""><img src="{{ asset('img/editar.png') }}" width="30" alt="" srcset=""></a>
+                                  <a href="{{ route('post.edit', $producto->id) }}" class=""><img src="{{ asset('images/edit.png') }}" width="25" alt="" srcset=""></a>
 
   
                                   
-                                  <a href="{{ route('post.show', $producto->id) }}" class=""><img src="{{ asset('img/info.jpg') }}" width="30" alt="" srcset=""></a>
+                                  <a href="{{ route('post.show', $producto->id) }}" class=""><img src="{{ asset('images/box.png') }}" width="25" alt="" srcset=""></a>
                                   
 
                                 
@@ -109,7 +108,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn" type="submit" rel="tooltip" style="border: none; background: transparent;">
-                                      <img src="{{ asset('img/delete.png') }}" width="30" alt="" srcset="">
+                                      <img src="{{ asset('images/delete.png') }}" width="25" alt="" srcset="">
                                     </button>
                                   </form>
                                   </td>
@@ -160,8 +159,10 @@ triggerTabList.forEach(function (triggerEl) {
   triggerEl.addEventListener('click', function (event) {
     event.preventDefault()
     tabTrigger.show()
+    
   })
 })
+
 
 // window.onload = function(){   
 //   $.get('{{ route('categorias') }}',{id:{{ auth()->id() }}}, function (data) {

@@ -76,7 +76,7 @@ class ProductosController extends Controller
 
    
      $output .= '</div></div>';
-     echo $output;
+     echo $output;  
      
     }
     
@@ -112,12 +112,24 @@ class ProductosController extends Controller
     $contar = 1;
     $output = '<div col-md-5 col-sm-12 p-2 slidercontent" id="uploadedimageshow"><ul id="sb-slider" class="sb-slider">';
     $folder ='img-productos/' . $folder . '/';
+    $span ='';
     foreach($images as $image)
     {
     
     $output .= '<li>
                 <img src="'.asset($folder . $image->getFilename()).'" class="img-thumbnail" style="max-width: 430px; width:100%; max-height:300px; height:100%;" alt="image1" id="'.$contar.'"/>
                 </li>';
+               
+               
+                if($contar<=1)
+                {
+                    $span .='<span class="nav-dot-current"></span>';
+                   
+                }
+                else
+                {
+                    $span .='<span ></span>';
+                }
                 $contar++;
     }
     $output .= '</ul>
@@ -125,14 +137,11 @@ class ProductosController extends Controller
                     <a href="#">Next</a>
                     <a href="#">Previous</a>
                 </div>
-                <div id="nav-dots" class="nav-dots">
-                            <span class="nav-dot-current"></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                <div id="nav-dots" class="nav-dots">'.$span.'
+                            
+                            
+                            
+                            
                 </div></div>'; 
      echo $output;
      
@@ -187,6 +196,7 @@ class ProductosController extends Controller
             'iva' => 'required',
             'valorunidad' => 'required',
             'imagenuna' => 'required',
+            'descripcion' => 'descripcion',
         ]);
         
         Productos::create($request->all());

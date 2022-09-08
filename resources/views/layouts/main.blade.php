@@ -70,7 +70,10 @@
   @endguest
  
   <!--   Core JS Files   -->
-  <script src=""></script>
+  <script>window.onload = function()
+{
+$("#example").show();
+}</script>
   
   <script src="{{ asset('js/validator.min.js') }}"></script>
   <script src="{{ asset('js/contact-form.js') }}"></script>
