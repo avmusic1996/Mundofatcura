@@ -28,8 +28,8 @@
 	height: 42px;
 	background: #cbbfae url(../images/nav.png) no-repeat top left;
 	position: absolute;
-	top: 50%;
-	left: 2px;
+	top: 50%!important;
+	left: 0px;
 	text-indent: -9000px;
 	cursor: pointer;
 	margin-top: -21px;
@@ -40,7 +40,7 @@
 
 .nav-arrows a:first-child{
 	left: auto;
-	right: 2px;
+	right: 13px!important;
 	background-position: top right;
 }
 

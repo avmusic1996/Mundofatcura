@@ -1,68 +1,27 @@
 @extends('layouts.main1', ['activePage' => 'producto', 'titlePage' => 'PRODUCTOS'])
 @section('content')
+<style>
+	.slidercontent
+	{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+</style>
 
         <link rel="stylesheet" type="text/css" href="/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="/css/slicebox.css" />
 		<link rel="stylesheet" type="text/css" href="/css/custom.css" />
 		<script type="text/javascript" src="/js/modernizr.custom.46884.js"></script>
-	
-
-		
-
     <div class="container-fluid">
     <div class="main-content">
         <div class="row">
-            <div class="col-md-12 card" style="border: 8px solid white;">
+            <div class="col-md-12 card slidercontent" style="border: 8px solid white;">
                 <div class="row">
-                    <div class="col-md-5 col-sm-12 p-2 slidercontent">
-                        <ul id="sb-slider" class="sb-slider">
-                            <li>
-                               <img src="/images/1.jpg" alt="image1"/>
-                              
-                            </li>
-                            <li>
-                              <img src="/images/2.jpg" alt="image2"/>
-                          
-                            </li>
-                            <li>
-                                <img src="/images/3.jpg" alt="image1"/>
-                                
-                            </li>
-                            <li>
-                               <img src="/images/4.jpg" alt="image1"/>
-                                
-                            </li>
-                            <li>
-                               <img src="/images/5.jpg" alt="image1"/>
-                               
-                            </li>
-                            <li>
-                                <img src="/images/6.jpg" alt="image1"/>
-                                
-                            </li>
-                            <li>
-                              <img src="/images/7.jpg" alt="image1"/>
-                                
-                            </li>
-                        </ul>
-        
-                        <div id="shadow" class="shadow"></div>
-        
-                        <div id="nav-arrows" class="nav-arrows">
-                            <a href="#">Next</a>
-                            <a href="#">Previous</a>
-                        </div>
-        
-                        <div id="nav-dots" class="nav-dots">
-                            <span class="nav-dot-current"></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-        
+                    
+                    <div class="col-md-5 col-sm-12 p-2 slidercontent" id="uploadedimageshow">
+                        <input type="text" class="invisible" name="folder" id="folder" value="{{ $producto->folder }}">        
                     </div>
                     <div class="col-md-7 col-sm-12" style="border: 8px solid white;">
                         <h1 style="padding: 5px;">{{$producto->nombrepro}}</h1>
@@ -94,6 +53,21 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/jquery.slicebox.js"></script>
 		<script type="text/javascript">
+        
+function load_images()
+  {
+  var folder =document.getElementById('folder').value;
+    $.ajax({
+   data:{folder : folder},
+      url:"{{ route('post.fetch_image_show') }}",
+      success:function(data)
+      {
+        $('#uploadedimageshow').html(data);
+      }
+    })
+  };
+  load_images();
+
 			$(function() {
 
 				var Page = (function() {

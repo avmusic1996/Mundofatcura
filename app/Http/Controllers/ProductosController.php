@@ -110,27 +110,30 @@ class ProductosController extends Controller
     $images = \File::allFiles(public_path('img-productos/' . $folder));
 
     $contar = 1;
-    $output = '<div id="wowslider-container1" style="width: 100%;"><div class="ws_images" id="uploaded_image"><ul>';
+    $output = '<div col-md-5 col-sm-12 p-2 slidercontent" id="uploadedimageshow"><ul id="sb-slider" class="sb-slider">';
     $folder ='img-productos/' . $folder . '/';
     foreach($images as $image)
     {
     
     $output .= '<li>
-                <img src="'.asset($folder . $image->getFilename()).'" style="max-height: 450px!important; width: 100%;" height: 300px!important; class="img-thumbnail" id="wows1_'.$contar.'"/></li>';
-    
+                <img src="'.asset($folder . $image->getFilename()).'" class="img-thumbnail" style="max-width: 430px; width:100%; max-height:300px; height:100%;" alt="image1" id="'.$contar.'"/>
+                </li>';
                 $contar++;
     }
-    $output .= '</ul></div><div class="ws_bullets">';
-                foreach($images as $image)
-                    {
-                    
-                    $output .= '<a href="#" title="01 (1)"><span><img src="'.asset($folder . $image->getFilename()).'" style="width:100px; height: 80px;" class="img-thumbnail" alt="01 (1)"/>'.$contar.'</span></a>';
-                    
-                                $contar++;
-                    }
-    $output .= '</div><div class="ws_shadow"></div></div>
-    <script type="text/javascript" src="../slider/js/wowslider.js"></script>
-    <script type="text/javascript" src="../slider/js/script.js"></script>'; 
+    $output .= '</ul>
+                <div id="nav-arrows" class="nav-arrows">
+                    <a href="#">Next</a>
+                    <a href="#">Previous</a>
+                </div>
+                <div id="nav-dots" class="nav-dots">
+                            <span class="nav-dot-current"></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                </div></div>'; 
      echo $output;
      
     }
