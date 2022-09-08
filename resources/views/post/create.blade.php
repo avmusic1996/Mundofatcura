@@ -236,7 +236,7 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
         <div class="col-md-8">
         
 
-          <form id="formpost" name="formpost" action="{{ route('producto.store') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+          <form id="formpost" name="formpost" action="{{ route('post.store') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
           @csrf
           @method('post')           
           <div class="row pt-3">
