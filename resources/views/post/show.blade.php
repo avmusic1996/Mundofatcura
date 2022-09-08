@@ -7,7 +7,6 @@
 		justify-content: center;
 		align-items: center;
 	}
-
 </style>
 
         <link rel="stylesheet" type="text/css" href="/css/demo.css" />
@@ -17,10 +16,10 @@
     <div class="container-fluid">
     <div class="main-content">
         <div class="row">
-            <div class="col-md-12 card slidercontent" style="border: 8px solid white;">
+            <div class="col-md-12 card" style="border: 8px solid white;">
                 <div class="row">
                     
-                    <div class="col-md-5 col-sm-12 p-2 slidercontent" id="uploadedimageshow">
+                    <div class="col-md-5 col-sm-12 p-2" id="uploadedimageshow">
                         <input type="text" class="invisible" name="folder" id="folder" value="{{ $producto->folder }}">        
                     </div>
                     <div class="col-md-7 col-sm-12" style="border: 8px solid white;">

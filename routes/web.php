@@ -111,7 +111,7 @@ Route::get('/post', [App\Http\Controllers\ProductosController::class, 'index'])-
 
 Route::get('/post/create', [App\Http\Controllers\ProductosController::class, 'create'])->name('post.create');
 
-Route::post('/producto/create', [App\Http\Controllers\ProductosController::class, 'store'])->name('producto.store');
+Route::post('/post/edit', [App\Http\Controllers\ProductosController::class, 'store'])->name('post.store');
 
 Route::get('/post/{id}', [App\Http\Controllers\ProductosController::class, 'show'])->name('post.show');
 
