@@ -24,6 +24,7 @@ class Productos extends Model
         'codigoprosku',
         'valorunidad',
         'iva',
+        'descripcion',
     ];
 
     public function categoria()

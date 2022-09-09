@@ -280,13 +280,14 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
     
               <div class="col-md-4 mt-3">
                 <label for="">Codigo SKU</label>
-                <input name="codigoprosku" class="form-input" id="codigoprosku" type="text" placeholder="Eje: Pro max" required>
+                <input name="codigoprosku" class="form-input" id="codigoprosku" type="text" placeholder="Eje: 4225-776-3234" required>
               </div>
     
     
-              {{-- <div class="col-md-12 mt-5 d-flex justify-content-center">
-                <textarea  type="text" name="txtdescripcion" id="txtdescripcion"></textarea>
-              </div> --}}
+              <div class="col-md-4 mt-3">
+                <label for="">Descripción</label>
+                <input name="descripcion" class="form-input" id="descripcion" type="text" placeholder="Descripción" required>
+              </div>
               
             </div>
           </div>
@@ -482,16 +483,21 @@ $.ajax({
 }
 
 
-window.onload = function(){  
+
+
+function categorias(){
+ 
   $.get('{{ route('categorias') }}',{id:{{ auth()->id() }}}, function (data) {
     document.getElementById("cateid").innerHTML = data;
     
         }
 )
-}
 
+}
  
- 
+
+
+ categorias();
 
 
 
