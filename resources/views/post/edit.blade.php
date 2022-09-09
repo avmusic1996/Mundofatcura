@@ -185,200 +185,194 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
   
 
 <div class="container-fluid">
+  
   <div class="main-content">
     <div class="row">
-      {{-- <form action="{{ route('producto.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
-            @csrf --}}
-            <div class="col-md-8" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.904)50%,rgba(255, 255, 255, 0.925)100%);">
-              
-              <div class="panel panel-default" style="margin-top: 50px; background: rgba(255, 255, 255, 0.349);">
+    
+            
+            <div class="col-md-12">
+              <div class="card " style="box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
+                    -webkit-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
+                    -moz-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);">             
+              <div class="panel panel-default  p-3" style="">
                 <div class="panel-body">
-                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
-                  <form id="dropzoneForm" class="dropzone text-dark" action="{{ route('dropzone.store') }}" accept-charset="UTF-8" enctype="multipart/form-data" style="background: #ffbf35; border:none; border-radius:20px;">
-                    @csrf
-                    <div class="dz-message" data-dz-message><span>Haz clic aqui y carga las fotos que deseas</span></div>
-                    <input type="text" class="hidden" name="folder" id="folder" value="producto1">
-                  </form><br>
-                  <div align="center">
-                    <button type="button" class="w-25 btn" id="submit-all" style="background: transparent; border: 1px solid rgb(14, 226, 145); color: rgb(14, 226, 145);">CARGAR</button>
-                  </div><br>
+                                 
+                <div class="panel panel-default" style="margin-top: 50px; background: rgba(255, 255, 255, 0.349);">
+                    <div class="panel-body">
+                      <form id="dropzoneForm" class="dropzone text-dark" action="{{ route('dropzone.store') }}"method="post" name="file" files="true" enctype="multipart/form-data" class="dropzone" id="image-upload" style="border: rgb(126, 119, 119) 3px dashed; border-radius:8px;"> 
+                        @method('POST')
+                        @csrf
+                        <div class="dz-message" data-dz-message><span>Haz clic aqui o arrastra y carga las fotos que deseas</span></div>
+                        <input type="text" class="invisible" name="folder" id="folder" value="{{ $folder }}">
+                      </form>
+                        <br>     
+                        <div align="left">
+                          <button type="button" class="w-10 btn btn-dark" id="submit-all" style="" onclick="miFunc()">CARGAR</button>
+                        </div>
+                   </div>
                 </div>
+                </div>
+              </div>
               
+              <div class="panel panel-default p-3">
+                <div class="panel-heading">
+                  <h5 class="panel-title"></h5>
+                </div>
+                <div class="panel-body" id="uploadedimage" >
+      
+                </div>
               </div>
-              <br />
               <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
-              <div class="panel panel-default">
-            <div class="panel-heading">
-                  <h3 class="panel-title">Imagenes cargadas con exito</h3>
+            </div>
+            </div>
+        
+        <div class="col-md-8">
+          <form id="formpost" name="formpost" action="{{ route('post.update', $producto->id) }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')           
+          <div class="row pt-3">
+          <div class="col-md-12 col-sm-12">
+            <div class="card p-4" style="box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
+            -webkit-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
+            -moz-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);">
+              <div class="row">
+                 <input type="text" class="invisible" name="folder" id="folder" value="{{ $folder }}">
+                 <input type="text" class="invisible" name="imagenuna" id="" value="{{ $folder }}">
+                <div class="col-12">
+                  <h5>Detalles del producto</h5>
                 </div>
-                <div class="panel-body" id="uploaded_image">
+                <div class="col-md-8 col-sm-12 mt-3">
+                  <label for="">Nombre del producto</label>
+                  <input name="nombrepro" class="form-input" id="nombrepro" type="text" placeholder="Eje: Iphone" required>
+                </div>
+                <div class="col-md-4 col-sm-12 mt-3">
+                  {{-- <span class="input-item">
+                    <i class="fa fa-user-circle"></i>
+                  </span> --}}
+    
+                  <label for="">Selecionar categoria</label>
+                    <div id="cateid"></div>
+                 </div>
+              <div class="col-md-4 mt-3">
+                <label for="">Stock</label>
+                <input name="stockpro" class="form-input" id="stock" type="number" placeholder="N°" required onkeyup="myFunction()"></div>
+              <div class="col-md-4 mt-3">
+                <label for="">Codigo</label>
+                <input name="codigopro" class="form-input" id="codigopro" type="text" placeholder="N°" required></div>
+              <div class="col-md-4 mt-3">
+                <label for="">Marca</label>
+                <input name="marcapro" class="form-input" id="marcapro" type="text" placeholder="Eje: Apple" required>
+              </div>
+    
+              <div class="col-md-4 mt-3">
+                <label for="">Modelo</label>
+                <input name="modelopro" class="form-input" id="modelopro" type="text" placeholder="Eje: Pro max" required>
+              </div>
+    
+              <div class="col-md-4 mt-3">
+                <label for="">Codigo SKU</label>
+                <input name="codigoprosku" class="form-input" id="codigoprosku" type="text" placeholder="Eje: Pro max" required>
+              </div>
+    
+    
+              {{-- <div class="col-md-12 mt-5 d-flex justify-content-center">
+                <textarea  type="text" name="txtdescripcion" id="txtdescripcion"></textarea>
+              </div> --}}
+              
+            </div>
+          </div>
+          </div>
+        </div>     
+        <hr>    
+        <a href="{{ route('post.index') }}" class="btn btn-cliente btn-secondary">CANCELAR</a>
       
+      <button onclick="formulariouno()" class="btn btn-cliente btn-primary" >GUARDAR CAMBIOS</button> 
+        </div>
+        
+        <div class="col-md-4">
+          <div class="row pt-3">
+            <div class="col-md-12"><div class="card" style="box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
+              -webkit-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
+              -moz-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);">
+                <div class="row p-3">
+                  <div class="col-md-12">
+                    <label for="" >Valor total con IVA</label>
+                  </div>
+                  <div class="col-md-12 d-flex justify-content-end">
+                    <label style="font-weight: 700; font-size:25px; color:rgb(214, 40, 40);" for="" id="totalconiva"></label>
+                  </div>
+      
+                  <div class="col-md-12">
+                    <label for="" >Valor total sin IVA x STOCK</label>
+                  </div>
+                  
+                  <div class="col-md-12 d-flex justify-content-end">
+                    <label for="" id="total"></label>
+                  </div>
+      
+                </div>
+                <hr>
+                <div class="row p-3">
+                  
+                  <div class="col-md-6">
+                    <label for="">Valor Unidad</label>
+                  </div>
+                  <div class="col-md-6 d-flex justify-content-end">
+                    <label class="toUpper" id="toUpper" for=""></label>
+                  </div>
+      
+      
+                  <div class="col-md-6">
+                    <label for="">IVA</label>
+                    <p id="ivaporcentaje"></p>
+                  </div>
+                  <div class="col-md-6 d-flex justify-content-end">
+                    <label class="" for="" id="totaliva"></label>
+                  </div>
+      
+                  <div class="col-md-10">
+                    <label for="">Cantidad</label>
+                    <label for="" id=""></label>
+                  </div>
+                  <div class="col-md-2 d-flex justify-content-end">
+                    <label for="" id="cantstock"></label>
+                  </div>
                 </div>
               </div>
             </div>
-      
-      <div class="col-md-4 col-sm-12" style="">
-        <div class="card" style="-webkit-box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);
-        -moz-box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);
-        box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);">
-          <div class="row p-3">
-            <div class="col-md-12">
-              <label for="" >Valor total con IVA</label>
-            </div>
-            <div class="col-md-12 d-flex justify-content-end">
-              <label style="font-weight: 700; font-size:25px; color:rgb(214, 40, 40);" for="" id="totalconiva"></label>
-            </div>
 
-            <div class="col-md-12">
-              <label for="" >Valor total sin IVA x STOCK</label>
-            </div>
-            
-            <div class="col-md-12 d-flex justify-content-end">
-              <label for="" id="total"></label>
-            </div>
-
+              <div class="col-md-12 col-sm-12">
+                <div class="card p-4" style="box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 0.486);
+                -webkit-box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 0.486);
+                -moz-box-shadow: -1px 3px 5px 0px rgba(0, 0, 0, 0.486);">
+                  <h5>Valores del producto</h5>
+                  <div class="row">
+                    <div class="col-md-4 mt-3">
+                    <label for="">Valor unidad</label>
+                  </div>
+                  <div class="col-md-8 mt-3">
+                    <input name="valorunidad" class="form-input" id="valorunidad" type="number"  placeholder="N°" required onkeyup="myFunction()">
+                  </div>
+        
+                  <div class="col-md-4 mt-3">
+                    <label for="">Valor IVA</label>
+                  </div>
+                  <div class="col-md-8 mt-3">
+                    <input name="iva" class="form-input" id="iva" type="number" onkeyup="myFunction()" placeholder="N°" required>
+                  </div>
+    
+                  
+                </form>  
+                  </div>
+                  
+                </div>
+              </div>
           </div>
-          <hr>
-          <div class="row p-3">
-            
-            <div class="col-md-6">
-              <label for="">Valor Unidad</label>
-            </div>
-            <div class="col-md-6 d-flex justify-content-end">
-              <label class="toUpper" id="toUpper" for=""></label>
-            </div>
-
-
-            <div class="col-md-6">
-              <label for="">IVA</label>
-              <p id="ivaporcentaje"></p>
-            </div>
-            <div class="col-md-6 d-flex justify-content-end">
-              <label class="" for="" id="totaliva"></label>
-            </div>
-
-            <div class="col-md-10">
-              <label for="">Cantidad</label>
-              <label for="" id=""></label>
-            </div>
-            <div class="col-md-2 d-flex justify-content-end">
-              <label for="" id="cantstock"></label>
-            </div>
-
-          </div>
-          
         </div>
-      </div>
-      <form action="{{ route('post.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
-        @csrf
-        <div class="row">
-      <div class="col-md-8 col-sm-12">
-        <div class="card p-4" style="-webkit-box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);
-        -moz-box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);
-        box-shadow: inset 3px 41px 108px -46px rgb(208, 255, 253);">
-          <div class="row">
-            <div class="col-12">
-              <h5>Detalles del producto</h5>
-            </div>
-            
-            <div class="col-md-8 col-sm-12 mt-3">
-              <label for="">Nombre del producto</label>
-              <input name="nombrepro" class="form-input" id="nombrepro" type="text" placeholder="Eje: Iphone" value="{{ old('nombrepro', $producto->nombrepro) }}" required >
-            </div>
-            <div class="col-md-4 col-sm-12 mt-3">
-              {{-- <span class="input-item">
-                <i class="fa fa-user-circle"></i>
-              </span> --}}
-
-              <label for="">Selecionar categoria</label>
-                <div id="cate_id"></div>
-             </div>
-          <div class="col-md-4 mt-3">
-            <label for="">Stock</label>
-            <input name="stockpro" class="form-input" id="stock" type="number" placeholder="N°" required onkeyup="myFunction()" value="{{ old('stockpro', $producto->stockpro)}}"></div>
-          
-
-          <div class="col-md-4 mt-3">
-            <label for="">Codigo</label>
-            <input name="codigopro" class="form-input" id="codigopro" type="text" placeholder="N°" value="{{ old('codigopro', $producto->codigopro)}}" required></div>
-          
-
-          <div class="col-md-4 mt-3">
-            <label for="">Marca</label>
-            <input name="marcapro" class="form-input" id="marcapro" type="text" placeholder="Eje: Apple"  value="{{ old('marcapro', $producto->marcapro)}}" required>
-          </div>
-
-          <div class="col-md-4 mt-3">
-            <label for="">Modelo</label>
-            <input name="modelopro" class="form-input" id="modelopro" type="text" placeholder="Eje: Pro max" value="{{ old('modelopro', $producto->modelopro)}}" required>
-          </div>
-
-          <div class="col-md-4 mt-3">
-            <label for="">Codigo SKU</label>
-            <input name="codigoprosku" class="form-input" id="codigoprosku" type="text" placeholder="Eje: Pro max" value="{{ old('codigoprosku', $producto->codigoprosku) }}" required>
-          </div>
-
-
-          {{-- <div class="col-md-12 mt-5 d-flex justify-content-center">
-            <textarea  type="text" name="txtdescripcion" id="txtdescripcion"></textarea>
-          </div> --}}
-          
-        </div>
-      </div>
-
-      </div>
-
-      <div class="col-md-4 col-sm-12">
-        <div class="card p-4" style="-webkit-box-shadow: inset 3px 41px 108px -46px rgba(0, 89, 255, 0.363);
-        -moz-box-shadow: inset 3px 41px 108px -46px rgb(146, 148, 255);
-        box-shadow: inset 3px 41px 108px -46px rgba(0, 102, 255, 0.664);">
-          <h5>Valores del producto</h5>
-          <div class="row">
-            <div class="col-md-4 mt-3">
-            <label for="">Valor unidad</label>
-          </div>
-          <div class="col-md-8 mt-3">
-            <input name="valorunidad" class="form-input" id="valorunidad" type="number"  placeholder="N°" required onkeyup="myFunction() value="{{ old('valorunidad', $producto->valorunidad)}}">
-          </div>
-
-          <div class="col-md-4 mt-3">
-            <label for="">Valor IVA</label>
-          </div>
-          <div class="col-md-8 mt-3">
-            <input name="iva" class="form-input" id="iva" type="number" onkeyup="myFunction()" placeholder="N°" value="{{ old('iva', $producto->iva)}}" required>
-          </div>
-
-          </div>
-          
-        </div>
-      </div>
     </div>     
-    <hr>    
-      <a href="{{ route('post.index') }}" class="btn btn-cliente btn-secondary">CANCELAR</a>
-      <button type="submit" class="btn btn-cliente btn-primary">GUARDAR CAMBIOS</button>
-  </form>
-  </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
+ 
   <script>
     window.onload = function(){  
   $.get('{{ route('categorias') }}',{id:{{ auth()->id() }}}, function (data) {
