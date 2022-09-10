@@ -46,6 +46,7 @@
                             <thead class="text-primary">
 
                               <th>Codigo</th>
+                              <th>Imagen</th>
                               <th>Nombre</th>
                               <th>Cantidad</th>
                               <th>Marca</th>
@@ -59,6 +60,7 @@
                               @forelse ($productos as $producto)
                                 <tr>
                                   <td style="font-size: 13px;">{{$producto->codigopro}}</td>
+                                  <td style="margin: 0px; padding:3px;"><img src="img-productos/{{ $producto->folder }}/{{ $producto->imagenuna }}" alt="" class="pro-image-front" style="border-radius:10px; max-width:100px; width:100%; max-height:60px; height:100%;"></td>
                                   <td style="font-size: 13px;">{{$producto->nombrepro}}</td>
                                   @if ($producto->stockpro <= 5)
                                   

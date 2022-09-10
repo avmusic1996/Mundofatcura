@@ -1,5 +1,8 @@
 @extends('layouts.main', ['activePage' => 'users', 'titlePage' => 'Editar usuario'])
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 <style>
   /* Fonts Form Google Font ::- https://fonts.google.com/  -:: */
   @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
@@ -183,7 +186,13 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
   
   </style>
   
-
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Js</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>      
+</head>
 <div class="container-fluid">
   
   <div class="main-content">
@@ -203,7 +212,7 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
                         @method('POST')
                         @csrf
                         <div class="dz-message" data-dz-message><span>Haz clic aqui o arrastra y carga las fotos que deseas</span></div>
-                        <input type="text" class="invisible" name="folder" id="folder" value="{{ $folder }}">
+                        <input type="text" class="invisible" name="folder" id="folder" value="{{$producto->folder}}">
                       </form>
                         <br>     
                         <div align="left">
@@ -213,7 +222,6 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
                 </div>
                 </div>
               </div>
-              
               <div class="panel panel-default p-3">
                 <div class="panel-heading">
                   <h5 class="panel-title"></h5>
@@ -236,14 +244,14 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
             -webkit-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
             -moz-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);">
               <div class="row">
-                 <input type="text" class="invisible" name="folder" id="folder" value="{{ $folder }}">
-                 <input type="text" class="invisible" name="imagenuna" id="" value="{{ $folder }}">
+                 <input type="text" class="invisible" name="folder" id="folder" value="{{ old('folder', $producto->folder) }}">
+                 <input type="text" class="invisible" name="imagenuna" id="" value="">
                 <div class="col-12">
                   <h5>Detalles del producto</h5>
                 </div>
                 <div class="col-md-8 col-sm-12 mt-3">
                   <label for="">Nombre del producto</label>
-                  <input name="nombrepro" class="form-input" id="nombrepro" type="text" placeholder="Eje: Iphone" required>
+                  <input name="nombrepro" class="form-input" id="nombrepro" type="text" placeholder="Eje: Iphone" value="{{ old('nombrepro', $producto->nombrepro) }}" required>
                 </div>
                 <div class="col-md-4 col-sm-12 mt-3">
                   {{-- <span class="input-item">
@@ -255,25 +263,29 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
                  </div>
               <div class="col-md-4 mt-3">
                 <label for="">Stock</label>
-                <input name="stockpro" class="form-input" id="stock" type="number" placeholder="N°" required onkeyup="myFunction()"></div>
+                <input name="stockpro" class="form-input" id="stock" type="number" placeholder="N°" value="{{ old('stockpro', $producto->stockpro) }}" required onkeyup="myFunction()"></div>
               <div class="col-md-4 mt-3">
                 <label for="">Codigo</label>
-                <input name="codigopro" class="form-input" id="codigopro" type="text" placeholder="N°" required></div>
+                <input name="codigopro" class="form-input" id="codigopro" type="text" placeholder="N°" value="{{ old('codigopro', $producto->codigopro) }}" autofocus required></div>
               <div class="col-md-4 mt-3">
                 <label for="">Marca</label>
-                <input name="marcapro" class="form-input" id="marcapro" type="text" placeholder="Eje: Apple" required>
+                <input name="marcapro" class="form-input" id="marcapro" type="text" placeholder="Eje: Apple" value="{{ old('marcapro', $producto->marcapro) }}" required>
               </div>
     
               <div class="col-md-4 mt-3">
                 <label for="">Modelo</label>
-                <input name="modelopro" class="form-input" id="modelopro" type="text" placeholder="Eje: Pro max" required>
+                <input name="modelopro" class="form-input" id="modelopro" type="text" placeholder="Eje: Pro max" value="{{ old('modelopro', $producto->modelopro) }}" required>
               </div>
     
               <div class="col-md-4 mt-3">
                 <label for="">Codigo SKU</label>
-                <input name="codigoprosku" class="form-input" id="codigoprosku" type="text" placeholder="Eje: Pro max" required>
+                <input name="codigoprosku" class="form-input" id="codigoprosku" type="text" placeholder="Eje: Pro max" value="{{ old('codigoprosku', $producto->codigoprosku) }}" required>
               </div>
-    
+              
+              <div class="col-md-4 mt-3">
+                <label for="">Descripción</label>
+                <input name="descripcion" class="form-input" id="descripcion" type="text" placeholder="Descripción"  value="{{ old('descripcion', $producto->descripcion) }}" required>
+              </div>
     
               {{-- <div class="col-md-12 mt-5 d-flex justify-content-center">
                 <textarea  type="text" name="txtdescripcion" id="txtdescripcion"></textarea>
@@ -351,14 +363,14 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
                     <label for="">Valor unidad</label>
                   </div>
                   <div class="col-md-8 mt-3">
-                    <input name="valorunidad" class="form-input" id="valorunidad" type="number"  placeholder="N°" required onkeyup="myFunction()">
+                    <input name="valorunidad" class="form-input" id="valorunidad" type="number" value="{{ old('valorunidad', $producto->valorunidad) }}"  placeholder="N°" required onkeyup="myFunction()">
                   </div>
         
                   <div class="col-md-4 mt-3">
                     <label for="">Valor IVA</label>
                   </div>
                   <div class="col-md-8 mt-3">
-                    <input name="iva" class="form-input" id="iva" type="number" onkeyup="myFunction()" placeholder="N°" required>
+                    <input name="iva" class="form-input" id="iva" type="number" value="{{ old('iva', $producto->iva) }}" onkeyup="myFunction()" placeholder="N°" required>
                   </div>
     
                   
@@ -372,12 +384,95 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
     </div>     
   </div>
 </div>
- 
+
   <script>
-    window.onload = function(){  
+function categorias(){
+ $.get('{{ route('categorias') }}',{id:{{ auth()->id() }}}, function (data) {
+   document.getElementById("cateid").innerHTML = data;
+       }
+)
+}
+categorias();
+ function formulariouno(){
+   
+   document.formpost.submit();
+}
+
+function miFunc() {
+      load_images();
+      var myDropzone = Dropzone.forElement("#dropzoneForm"); 
+  }
+Dropzone.options.dropzoneForm = {
+        autoProcessQueue : false,
+        acceptedFiles : ".png,.jpg,.gif,.bmp,.jpeg",
+        init:function(){
+          var submitButton = document.querySelector("#submit-all");
+          myDropzone = this;
+          submitButton.addEventListener('click', function(){
+            myDropzone.processQueue();
+          });
+          this.on("complete", function(){
+            if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
+            {
+              var _this = this;
+              _this.removeAllFiles();
+            }
+            load_images();
+          });  
+        }
+      };
+  load_images();
+  function load_images()
+  {
+  var folder =document.getElementById('folder').value;
+    $.ajax({
+   data:{folder : folder},
+      url:"{{ route('post.fetch_image') }}",
+      success:function(data)
+      {
+        $('#uploadedimage').html(data);
+      }
+    })
+  }
+  
+  $(document).on('click', '.remove_image', function(){
+    var folder = document.getElementById('folder').value;
+    var name = $(this).attr('id');
+    $.ajax({
+      url:"{{ route('post.delete_image') }}",
+      data:{name : name, folder : folder},
+      success:function(data){
+        load_images();
+      }
+    })
+  });
+
+
+
+function fijar_imagen(nombreimagen) {
+var folder = document.getElementById('folder').value;
+$.ajax({
+      url:"{{ route('post.set_image') }}",
+      data:{nombreimagen : nombreimagen, folder : folder},
+      success:function(data){
+        load_images();
+      }
+    })  
+}
+
+window.onload = function(){  
   $.get('{{ route('categorias') }}',{id:{{ auth()->id() }}}, function (data) {
     document.getElementById("cate_id").innerHTML = data;
-    
+
+    var folder =document.getElementById('folder').value;
+    $.ajax({
+   data:{folder : folder},
+      url:"{{ route('post.fetch_image') }}",
+      success:function(data)
+      {
+        $('#uploadedimage').html(data);
+      }
+    });
         }
 )
 }

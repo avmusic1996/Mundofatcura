@@ -41,19 +41,7 @@ Route::get('/post', [App\Http\Controllers\ImageController::class, 'index'])->nam
 Route::get('/crearproductos', [App\Http\Controllers\ImageController::class, 'index'])->name('crearproducto.index');
 Route::get('/post/upload_image', [App\Http\Controllers\ImageController::class, 'upload_image'])->name('post.upload_image');
 Route::get('/post/fetch_image', [App\Http\Controllers\ProductosController::class, 'fetch_image'])->name('post.fetch_image');
-
-
-
-
-
-
-Route::get('/post/set_image', [App\Http\Controllers\ImageController::class, 'set_image'])->name('post.set_image');
-Route::get('/post/set_image2', [App\Http\Controllers\ImageController::class, 'set_image2'])->name('post.set_image2');
-
-
-
-
-
+Route::get('/post/set_image', [App\Http\Controllers\ProductosController::class, 'set_image'])->name('post.set_image');
 
 
 Route::get('/ejemplo', [App\Http\Controllers\ProductosController::class, 'ejemplo'])->name('ejemplo');

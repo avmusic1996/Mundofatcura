@@ -37,35 +37,31 @@ class ProductosController extends Controller
     {
     $folder = $request->get('folder');
     $imagen1 = DB::table('productos')->where('folder',$folder)->value('imagenuna');
-  
     $images = \File::allFiles(public_path('img-productos/' . $folder));
     $output = '<div class="container"><div class="row">';
-    
-    
-    $folder ='img-productos/' . $folder . '/';
-    // $imagen1 = DB::table('inmuebles')->select('imagenuna')->where('folder', '=', $folder)->first();
+        
+    $folder ='img-productos/'.$folder.'/';
+    // $imagen1 = DB::table('productos')->select('imagenuna')->where('folder', '=', $folder)->first();
     $estilo = '';
     $btn = '';
-    $btn2 = '';
     foreach($images as $image)
     {
-    
+    // $imagen =  $image->getFilename();
     $fijarimagen = "'".$image->getFilename()."'";
     if ($imagen1 == $image->getFilename()) {
         $estilo = 'filter: blur(1px); border: 3px solid #fda30e;';
         $btn = 'display:none;';
     }
-   
     $output .= '<div class="col-md-3 mb-3">
                 <div class="row d-flex justify-content-center">
-                <div class="col-md-12 text-center">
+                <div class="col-md-12" style="margin-left:-10px;">
                 <img src="'.asset($folder . $image->getFilename()).'" class="img-thumbnail" style="margin:8px; margin-bottom: 3px; max-width: 380px!important; max-height: 200px!important; width: 100%; height: 100%;'.$estilo.'"/>
                 </div>
-                <div class="col-md-5 col-sm-12 mt-4">
-                <button type="button" class="btn btn-danger remove_image" id="'.$image->getFilename().'">Eliminar foto</button>
+                <div class="col-md-6 col-sm-12 mt-4">
+                <button type="button" class="btn btn-danger remove_image" id="'.$image->getFilename().'">Eliminar</button>
                 </div>
-                <div class="col-md-3 col-sm-12 mt-4">
-                <button onclick="fijar_imagen('.$fijarimagen.');" type="button" class="btn btn-primary set_image" id="'.$image->getFilename().'" style="'.$btn.'">Fijar </button>
+                <div class="col-md-6 col-sm-12 mt-4">
+                <button onclick="fijar_imagen('.$fijarimagen.');" type="button" class="btn btn-primary set_image" id="'.$image->getFilename().'" style="'.$btn.'">Fijar a tabla</button>
                 </div>
                 </div>
             </div>';
@@ -78,6 +74,23 @@ class ProductosController extends Controller
      $output .= '</div></div>';
      echo $output;  
      
+    }
+    function set_image(Request $request)
+    {
+        $folder = $request->get('folder');
+        $nombreimagen = $request->get('nombreimagen');
+        Productos::where('folder', $folder)
+          ->update(['imagenuna' => $nombreimagen]);
+    }
+
+    function delete_image(Request $request)
+    {
+        $folder = $request->get('folder');
+        $folder ='img-productos/' . $folder . '/';
+     if($request->get('name'))
+     {
+      \File::delete(public_path($folder . $request->get('name')));
+     }
     }
     
     // function fetch_image_show(Request $request)
@@ -147,16 +160,6 @@ class ProductosController extends Controller
      
     }
 
-    function delete_image(Request $request)
-    {
-        $folder = $request->get('folder');
-        $folder ='img-productos' . $folder . '/';
-     if($request->get('name'))
-     {
-        
-      \File::delete(public_path($folder . $request->get('name')));
-     }
-    }
     public function index(){
         $productos = Productos::all();
         return view('post.index',compact('productos'));

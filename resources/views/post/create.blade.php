@@ -388,7 +388,13 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
 
 
 <script type="text/javascript">
-
+function categorias(){
+ $.get('{{ route('categorias') }}',{id:{{ auth()->id() }}}, function (data) {
+   document.getElementById("cateid").innerHTML = data;
+       }
+)
+}
+categorias();
  function formulariouno(){
    
    document.formpost.submit();
@@ -485,23 +491,6 @@ $.ajax({
 
 
 
-function categorias(){
- 
-  $.get('{{ route('categorias') }}',{id:{{ auth()->id() }}}, function (data) {
-    document.getElementById("cateid").innerHTML = data;
-    
-        }
-)
-
-}
- 
-
-
- categorias();
-
-
-
-
 
   // var iva = document.getElementById('iva');
   // text.addEventListener('keyup',(event) => 
@@ -509,9 +498,6 @@ function categorias(){
   //   var inputext = event.path[0].value;
   //   document.querySelector('ToUpper').innerHTML = inputext.toUpperCase();
   // });
-
-
-  
 
   
 </script>
