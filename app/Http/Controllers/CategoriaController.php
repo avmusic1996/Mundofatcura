@@ -40,7 +40,13 @@ class CategoriaController extends Controller
         // }
         // $categoria->slug    =   Str::slug($request->nombre);
          
-         return redirect()->route('categoria.index')->with('success', 'Usuario creado correctamente');
+         return redirect()->route('categoria.index')->with('success', 'Su categoria fue creada correctamente');
+
+     }
+
+     public function storedos(Request $request){
+        Categoria::create($request->all());         
+         return redirect()->route('post.create')->with('success', 'Su nueva CATEGORIA fue creada correctamente');
 
      }
     //  public function byconteo(request $request)
@@ -88,7 +94,10 @@ class CategoriaController extends Controller
              ->select('categoria.id','categoria.titulo')
              ->where('categoria.idusuario', '=', $id)
              ->get();
-             $res = '<select style="height: 35px; padding-left: 14px;color:#5E6472;border:0px; width:100%;" name="categoria_id" class="form-input" id="cateogira_id" required>';
+             $res = '<select style="   border-radius: 5px 5px 5px 5px;
+             transition: 0.2s linear;
+             border: 1px solid #797373;
+             background: transparent; height: 35px; padding-left: 14px;color:#5E6472; width:100%;" name="categoria_id" class="form-input" id="cateogira_id" required>';
              foreach ($consulta as $categoria) {
 
                 $res1 = '<option value="'.$categoria->titulo.'">'.$categoria->titulo.'</option>';

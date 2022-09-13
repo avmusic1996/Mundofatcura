@@ -106,9 +106,9 @@
       outline: none;
       border: none;
     
-      border-radius: 0px 5px 5px 0px;
+      border-radius: 5px 5px 5px 5px;
       transition: 0.2s linear;
-      border-bottom: 1px solid #797373;
+      border: 1px solid #797373;
       background: transparent;
       /* -webkit-box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11); 
 box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11); */
@@ -131,25 +131,43 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
   /* buttons  */
   .btn-cliente {
       display: inline-block;
-      color: #252537;
-    
-      width: 280px;
-      height: 50px;
-    
-      padding: 0 20px;
-      background: #fff;
+      color: #26c33b;
+      padding: 10px 20px;
+      background: rgb(255, 255, 255);
       border-radius: 5px;
-      
       outline: none;
-      border: none;
-    
+      border: 1px solid #6777ef;
       cursor: pointer;
       text-align: center;
       transition: all 0.2s linear;
-      
       margin: 1% auto;
       letter-spacing: 0.05em;
   }
+  .btn-atras {
+      display: inline-block;
+      padding: 10px 20px;
+      background: rgb(0, 0, 0);
+      color: #fff;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid #6777ef;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s linear;
+      margin: 1% auto;
+      letter-spacing: 0.05em;
+  }
+  .btn-atras:hover
+  {
+    animation: ani9 0.4s ease-in-out infinite alternate;
+      transform: translatey(3px);
+      -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+      box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+      background: rgb(82, 86, 218)!important;
+      color: #f5f5f5;
+      border: 1px solid #6777ef;
+  }
+
   /* Submits */
   .submits {
       width: 48%;
@@ -169,11 +187,15 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
   .btn-cliente:hover {
       transform: translatey(3px);
       box-shadow: none;
+      background: rgb(34, 126, 9)!important;
+      color: aliceblue;
+      -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
   }
   
   /* buttons hover Animation */
   .btn-cliente:hover {
       animation: ani9 0.4s ease-in-out infinite alternate;
+     
   }
   @keyframes ani9 {
       0% {
@@ -243,9 +265,9 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
             <div class="card p-4" style="box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
             -webkit-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);
             -moz-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);">
+              
               <div class="row">
-                 <input type="text" class="invisible" name="folder" id="folder" value="{{ old('folder', $producto->folder) }}">
-                 <input type="text" class="invisible" name="imagenuna" id="" value="">
+                 
                 <div class="col-12">
                   <h5>Detalles del producto</h5>
                 </div>
@@ -296,9 +318,9 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
           </div>
         </div>     
         <hr>    
-        <a href="{{ route('post.index') }}" class="btn btn-cliente btn-secondary">CANCELAR</a>
+        <a class="btn btn-atras" href="{{ route('post.index') }}">CANCELAR</a>
       
-      <button onclick="formulariouno()" class="btn btn-cliente btn-primary" >GUARDAR CAMBIOS</button> 
+      <button onclick="formulariouno()" class="btn btn-cliente" >GUARDAR CAMBIOS</button> 
         </div>
         
         <div class="col-md-4">
@@ -384,7 +406,8 @@ box-shadow: 0px 1px 6px 1px rgba(0,0,0,0.77);
     </div>     
   </div>
 </div>
-
+<input type="text" class="hidden" style="visibility: hidden;" name="folder" id="folder" value="{{ old('folder', $producto->folder) }}">
+                 <input type="text" class="" style="visibility: hidden;" name="imagenuna" id="" value="">
   <script>
 function categorias(){
  $.get('{{ route('categorias') }}',{id:{{ auth()->id() }}}, function (data) {

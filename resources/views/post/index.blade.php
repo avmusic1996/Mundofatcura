@@ -60,7 +60,7 @@
                               @forelse ($productos as $producto)
                                 <tr>
                                   <td style="font-size: 13px;">{{$producto->codigopro}}</td>
-                                  <td style="margin: 0px; padding:3px;"><img src="img-productos/{{ $producto->folder }}/{{ $producto->imagenuna }}" alt="" class="pro-image-front" style="border-radius:10px; max-width:100px; width:100%; max-height:60px; height:100%;"></td>
+                                  <td class="" style="margin: 0px; padding:0px; display:flex; justify-content: center; align-items:center;"><img src="img-productos/{{ $producto->folder }}/{{ $producto->imagenuna }}" alt="" class="pro-image-front" style="border-radius:50%; max-width:50px; width:100%; max-height:50px; height:100%;"></td>
                                   <td style="font-size: 13px;">{{$producto->nombrepro}}</td>
                                   @if ($producto->stockpro <= 5)
                                   

@@ -22,6 +22,11 @@ class ClienteController extends Controller
         return view('clientes.create');
      }
 
+     public function show($id){
+        $clientes = Clientes::findOrFail($id);
+         return view('clientes.show', compact('clientes'));
+     }
+
     
     public function store(Request $request)
      {
@@ -103,5 +108,28 @@ class ClienteController extends Controller
         $clientes->delete();
         return redirect()->route('clientes.index')->with(['message'=> 'Wrond ID!!']);
    
+    }
+
+    function fetch_cliente()
+    {
+    $clientes = Clientes::all();
+    // $nombresapellidos = $cliente->nombresapellidos;
+    $ruta = route('clientes.delete', $clientes->id);
+    foreach($clientes as $cliente)
+    {
+    $output .= '<div col-6>
+                <p>"'.$cliente->nombresapellidos.'"</p>
+                </div>
+                <div col-6>
+                <form action="'.$ruta.'" method="POST">
+                @csrf
+                @method("DELETE")
+                <button class="btn btn-danger" type="submit" rel="tooltip">
+                <i class="material-icons">Eliminar</i>
+                </button>
+                </form>
+                </div>';
+    }
+     echo $output;
     }
 }

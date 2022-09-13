@@ -84,6 +84,8 @@ Route::put('/clientes/{cliente}', [App\Http\Controllers\ClienteController::class
 
 Route::get('/Clientes', [App\Http\Controllers\ClienteController::class, 'byCliente'])->name('cliente');
 
+Route::get('/Clientes/fetch_cliente', [App\Http\Controllers\ClienteController::class, 'fetch_cliente'])->name('clientes.fetch_cliente');
+
 
 
 //FIN RUTAS DE LOS CLIENTES
@@ -156,6 +158,8 @@ Route::get('/categoria', [App\Http\Controllers\CategoriaController::class, 'inde
 Route::get('/categoria/create', [App\Http\Controllers\CategoriaController::class, 'create'])->name('categoria.create');
 
 Route::post('/categoria', [App\Http\Controllers\CategoriaController::class, 'store'])->name('categoria.store');
+
+Route::post('/categoria', [App\Http\Controllers\CategoriaController::class, 'storedos'])->name('categoria.store');
 
 Route::get('/categoria/{users}', [App\Http\Controllers\CategoriaController::class, 'show'])->name('categoria.show');
 

@@ -69,43 +69,12 @@
                                   <a  onclick="edit('{{$cliente->id}}')" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="material-icons">Editar</i></a>
 
                                   {{-- <a href="" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter"><i class="material-icons">Editar</i></a> --}}
-                                  <a href="" class="btn btn-primary"><i class="material-icons">Detalles</i></a>
+                                  <a href="{{ route('clientes.show', $cliente->id) }}" class="btn btn-primary"><i class="material-icons">Detalles</i></a>
                                   
                                 
                                   <a href="" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenteredelete" data-id="{{$cliente->id}}"><i class="material-icons">Eliminar</i></a>
-                                  {{-- <form action="{{ route('cliente.delete', $cliente->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger" type="submit" rel="tooltip">
-                                    <i class="material-icons">Eliminar</i>
-                                    </button>
-                                </form> --}}
-                                  
                                   </td>
-                                  {{-- <td>
-                                      @forelse ($user->roles as $role)
-                                        <span class="badge badge-info">{{ $role->name }}</span>
-                                      @empty
-                                        <span class="badge badge-danger">No roles</span>
-                                      @endforelse
-                                    </td>
-                                  <td class="td-actions text-right">
-                                    @can('user_show')
-                                    <a href="{{ route('users.show', $user->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
-                                    @endcan
-                                    @can('user_edit')
-                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>
-                                    @endcan
-                                    @can('user_destroy')
-                                    <form action="{{ route('users.delete', $user->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
-                                    @csrf
-                                    @method('DELETE')
-                                        <button class="btn btn-danger" type="submit" rel="tooltip">
-                                        <i class="material-icons">close</i>
-                                        </button>
-                                    </form>
-                                    @endcan
-                                  </td> --}}
+                                  
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -332,11 +301,8 @@ input:focus {
                   <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span>
-                  
-
                   <input name="nit" class="form-input" id="nit" type="text" placeholder="Nit" required>
-               
-
+  
                  </div>
                  <div class="col-md-4 d-flex pt-3">
                   <span class="input-item">
@@ -442,7 +408,7 @@ input:focus {
         </div>
       </div>
       <div class="modal-footer">
-        @foreach($clientes as $cliente)
+        @foreach ($clientes as $cliente)
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
         <form action="{{ route('clientes.delete', $cliente->id) }}" method="POST">
           @csrf
@@ -451,7 +417,7 @@ input:focus {
           <i class="material-icons">Eliminar</i>
           </button>
       </form>
-      @endforeach
+     @endforeach
       </div>
     </div>
   </div>

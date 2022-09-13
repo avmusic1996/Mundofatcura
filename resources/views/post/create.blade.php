@@ -104,11 +104,11 @@
       color: #5E6472;
     
       outline: none;
-      border: none;
+
     
-      border-radius: 0px 5px 5px 0px;
+      border-radius: 5px 5px 5px 5px;
       transition: 0.2s linear;
-      border-bottom: 1px solid #797373;
+      border: 1px solid #797373;
       background: transparent;
       /* -webkit-box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11); 
 box-shadow: 1px 5px 14px 2px rgba(0,0,0,0.11); */
@@ -131,24 +131,41 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
   /* buttons  */
   .btn-cliente {
       display: inline-block;
-      color: #252537;
-    
-      width: 280px;
-      height: 50px;
-    
-      padding: 0 20px;
-      background: #fff;
+      color: #26c33b;
+      padding: 10px 20px;
+      background: rgb(255, 255, 255);
       border-radius: 5px;
-      
       outline: none;
-      border: none;
-    
+      border: 1px solid #6777ef;
       cursor: pointer;
       text-align: center;
       transition: all 0.2s linear;
-      
       margin: 1% auto;
       letter-spacing: 0.05em;
+  }
+  .btn-atras {
+      display: inline-block;
+      padding: 10px 20px;
+      background: rgb(0, 0, 0);
+      color: #fff;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid #6777ef;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s linear;
+      margin: 1% auto;
+      letter-spacing: 0.05em;
+  }
+  .btn-atras:hover
+  {
+    animation: ani9 0.4s ease-in-out infinite alternate;
+      transform: translatey(3px);
+      -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+      box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+      background: rgb(82, 86, 218)!important;
+      color: #f5f5f5;
+      border: 1px solid #6777ef;
   }
   /* Submits */
   .submits {
@@ -166,14 +183,19 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
   
   
   /* buttons hover */
+  /* buttons hover */
   .btn-cliente:hover {
       transform: translatey(3px);
       box-shadow: none;
+      background: rgb(34, 126, 9)!important;
+      color: aliceblue;
+      -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
   }
   
   /* buttons hover Animation */
   .btn-cliente:hover {
       animation: ani9 0.4s ease-in-out infinite alternate;
+     
   }
   @keyframes ani9 {
       0% {
@@ -232,10 +254,14 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
               <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
             </div>
             </div>
-        
+        <div class="col-12">
+          @if (session('success'))
+            <div class="alert alert-success" role="success">
+              {{ session('success') }}
+            </div>
+          @endif
+        </div>
         <div class="col-md-8">
-        
-
           <form id="formpost" name="formpost" action="{{ route('post.store') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
           @csrf
           @method('post')           
@@ -246,7 +272,7 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
             -moz-box-shadow: -1px 3px 5px 0px rgba(0,0,0,0.486);">
               <div class="row">
                  <input type="text" class="invisible" name="folder" id="folder" value="{{ $folder }}">
-                 <input type="text" class="invisible" name="imagenuna" id="" value="{{ $folder }}">
+                 <input type="text" class="invisible" name="imagenuna" id="" value="../default/default.png">
                 <div class="col-12">
                   <h5>Detalles del producto</h5>
                 </div>
@@ -255,12 +281,21 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
                   <input name="nombrepro" class="form-input" id="nombrepro" type="text" placeholder="Eje: Iphone" required>
                 </div>
                 <div class="col-md-4 col-sm-12 mt-3">
+                  <div class="row">
+                    <div class="col-10">
+                      <label for="">Selecionar categoria</label>
+                      <div id="cateid"></div>
+                    </div>
+                    <div class="col-2" style="display: flex; justify-content:center; align-items:center;">
+                      <a href="" class="" data-toggle="modal" data-target="#exampleModalCenteredelete" data-id=""><img src="{{ asset('images/mas.png') }}" width="35" alt="" srcset=""></a>
+                      
+                    </div>
+                  </div>
                   {{-- <span class="input-item">
                     <i class="fa fa-user-circle"></i>
                   </span> --}}
     
-                  <label for="">Selecionar categoria</label>
-                    <div id="cateid"></div>
+                  
                  </div>
               <div class="col-md-4 mt-3">
                 <label for="">Stock</label>
@@ -294,9 +329,9 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
           </div>
         </div>     
         <hr>    
-        <a href="{{ route('post.index') }}" class="btn btn-cliente btn-secondary">CANCELAR</a>
+        <a class="btn btn-atras" href="{{ route('post.index') }}">CANCELAR</a>
       
-      <button onclick="formulariouno()" class="btn btn-cliente btn-primary" >GUARDAR CAMBIOS</button> 
+        <button onclick="formulariouno()" class="btn btn-cliente" >GUARDAR CAMBIOS</button> 
         </div>
         
         <div class="col-md-4">
@@ -384,7 +419,42 @@ box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.504);
   </div>
 </div>
 
-
+<div class="modal fade" id="exampleModalCenteredelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <form action="{{ route('categoria.store') }}" method="post" class="form-horizontal p-2" enctype="multipart/form-data">
+           @csrf          
+           <input type="text" class="invisible" name="idusuario" id="idusuario" value="{{ auth()->id() }}">       
+            <div class="form-group">
+              <label for="title">INGRESE NOMBRE CATEGORIA</label>
+              <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Ingrese su nombre" value="{{ old('titulo') }}" autofocus onkeyup="miFunction()">
+                      @if ($errors->has('titulo'))
+                        <span class="error text-danger" for="input-name">{{ $errors->first('titulo') }}</span>
+                      @endif
+            </div>
+    
+          <div class="form-group">
+            <label for="title">INGRESE descripcion</label>
+            <textarea name="descripcion" class="form-control" id="" cols="20" rows="10" placeholder="Ingrese su nombre" value="{{ old('titulo') }}" autofocus></textarea>
+                    @if ($errors->has('descripcion'))
+                      <span class="error text-danger" for="input-name">{{ $errors->first('descripcion') }}</span>
+                    @endif
+          </div>
+            <button type="submit" class="btn col-md-12 btn-primary">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <script type="text/javascript">
